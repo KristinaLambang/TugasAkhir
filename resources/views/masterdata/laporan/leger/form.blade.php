@@ -2,25 +2,22 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-harder">
-			<h3>Tambah Data Kelas</h3>
-		</div>
+		<div class="box-harder"></div>
 
-    <form role="form" method="POST" action="{{ route('kelas.store') }}">
+    <form role="form" method="POST" action="{{ route('leger.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
       <div class="box-body">
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nama Kelas</label>
+        <label>Tahun Ajaran</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>X</option>
-                <option>XI</option>
-                <option>XII</option>
+              <select id="tahun_ajaran" name="tahun_ajaran" class="form-control" requireds>
+                <option value="">-Pilih Tahun Ajaran-</option>
+                <option>2018/2019</option>
+                <option>2019/2020</option>
               </select>
             </div>
     </div>
@@ -29,15 +26,14 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Jurusan</label>
+        <label>Semester</label>
       </div>
             <div class="col-sm-10">
-              <select id="jurusan" name="jurusan" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>IPA PA</option>
-                <option>IPA PI</option>
-                <option>IPS PA</option>
-              </select>
+            <select id="semester" name="semester" class="form-control" requireds>
+                <option value="">-Pilih Semester-</option>
+                <option>Ganjil</option>
+                <option>Genap</option>
+            </select>
             </div>
     </div>
     </div> 

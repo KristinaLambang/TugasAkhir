@@ -13,7 +13,7 @@
 						<th>Id Kelas</th>
 						<th>Nama Kelas</th>
 						<th>Jurusan</th>
-						<th>Aksi</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>

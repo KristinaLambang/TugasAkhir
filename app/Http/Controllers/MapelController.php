@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mapel;
 
 class MapelController extends Controller
 {
@@ -13,7 +14,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        return view('masterdata.datamapel.index');
+        $mapel = Mapel::all();
+        return view('masterdata.datamapel.index', compact('mapel'));
     }
 
     /**
@@ -34,7 +36,14 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mapel::create([
+                'nama_mapel' => $request->nama_mapel,
+                'nama_kelas' => $request->nama_kelas,
+                'nama_pengajar' => $request->nama_pengajar,
+                'kkm' => $request->kkm,
+            ]);
+
+        return redirect()->route('mapel.index');
     }
 
     /**
@@ -56,7 +65,8 @@ class MapelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mapel = Mapel::find($id);
+        return view('masterdata.datamapel.edit',compact('id','mapel'));
     }
 
     /**
@@ -68,7 +78,15 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mapel = Mapel::find($id);
+        $mapel->update([
+                'nama_mapel' => $request->nama_mapel,
+                'nama_kelas' => $request->nama_kelas,
+                'nama_pengajar' => $request->nama_pengajar,
+                'kkm' => $request->kkm,
+            ]);
+
+        return redirect()->route('mapel.index');
     }
 
     /**

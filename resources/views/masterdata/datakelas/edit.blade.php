@@ -30,11 +30,11 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Jurusans</label>
+        <label>Jurusan</label>
       </div>
             <div class="col-sm-10">
               <select id="jurusan" name="jurusan" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
+                <option value="">-Pilih Jurusan-</option>
                 <option>IPA PA</option>
                 <option>IPA PI</option>
                 <option>IPS PA</option>
@@ -46,6 +46,7 @@
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
+    
     </form>
 	</div>
 </div>

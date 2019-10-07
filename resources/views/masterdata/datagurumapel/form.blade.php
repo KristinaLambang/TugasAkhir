@@ -9,7 +9,7 @@
 		<div class="box-body">
 		<div class="form-group">
 			<div class="row">
-         		<label for="inputEmail3" class="col-sm-2 control-label">Id Guru</label>
+         		<label for="inputEmail3" class="col-sm-2 control-label">Id Guru Mata Pelajaran</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="inputEmail3" placeholder="Id Guru">
             </div>
@@ -18,9 +18,9 @@
 
       <div class="form-group">
         	<div class="row">
-        		<label for="" class="col-sm-2 control-label">Nama Guru</label>
+        		<label for="" class="col-sm-2 control-label">Nama Guru Mata Pelajaran</label>
         		<div class="col-sm-10">
-        			<input type="text" class="form-control" placeholder="Nama Guru">
+        			<input type="text" class="form-control" placeholder="Nama Guru Mata Pelajaran">
         		</div>
         	</div>
       </div>
