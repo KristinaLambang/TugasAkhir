@@ -16,7 +16,7 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
+             <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
                 <option value="">-Pilih Nama Kelas-</option>
                 <option>X</option>
                 <option>XI</option>
@@ -25,7 +25,7 @@
             </div>
     </div>
     </div>      
-
+    
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">

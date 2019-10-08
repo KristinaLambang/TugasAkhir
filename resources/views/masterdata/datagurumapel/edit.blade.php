@@ -45,18 +45,27 @@
     </div>
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Tempat Lahir</label>
-      </div>
-           <div class="row">
-            <label class="col-sm-2 control-label">Tempat Lahir</label>
-            <div class="col-sm-10">
-              <input id="tempat_lahir" name="tempat_lahir" type="text" class="form-control" placeholder="Tempat Lahir" requireds>
-            </div>
+      <div class="row">
+          <label for="inputEmail3" class="col-sm-2 control-label">Tempat Lahir</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="TempatLahir">
           </div>
-        </div>
-    </div>
+          </div>
+          </div>
+
+    <div class="form-group">
+    <div class="row">
+       <label class="col-sm-2 control-label">Tanggal Lahir</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control" placeholder="dd/mm/yyyy">
+              </div>
+          </div>
+          </div>
+          </div>
 
 
     <div class="form-group">
@@ -85,8 +94,8 @@
 @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#jurusan').val('{{$kelas->jurusan}}');		
-		$('#nama_kelas').val('{{$kelas->nama_kelas}}');		
+		$('#jurusan').val('{{$gurumapel->jurusan}}');		
+		$('#nama_kelas').val('{{$gurumapel->nama_kelas}}');		
 	});
 </script>
 @endsection

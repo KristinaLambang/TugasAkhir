@@ -17,7 +17,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($kelas as $row)
+				@foreach($kelas as $row)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_kelas }}</td>

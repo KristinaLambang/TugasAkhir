@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Walas;
 
 class GuruWalasController extends Controller
 {
@@ -13,7 +14,8 @@ class GuruWalasController extends Controller
      */
     public function index()
     {
-        return view('masterdata.dataguruwalas.index');
+        $guruwalas = Walas::all();
+        return view('masterdata.dataguruwalas.index', compact('guruwalas'));
     }
 
     /**
@@ -34,10 +36,21 @@ class GuruWalasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Walas::create([
+                'nama_guru_walas' => $request->nama_guru_walas,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'wali_kelas' => $request->wali_kelas,
+                'agama' => $request->agama,
+                'alamat' => $request->alamat,
+                'telepon' => $request->telepon,
+            ]);
+
+        return redirect()->route('guruwalas.index');
     }
 
-    /**
+     /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -56,7 +69,8 @@ class GuruWalasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $guruwalas = Walas::find($id);
+        return view('masterdata.dataguruwalas.edit',compact('id','guruwalas'));
     }
 
     /**
@@ -68,7 +82,19 @@ class GuruWalasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $guruwalas = Walas::find($id);
+        $guruwalas->update([
+                'nama_guru_walas' => $request->nama_guru_walas,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'wali_kelas' => $request->wali_kelas,
+                'agama' => $request->agama,
+                'alamat' => $request->alamat,
+                'telepon' => $request->telepon,
+            ]);
+
+        return redirect()->route('guruwalas.index');
     }
 
     /**
