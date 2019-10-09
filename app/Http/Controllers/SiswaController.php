@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Siswa;
 
 class SiswaController extends Controller
 {
@@ -13,7 +14,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('masterdata.datasiswa.index');
+        $siswa = Siswa::all();
+        return view('masterdata.datasiswa.index', compact('siswa'));
     }
 
     /**
@@ -34,7 +36,21 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Siswa::create([
+                'nis' => $request->nis,
+                'nama_kelas' => $request->nama_kelas,
+                'nama_siswa' => $request->nama_siswa,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'agama' => $request->agama,
+                'alamat' => $request->alamat,
+                'nama_ayah' => $request->nama_ayah,
+                'pekerjaan' => $request->pekerjaan,
+                'telepon' => $request->telepon,
+            ]);
+
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -56,7 +72,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        return view('masterdata.datasiswa.edit',compact('id','siswa'));
     }
 
     /**
@@ -68,7 +85,22 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->update([
+            'nis' => $request->nis,
+            'nama_kelas' => $request->nama_kelas,
+            'nama_siswa' => $request->nama_siswa,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'agama' => $request->agama,
+            'alamat' => $request->alamat,
+            'nama_ayah' => $request->nama_ayah,
+            'pekerjaan' => $request->pekerjaan,
+            'telepon' => $request->telepon,
+        ]);
+
+        return redirect()->route('siswa.index');
     }
 
     /**

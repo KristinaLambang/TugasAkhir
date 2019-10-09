@@ -19,7 +19,6 @@
 						<th>Agama</th>
 						<th>Alamat</th>
 						<th>Telepon</th>
-						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,7 +26,7 @@
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_guru_walas }}</td>
-						<td>{{ $row->nama_guru }}</td>
+						<td>{{ $row->nama_guru_walas }}</td>
 						<td>{{ $row->jenis_kelamin }}</td>
 						<td>{{ $row->tempat_lahir }}</td>
 						<td>{{ $row->tanggal_lahir }}</td>

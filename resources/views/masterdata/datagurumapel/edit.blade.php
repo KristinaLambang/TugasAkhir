@@ -4,12 +4,11 @@
 	<div class="box box-primary">
 		<div class="box-harder">
 			<h3>Tambah Data Guru Mata Pelajaran</h3>
-		</div>
+		</div> 
 
     <form role="form" method="POST" action="{{ route('gurumapel.update',$id) }}">
         {{ csrf_field() }} {{ method_field('PUT') }}
       <div class="box-body">
-    
 
     <div class="form-group">
     <div class="row">
@@ -17,71 +16,110 @@
         <label>Nama Guru Mata Pelajaran</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_gurumapel" name="nama_gurumapel" class="form-control" requireds>
-                <option value="">-Pilih Nama Guru Mata Pelajaran-</option>
+             <select id="nama_guru_mapel" name="nama_guru_mapel" class="form-control" requireds>
+                <option value="nama_guru_mapel">-Pilih Nama Guru Mata Pelajaran-</option>
                 <option>Dina Kirana, S.Pd</option>
                 <option>Dicky Pratama, S.Pd</option>
                 <option>Puji Astuti, S.Pd</option>
               </select>
             </div>
     </div>
-    </div>    
-
-    <div class="form-group">
-    <div class="row">
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-          Laki-Laki
-        </label>
-      </div>
-      <div class="radio">
-        <label>
-          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-          Perempuan
-        </label>
-      </div>
-    </div>
     </div>
 
     <div class="form-group">
       <div class="row">
-          <label for="inputEmail3" class="col-sm-2 control-label">Tempat Lahir</label>
+          <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
+          <div class="radio">
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="TempatLahir">
+              <label>
+                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked>
+                Laki-Laki
+              </label>
+              <label>
+                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                Perempuan
+              </label>
           </div>
           </div>
+    </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="row">
+            <label for="tempat_lahir" class="col-sm-2 control-label">Tempat Lahir</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="TempatLahir">
+            </div>
+      </div>
+      </div>
+
+      <div class="form-group">
+      <div class="row">
+        <label class="col-sm-2 control-label">Tanggal Lahir</label>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="dd/mm/yyyy">
           </div>
+        </div>
+    </div>
+    </div>
 
     <div class="form-group">
-    <div class="row">
-       <label class="col-sm-2 control-label">Tanggal Lahir</label>
-            <div class="col-sm-10">
-              <div class="input-group">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
+          <div class="row">
+            <div class="col-sm-2">
+                <label>Guru Mata Pelajaran</label>
                 </div>
-                <input type="text" class="form-control" placeholder="dd/mm/yyyy">
-              </div>
-          </div>
-          </div>
-          </div>
-
+                <div class="col-sm-10">
+                  <select id="guru_mapel" name="guru_mapel" class="form-control" requireds>
+                    <option>-Pilih Mata Pelajaran-</option>
+                    <option>Bahasa Inggris</option>
+                    <option>Matematika</option>
+                    <option>Fisika</option>
+                    <option>Geografi</option>
+                    <option>Sosiolagi</option>
+                  </select>
+        </div>
+    </div>
+    </div>
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Jurusan</label>
+        <label>Agama</label>
       </div>
             <div class="col-sm-10">
-              <select id="jurusan" name="jurusan" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>IPA PA</option>
-                <option>IPA PI</option>
-                <option>IPS PA</option>
+              <select id="agama" name="agama" class="form-control" requireds>
+                <option>-Pilih Agama-</option>
+                <option>Islam</option>
+                <option>Kristen</option>
+                <option>Katolik</option>
+                <option>Hindu</option>
+                <option>Budha</option>
+                <option>Kong Hu Chu</option>
               </select>
             </div>
     </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+          <label for="alamat" class="col-sm-2 control-label">Alamat</label>
+        <div class="col-sm-10">
+          <textarea id="alamat" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+          <label for="telepon" class="col-sm-2 control-label">Telepon</label>
+        <div class="col-sm-10">
+          <input type="text" id="telepon" name="telepon" class="form-control" placeholder="Telepon">
+        </div>
+        </div>
     </div>
 
     <div class="box-footer">
@@ -94,8 +132,14 @@
 @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#jurusan').val('{{$gurumapel->jurusan}}');		
-		$('#nama_kelas').val('{{$gurumapel->nama_kelas}}');		
+		$('#telepon').val('{{$gurumapel->telepon}}');
+    $('#alamat').val('{{$gurumapel->alamat}}');
+    $('#agama').val('{{$gurumapel->agama}}');
+    $('#gurumapel').val('{{$gurumapel->gurumapel}}');
+    $('#tanggal_lahir').val('{{$gurumapel->tanggal_lahir}}');
+    $('#tempat_lahir').val('{{$gurumapel->tempat_lahir}}');
+    $('#jenis_kelamin').val('{{$gurumapel->jenis_kelamin}}');
+    $('#nama_guru_mapel').val('{{$gurumapel->nama_guru_mapel}}');		
 	});
 </script>
 @endsection

@@ -14,26 +14,24 @@
 						<th>Nama Pengajar</th>
 						<th>Nama Kelas</th>
 						<th>Nama Mata Pelajaran</th>
-						<th>Hari</th>
-						<th>Jam</th>
-						<th>Aksi</th>
+						<th>Hari / Jam</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
+					@foreach($jadwal as $row)
 					<tr>
-						<td>1</td>
-						<td>JDWL-003</td>
-						<td>Dina Kirana</td>
-						<td>X IPA PI</td>
-						<td>Matematika</td>
-						<td>Senin</td>
-						<td>08:00-10:30</td>
-						<td>
-						<div class="box-footer">
-               				<button type="submit" class="btn btn-primary">Ubah</button>
-             			</div>
-             			</td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $row->id_jadwal }}</td>
+						<td>{{ $row->nama_pengajar }}</td>
+						<td>{{ $row->nama_kelas }}</td>
+						<td>{{ $row->nama_mapel }}</td>
+						<td>{{ $row->hari_jam }}</td>
+						<td class="box-footer">
+                			<a href="{{route('jadwal.edit',$row->id_jadwal)}}" class="btn btn-success btn-xs"> Edit</a>
+        				</td>
 					</tr>
+				@endforeach
 				</tbody>
 			</table>
 		</div>

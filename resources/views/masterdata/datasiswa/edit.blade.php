@@ -1,30 +1,48 @@
 @extends('layouts.admin-lte')
 @section('content')
 <div class="section">
-  <div class="box box-primary">
-    <div class="box-harder">
-      <h3>Tambah Data Guru Wali Kelas</h3>
-    </div>
+	<div class="box box-primary">
+		<div class="box-harder">
+			<h3>Tambah Data Guru Mata Pelajaran</h3>
+		</div> 
 
-    <form role="form" method="POST" action="{{ route('guruwalas.store') }}">
-        {{ csrf_field() }} {{ method_field('POST') }}
+    <form role="form" method="POST" action="{{ route('siswa.update',$id) }}">
+        {{ csrf_field() }} {{ method_field('PUT') }}
       <div class="box-body">
+
+    <div class="form-group">
+      <div class="row">
+            <label for="nis" class="col-sm-2 control-label">NIS</label>
+            <div class="col-sm-10">
+              <input type="integer" class="form-control" id="nis" name="nis" placeholder="NIS">
+            </div>
+      </div>
+    </div>
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nama Guru Wali Kelas</label>
+        <label>Nama Kelas</label>
       </div>
-            <div class="col-sm-10">
-             <select id="nama_guru_walas" name="nama_guru_walas" class="form-control" requireds>
-                <option value="nama_guru_walas">-Pilih Nama Guru-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
-            </div>
+      <div class="col-sm-10">
+       <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
+          <option value="">-Pilih Nama Kelas-</option>
+          <option>X</option>
+          <option>XI</option>
+          <option>XII</option>
+        </select>
+      </div>
     </div>
-    </div>      
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+            <label for="nama_siswa" class="col-sm-2 control-label">Nama Siswa</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" placeholder="Nama Siswa">
+            </div>
+      </div>
+    </div>    
 
     <div class="form-group">
       <div class="row">
@@ -70,28 +88,6 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Wali Kelas</label>
-      </div>
-            <div class="col-sm-10">
-              <select id="wali_kelas" name="wali_kelas" class="form-control" requireds>
-                <option>-Pilih Wali Kelas-</option>
-                <option>X IPA PA</option>
-                <option>X IPA PI</option>
-                <option>X IPS PA</option>
-                <option>XI IPA PA</option>
-                <option>XI IPA PI</option>
-                <option>XI IPS PA</option>
-                <option>XII IPA PA</option>
-                <option>XII IPA PI</option>
-                <option>XII IPS PA</option>
-              </select>
-            </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
         <label>Agama</label>
       </div>
             <div class="col-sm-10">
@@ -118,6 +114,24 @@
     </div>
 
     <div class="form-group">
+      <div class="row">
+            <label for="nama_ayah" class="col-sm-2 control-label">Nama Ayah</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Nama Ayah">
+            </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+            <label for="pekerjaan" class="col-sm-2 control-label">Pekerjaan</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan">
+            </div>
+      </div>
+    </div>
+
+    <div class="form-group">
         <div class="row">
           <label for="telepon" class="col-sm-2 control-label">Telepon</label>
         <div class="col-sm-10">
@@ -129,13 +143,25 @@
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
-
+    
     </form>
   </div>
 </div>
+@section('javascript')
 <script type="text/javascript">
-$(document).ready(function() {
-  console.log('yaha');
-});
+  $(document).ready(function() {
+    $('#telepon').val('{{$siswa->telepon}}');
+    $('#pekerjaan').val('{{$siswa->pekerjaan}}');
+    $('#nama_ayah').val('{{$siswa->nama_ayah}}');
+    $('#alamat').val('{{$siswa->alamat}}');
+    $('#agama').val('{{$siswa->agama}}');
+    $('#tanggal_lahir').val('{{$siswa->tanggal_lahir}}');
+    $('#tempat_lahir').val('{{$siswa->tempat_lahir}}');
+    $('#jenis_kelamin').val('{{$siswa->jenis_kelamin}}');
+    $('#nama_siswa').val('{{$siswa->nama_siswa}}');
+    $('#nis').val('{{$siswa->nis}}');
+  });
 </script>
+@endsection
+
 @endsection

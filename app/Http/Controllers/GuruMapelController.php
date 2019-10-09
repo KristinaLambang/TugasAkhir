@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GuruMapel;
 
 class GuruMapelController extends Controller
 {
@@ -13,7 +14,8 @@ class GuruMapelController extends Controller
      */
     public function index()
     {
-        return view('masterdata.datagurumapel.index');
+        $gurumapel = GuruMapel::all();
+        return view('masterdata.datagurumapel.index', compact('gurumapel'));
     }
 
     /**
@@ -34,7 +36,18 @@ class GuruMapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        GuruMapel::create([
+                'nama_guru_mapel' => $request->nama_guru_mapel,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'guru_mapel' => $request->guru_mapel,
+                'agama' => $request->agama,
+                'alamat' => $request->alamat,
+                'telepon' => $request->telepon,
+            ]);
+
+        return redirect()->route('gurumapel.index');
     }
 
     /**
@@ -56,7 +69,8 @@ class GuruMapelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gurumapel = GuruMapel::find($id);
+        return view('masterdata.datagurumapel.edit',compact('id','gurumapel'));
     }
 
     /**
@@ -68,7 +82,19 @@ class GuruMapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $gurumapel = GuruMapel::find($id);
+        $gurumapel->update([
+            'nama_guru_mapel' => $request->nama_guru_mapel,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'guru_mapel' => $request->guru_mapel,
+            'agama' => $request->agama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ]);
+
+        return redirect()->route('gurumapel.index');
     }
 
     /**

@@ -3,7 +3,10 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-body">
-			
+	<div class="box-harder">
+      <h3>Tambah Data Jadwal</h3>
+    </div>
+
 		<div class="form-group">
 	    <div class="row">
 	      <div class="col-sm-2">

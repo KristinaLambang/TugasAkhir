@@ -1,19 +1,20 @@
 @extends('layouts.admin-lte')
 @section('content')
 <div class="section">
-  <div class="box box-primary">
-    <div class="box-harder">
-      <h3>Tambah Data Guru Wali Kelas</h3>
-    </div>
+	<div class="box box-primary">
+		<div class="box-harder">
+			<h3>Tambah Data Guru Wali Kelas</h3>
+		</div>
 
-    <form role="form" method="POST" action="{{ route('guruwalas.store') }}">
-        {{ csrf_field() }} {{ method_field('POST') }}
+    <form role="form" method="POST" action="{{ route('guruwalas.update',$id) }}">
+        {{ csrf_field() }} {{ method_field('PUT') }}
       <div class="box-body">
+    
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nama Guru Wali Kelas</label>
+        <label>Nama Guru Walas</label>
       </div>
             <div class="col-sm-10">
              <select id="nama_guru_walas" name="nama_guru_walas" class="form-control" requireds>
@@ -28,15 +29,15 @@
 
     <div class="form-group">
       <div class="row">
-          <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
+          <label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
           <div class="radio">
           <div class="col-sm-10">
               <label>
-                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked>
+                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="jenis_kelamin" checked>
                 Laki-Laki
               </label>
               <label>
-                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="jenis_kelamin">
                 Perempuan
               </label>
           </div>
@@ -125,17 +126,26 @@
         </div>
         </div>
     </div>
-
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
-
+    
     </form>
-  </div>
+	</div>
 </div>
+@section('javascript')
 <script type="text/javascript">
-$(document).ready(function() {
-  console.log('yaha');
-});
+	$(document).ready(function() {
+		$('#telepon').val('{{$guruwalas->telepon}}');
+		$('#alamat').val('{{$guruwalas->alamat}}');
+		$('#agama').val('{{$guruwalas->agama}}');
+		$('#wali_kelas').val('{{$guruwalas->wali_kelas}}');
+		$('#tanggal_lahir').val('{{$guruwalas->tanggal_lahir}}');
+		$('#tempat_lahir').val('{{$guruwalas->tempat_lahir}}');
+		$('#jenis_kelamin').val('{{$guruwalas->jenis_kelamin}}');
+		$('#nama_guru_walas').val('{{$guruwalas->nama_guru_walas}}');
+	});
 </script>
+@endsection
+
 @endsection

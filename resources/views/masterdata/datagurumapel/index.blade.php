@@ -10,8 +10,8 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>Id Guru</th>
-						<th>Nama Guru</th>
+						<th>Id Guru Mata Pelajaran</th>
+						<th>Nama Guru Mata Pelajaran</th>
 						<th>JK</th>
 						<th>Tempat Lahir</th>
 						<th>Tanggal Lahir</th>
@@ -23,29 +23,27 @@
 					</tr>
 				</thead>
 				<tbody>
+				@foreach($gurumapel as $row)
 					<tr>
-						<td>1</td>
-						<td>GMP-001</td>
-						<td>Dina Kirana</td>
-						<td>P</td>
-						<td>Solo</td>
-						<td>02/06/1980</td>
-						<td>Matematika</td>
-						<td>Islam</td>
-						<td>Jl Tukad Yeh Aya No 11</td>
-						<td>085337268792</td>
-						<td>
-						<div class="box-footer">
-               				<button type="submit" class="btn btn-primary">Ubah</button>
-             			</div>
-             			</td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $row->id_guru_mapel }}</td>
+						<td>{{ $row->nama_guru_mapel }}</td>
+						<td>{{ $row->jenis_kelamin }}</td>
+						<td>{{ $row->tempat_lahir }}</td>
+						<td>{{ $row->tanggal_lahir }}</td>
+						<td>{{ $row->guru_mapel }}</td>
+						<td>{{ $row->agama }}</td>
+						<td>{{ $row->alamat }}</td>
+						<td>{{ $row->telepon }}</td>
+						<td class="box-footer">
+                			<a href="{{route('gurumapel.edit',$row->id_guru_mapel)}}" class="btn btn-success btn-xs"> Edit</a>
+        				</td>
 					</tr>
+				@endforeach
 				</tbody>
 			</table>
+            </div>
 		</div>
-		<!-- box body -->
 	</div>
-	<!-- box -->
 </div>
-<!-- section -->
 @endsection
