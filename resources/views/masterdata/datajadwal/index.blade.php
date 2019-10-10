@@ -19,7 +19,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($jadwal as $row)
+				@foreach($jadwal as $row)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_jadwal }}</td>

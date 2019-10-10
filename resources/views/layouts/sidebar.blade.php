@@ -28,7 +28,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
 
-        <li class="treeview menu-open">
+        <!-- <li class="treeview menu-open">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
@@ -39,6 +39,12 @@
             <li><a href="{{ route('home') }}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
             <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
+        </li> -->
+
+        <li>
+          <a href="{{ route('home') }}">
+            <i class="fa fa-users"></i> <span>Dashboard</span>
+          </a>
         </li>
 
         <li>
@@ -99,7 +105,7 @@
           </a>
         </li> 
 
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Layout Options</span>
@@ -259,4 +265,4 @@
       </ul>
     </section>
     <!-- /.sidebar -->
-  </aside>
+  </aside> -->

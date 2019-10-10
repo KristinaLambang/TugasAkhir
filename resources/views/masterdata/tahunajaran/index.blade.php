@@ -4,9 +4,8 @@
 	<div class="box box-primary">
 		<div class="box-body">
 	<div class="box-harder">
-      <h3>Tambah Data Jadwal</h3>
-    </div>
-
+      <h3>Setting Tahun Ajaran</h3>
+    
 		<div class="form-group">
 	    <div class="row">
 	      <div class="col-sm-2">
@@ -21,7 +20,7 @@
 		       </div>
 	   		 </div>
 	   	</div>
-
+ 
 	   	<div class="form-group">
 		    <div class="row">
 		      <div class="col-sm-2">
@@ -37,11 +36,14 @@
 	   		 </div>
 	   	</div>
 
-	   	<div class="col-sm-11">
+	   	<div class="col-sm-1">
           <button type="submit" class="btn btn-info pull-right">Simpan</button>
-        </div>
-
-		</div>
+        </div>  
 	</div>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+  console.log('yaha');
+});
+</script>
 @endsection
