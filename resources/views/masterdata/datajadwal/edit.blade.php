@@ -11,7 +11,7 @@
       <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
+    <div class="row"> 
       <div class="col-sm-2">
         <label>Nama Pengajar</label>
       </div>

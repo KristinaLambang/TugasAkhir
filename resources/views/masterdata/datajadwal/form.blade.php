@@ -11,13 +11,13 @@
     <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
+    <div class="row"> 
       <div class="col-sm-2">
-        <label>Nama Guru Mata Pelajaran</label>
+        <label>Nama Pengajar</label>
       </div>
             <div class="col-sm-10">
-             <select id="nama_guru_mapel" name="nama_guru_mapel" class="form-control" requireds>
-                <option value="nama_guru_mapel">-Pilih Nama Guru Mata Pelajaran-</option>
+             <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
+                <option value="nama_pengajar">-Pilih Nama Pengajar-</option>
                 <option>Dina Kirana, S.Pd</option>
                 <option>Dicky Pratama, S.Pd</option>
                 <option>Puji Astuti, S.Pd</option>
@@ -27,100 +27,72 @@
     </div>
 
     <div class="form-group">
-      <div class="row">
-          <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
-          <div class="radio">
-          <div class="col-sm-10">
-              <label>
-                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked>
-                Laki-Laki
-              </label>
-              <label>
-                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
-                Perempuan
-              </label>
-          </div>
-          </div>
-    </div>
-    </div>
-    
-    <div class="form-group">
-      <div class="row">
-            <label for="tempat_lahir" class="col-sm-2 control-label">Tempat Lahir</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="TempatLahir">
-            </div>
-      </div>
-      </div>
-
-      <div class="form-group">
-      <div class="row">
-        <label class="col-sm-2 control-label">Tanggal Lahir</label>
-        <div class="col-sm-10">
-          <div class="input-group">
-            <div class="input-group-addon">
-              <i class="fa fa-calendar"></i>
-            </div>
-            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="dd/mm/yyyy">
-          </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-          <div class="row">
-            <div class="col-sm-2">
-                <label>Guru Mata Pelajaran</label>
-                </div>
-                <div class="col-sm-10">
-                  <select id="guru_mapel" name="guru_mapel" class="form-control" requireds>
-                    <option>-Pilih Mata Pelajaran-</option>
-                    <option>Bahasa Inggris</option>
-                    <option>Matematika</option>
-                    <option>Fisika</option>
-                    <option>Geografi</option>
-                    <option>Sosiolagi</option>
-                  </select>
-        </div>
-    </div>
-    </div>
-
-    <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Agama</label>
+        <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="agama" name="agama" class="form-control" requireds>
-                <option>-Pilih Agama-</option>
-                <option>Islam</option>
-                <option>Kristen</option>
-                <option>Katolik</option>
-                <option>Hindu</option>
-                <option>Budha</option>
-                <option>Kong Hu Chu</option>
+              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
+                <option value="">-Pilih Nama Kelas-</option>
+                <option>X IPA PA</option>
+                <option>X IPA PI</option>
+                <option>X IPS PA</option>
+                <option>XI IPA PA</option>
+                <option>XI IPA PI</option>
+                <option>XI IPS PA</option>
+                <option>XII IPA PA</option>
+                <option>XII IPA PI</option>
+                <option>XII IPS PI</option>
               </select>
             </div>
     </div>
     </div>
 
     <div class="form-group">
-        <div class="row">
-          <label for="alamat" class="col-sm-2 control-label">Alamat</label>
-        <div class="col-sm-10">
-          <textarea id="alamat" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea>
-        </div>
-      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Guru Mata Pelajaran</label>
+            </div>
+            <div class="col-sm-10">
+              <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
+                <option>-Pilih Mata Pelajaran-</option>
+                <option>Bahasa Inggris</option>
+                <option>Matematika</option>
+                <option>Fisika</option>
+                <option>Geografi</option>
+                <option>Sosiolagi</option>
+              </select>
+    </div>
+    </div>
     </div>
 
     <div class="form-group">
-        <div class="row">
-          <label for="telepon" class="col-sm-2 control-label">Telepon</label>
-        <div class="col-sm-10">
-          <input type="text" id="telepon" name="telepon" class="form-control" placeholder="Telepon">
+      <label>Date range:</label>
+
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-calendar"></i>
         </div>
-        </div>
+        <input type="text" class="form-control pull-right" id="reservation">
+      </div>
+      <!-- /.input group -->
     </div>
+    <!-- /.form group -->
+
+    <!-- Date and time range -->
+      <div class="form-group">
+        <label>Date and time range:</label>
+
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="reservationtime">
+        </div>
+        <!-- /.input group -->
+      </div>
+      <!-- /.form group -->
+      
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
