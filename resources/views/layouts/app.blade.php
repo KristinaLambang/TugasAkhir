@@ -32,7 +32,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <!-- <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Master Data
@@ -45,13 +45,19 @@
                                 <a class="dropdown-item" href="{{ route('jadwal.index') }}">Data Jadwal</a>
                                 <a class="dropdown-item" href="{{ route('kelas.index') }}">Data Kelas</a>
                                 <a class="dropdown-item" href="{{ route('laporan.index') }}">Laporan</a>
+                                <a class="dropdown-item" href="{{ route('laporanleger.index') }}">Laporan Leger</a>
+                                <a class="dropdown-item" href="{{ route('laporanraport.index') }}">Laporan Raport</a>
+                                <a class="dropdown-item" href="{{ route('nilaiextrakurikuler.index') }}">Nilai Extrakurikuler</a>
+                                <a class="dropdown-item" href="{{ route('nilaisikap.index') }}">Nilai Sikap</a>
+                                <a class="dropdown-item" href="{{ route('laporanabsensi.index') }}">Absensi</a>
                                 <a class="dropdown-item" href="{{ route('tahunajaran.index') }}">Tahun Ajaran</a>
+                                <a class="dropdown-item" href="{{ route('datanilai.index') }}">Data Nilai</a>
                             </div>
                         </li>
                         <a href="" class="nav-link Toggle" id="" role="button" data-toggle="" aria-haspopup="true" aria-expanded="false">
                                 Tahun Ajaran
                         </a>
-                    </ul>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

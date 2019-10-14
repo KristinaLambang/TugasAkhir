@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\LaporanLeger;
 
 class LaporanLegerController extends Controller
 {
@@ -14,8 +13,7 @@ class LaporanLegerController extends Controller
      */ 
     public function index()
     {
-        // $leger = LaporanLeger::all();
-        return view('masterdata.laporanleger.index');
+        return view('masterdata.laporan.leger.index');
     }
 
     /**
@@ -25,7 +23,7 @@ class LaporanLegerController extends Controller
      */
     public function create()
     {
-        return view('masterdata.laporanleger.form');
+        return view('masterdata.laporan.leger.form');
     }
 
     /**
@@ -36,18 +34,7 @@ class LaporanLegerController extends Controller
      */
     public function store(Request $request)
     {
-        // LaporanLeger::create([
-        //         'nis' => $request->nis,
-        //         'nama_siswa' => $request->nama_siswa,
-        //         'jenis_kelamin' => $request->jenis_kelamin,
-        //         'nilai_pengetahuan' => $request->nilai_pengetahuan,
-        //         'nilai_keterampilan' => $request->nilai_keterampilan,
-        //         'jumlah' => $request->jumlah,
-        //         'jumlah_nilai' => $request->jumlah_nilai,
-        //         'ranking' => $request->ranking,
-        //     ]);
-
-        // return redirect()->route('laporan.leger.index');
+        // 
     }
 
     /**
@@ -82,19 +69,7 @@ class LaporanLegerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $laporanleger = LaporanLeger::find($id);
-        // $laporanleger->update([
-        //         'nis' => $request->nis,
-        //         'nama_siswa' => $request->nama_siswa,
-        //         'jenis_kelamin' => $request->jenis_kelamin,
-        //         'nilai_pengetahuan' => $request->nilai_pengetahuan,
-        //         'nilai_keterampilan' => $request->nilai_keterampilan,
-        //         'jumlah' => $request->jumlah,
-        //         'jumlah_nilai' => $request->jumlah_nilai,
-        //         'ranking' => $request->ranking,
-        //     ]);
-
-        // return redirect()->route('laporan.leger.index');
+        //
     }
 
     /**

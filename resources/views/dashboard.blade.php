@@ -21,7 +21,7 @@
             <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Siswa</span>
+              <a href="{{ route('siswa.index') }}"><span class="info-box-text">Siswa</span>
               <span class="info-box-number">196</span>
             </div>
             <!-- /.info-box-content -->
@@ -34,7 +34,7 @@
             <span class="info-box-icon bg-red"><i class="fa fa-home"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Kelas</span>
+              <a href="{{ route('kelas.index') }}"><span class="info-box-text">Kelas</span>
               <span class="info-box-number">9</span>
             </div>
             <!-- /.info-box-content -->
@@ -42,7 +42,7 @@
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
-
+        
         <!-- fix for small devices only -->
         <div class="clearfix visible-sm-block"></div>
 
@@ -51,7 +51,7 @@
             <span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Guru</span>
+              <a href="{{ route('gurumapel.index') }}"><span class="info-box-text">Guru</span>
               <span class="info-box-number">22</span>
             </div>
             <!-- /.info-box-content -->

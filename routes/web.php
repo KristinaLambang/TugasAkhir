@@ -36,4 +36,5 @@ Route::resource('/nilaiextrakurikuler', 'NilaiExtrakurikulerController');
 Route::resource('/nilaisikap', 'NilaiSikapController');
 Route::resource('/laporanabsensi', 'LaporanAbsensiController');
 Route::resource('/tahunajaran', 'TahunAjaranController');
+Route::resource('/datanilai', 'DataNilaiController');
 	});

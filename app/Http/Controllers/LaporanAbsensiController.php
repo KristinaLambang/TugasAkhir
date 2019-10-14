@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class LaporanController extends Controller
-{ 
+class LaporanAbsensiController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +13,7 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('masterdata.laporan.index');
+        return view('masterdata.laporan.absensi.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        return view('masterdata.laporan.create');
+        return view('masterdata.laporan.absensi.form');
     }
 
     /**

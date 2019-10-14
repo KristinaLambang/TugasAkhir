@@ -43,16 +43,25 @@
           </ul>
         </li> -->
 
-        @if(Auth::user()->level_user == 'guru')
+        @if(Auth::user()->level_user == 'siswa')
         <li>
           <a href="{{ route('home') }}">
             <i class="fa fa-users"></i> <span>Dashboard</span>
           </a>
         </li>
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'siswa') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('siswa.index') }}">
             <i class="fa fa-user"></i> <span>Data Siswa</span>
+          </a>
+        </li>
+        
+        @endif
+
+        @if(Auth::user()->level_user == 'walas')
+        <li>
+          <a href="{{ route('home') }}">
+            <i class="fa fa-users"></i> <span>Dashboard</span>
           </a>
         </li>
 
@@ -64,15 +73,33 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <!-- ini beli diisi route, nanti isiin tin -->
-            <li class="active"><a href="{{ route('laporanleger') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
-            <li class="active"><a href="{{ route('laporanraport') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Absensi</a></li>
+            <li class="active"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
+            <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
+            <li class="active"><a href="{{ route('nilaiextrakurikuler.index') }}"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
+            <li class="active"><a href="{{ route('nilaisikap.index') }}"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
+            <li class="active"><a href="{{ route('laporanabsensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
           </ul>
         </li>
+        @endif
 
+        @if(Auth::user()->level_user == 'guru')
+        <li>
+          <a href="{{ route('home') }}">
+            <i class="fa fa-users"></i> <span>Dashboard</span>
+          </a>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'datanilai') === 0 ) ? 'active' : '' }}">
+          <a href="{{ route('datanilai.index') }}">
+            <i class="fa fa-list"></i> <span>Data Nilai</span>
+          </a>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
+          <a href="{{ route('laporanleger.index') }}">
+            <i class="fa fa-book"></i> <span>Laporan Nilai</span>
+          </a>
+        </li>        
         @endif
 
         @if(Auth::user()->level_user == 'admin')
@@ -88,31 +115,31 @@
           </a>
         </li>
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'gurumapel') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('gurumapel.index') }}">
             <i class="fa fa-users"></i> <span>Data Guru Mata Pelajaran</span>
           </a>
         </li>
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'siswa') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('siswa.index') }}">
             <i class="fa fa-user"></i> <span>Data Siswa</span>
           </a>
         </li>
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'mapel') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('mapel.index') }}">
             <i class="fa fa-book"></i> <span>Data Mata Pelajaran</span>
           </a>
         </li>  
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'jadwal') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('jadwal.index') }}">
             <i class="fa fa-th-list"></i> <span>Data Jadwal</span>
           </a>
         </li>
 
-        <li>
+        <li class="{{ (strpos(Route::currentRouteName(), 'kelas') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('kelas.index') }}">
             <i class="fa fa-gears"></i> <span>Data Kelas</span>
           </a>
@@ -128,9 +155,9 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
             <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
-            <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Absensi</a></li>
+            <li class="active"><a href="{{ route('nilaiextrakurikuler.index') }}"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
+            <li class="active"><a href="{{ route('nilaisikap.index') }}"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
+            <li class="active"><a href="{{ route('laporanabsensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
           </ul>
         </li>
 
