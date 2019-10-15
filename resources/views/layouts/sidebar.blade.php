@@ -121,6 +121,12 @@
           </a>
         </li>
 
+        <li class="{{ (strpos(Route::currentRouteName(), 'gurukelas') === 0 ) ? 'active' : '' }}">
+          <a href="{{ route('gurukelas.index') }}">
+            <i class="fa fa-users"></i> <span>Data Guru Kelas</span>
+          </a>
+        </li>
+
         <li class="{{ (strpos(Route::currentRouteName(), 'siswa') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('siswa.index') }}">
             <i class="fa fa-user"></i> <span>Data Siswa</span>

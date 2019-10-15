@@ -20,7 +20,7 @@
                 <option>2019/2020</option>
               </select>
             </div>
-    </div>
+    </div> 
     </div>      
 
     <div class="form-group">
