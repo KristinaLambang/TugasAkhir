@@ -16,12 +16,17 @@
         <label>Nama Guru Mata Pelajaran</label>
       </div>
             <div class="col-sm-10">
-             <select id="nama_guru_mapel" name="nama_guru_mapel" class="form-control" requireds>
-                <option value="nama_guru_mapel">-Pilih Nama Guru Mata Pelajaran-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+              <select name="id_guru" class="form-control" id="id_guru">
+                  @if ($isEdit == FALSE)
+                  @foreach($guru as $row)
+                  <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
+                  @endforeach
+                  @else
+                  @foreach($guru as $row)
+                    <option {{ $row->id == $guru->id_guru_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_guru_mapel }}</option>
+                  @endforeach
+                  @endif
+                </select>
             </div>
     </div>
     </div>

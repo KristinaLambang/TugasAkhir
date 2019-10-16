@@ -14,7 +14,7 @@
     <div class="row"> 
       <div class="col-sm-2">
         <label>Nama Pengajar</label>
-      </div>
+      </div> 
             <div class="col-sm-10">
              <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
                 <option value="nama_pengajar">-Pilih Nama Pengajar-</option>

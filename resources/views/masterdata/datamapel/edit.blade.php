@@ -18,14 +18,12 @@
       </div>
             <div class="col-sm-10">
               <select id="nama_mapel" name="nama_mapel" class="form-control" requireds>
-                <option value="">-Pilih Nama Mata Pelajaran-</option>
-                <option>Bahasa Indonesia</option>
+                <option>-Pilih Mata Pelajaran-</option>
                 <option>Bahasa Inggris</option>
                 <option>Matematika</option>
                 <option>Fisika</option>
-                <option>Kimia</option>
-                <option>Sosiologi</option>
                 <option>Geografi</option>
+                <option>Sosiolagi</option>
               </select>
             </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DataNilai;
 
 class DataNilaiController extends Controller
 {
@@ -13,6 +14,7 @@ class DataNilaiController extends Controller
      */
     public function index()
     {
+        $datanilai = DataNilai::all();
         return view('masterdata.datanilai.index');
     }
 

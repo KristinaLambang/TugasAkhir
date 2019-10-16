@@ -12,19 +12,19 @@
     
     <div class="form-group">
        <div class="row">
-            <div class="col-sm-2">
-                <label>Nama Mata Pelajaran</label>
-                </div>
-                <div class="col-sm-10">
-                  <select id="nama_mapel" name="nama_mapel" class="form-control" requireds>
-                    <option>-Pilih Nama Mata Pelajaran-</option>
-                    <option>Bahasa Inggris</option>
-                    <option>Matematika</option>
-                    <option>Fisika</option>
-                    <option>Geografi</option>
-                    <option>Sosiolagi</option>
-                  </select>
-             </div>
+        <div class="col-sm-2">
+          <label>Nama Mata Pelajaran</label>
+        </div>
+        <div class="col-sm-10">
+          <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
+            <option>-Pilih Mata Pelajaran-</option>
+            <option>Bahasa Inggris</option>
+            <option>Matematika</option>
+            <option>Fisika</option>
+            <option>Geografi</option>
+            <option>Sosiolagi</option>
+          </select>
+        </div>
        </div>
     </div>
 
@@ -34,8 +34,8 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option>-Pilih Nama Kelas-</option>
+              <select id="id_kelas" name="id_kelas" class="form-control" requireds>
+                <option value="">-Pilih Nama Kelas-</option>
                 <option>X IPA PA</option>
                 <option>X IPA PI</option>
                 <option>X IPS PA</option>
@@ -44,7 +44,7 @@
                 <option>XI IPS PA</option>
                 <option>XII IPA PA</option>
                 <option>XII IPA PI</option>
-                <option>XII IPS PA</option>
+                <option>XII IPS PI</option>
               </select>
             </div>
     </div>
@@ -55,9 +55,9 @@
       <div class="col-sm-2">
         <label>Nama Pengajar</label>
       </div>
-            <div class="col-sm-10">
-              <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
-                <option>-Pilih Nama Pengajar-</option>
+           <div class="col-sm-10">
+             <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
+                <option value="nama_pengajar">-Pilih Nama Pengajar-</option>
                 <option>Dina Kirana, S.Pd</option>
                 <option>Dicky Pratama, S.Pd</option>
                 <option>Puji Astuti, S.Pd</option>

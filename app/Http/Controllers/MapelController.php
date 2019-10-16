@@ -13,7 +13,7 @@ class MapelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $mapel = Mapel::all();
         return view('masterdata.datamapel.index', compact('mapel'));
     }

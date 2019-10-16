@@ -20,11 +20,11 @@
 				</thead>
 				<tbody>
 					@foreach($mapel as $row)
-					<tr>
+					<tr> 
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_mapel }}</td>
 						<td>{{ $row->nama_mapel }}</td>
-						<td>{{ $row->nama_kelas }}</td>
+						<td>{{ $row->nama_kelas}}</td>
 						<td>{{ $row->nama_pengajar }}</td>
 						<td>{{ $row->kkm }}</td>
 						<td class="box-footer">

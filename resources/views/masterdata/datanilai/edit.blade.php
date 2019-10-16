@@ -4,16 +4,15 @@
 	<div class="box box-primary">
 		<div class="box-header"></div>
 
-    <form role="form" method="POST" action="{{ route('gurukelas.store') }}">
-        {{ csrf_field() }} {{ method_field('POST') }}
-     
-     <div class="box-body">
+    <form role="form" method="POST" action="{{ route('gurukelas.update',$id) }}">
+        {{ csrf_field() }} {{ method_field('PUT') }}
+      <div class="box-body">
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
         <label>Nama Guru</label>
-      </div> 
+      </div>
             <div class="col-sm-10">
               <select name="id_guru" class="form-control" id="id_guru">
                   @if ($isEdit == FALSE)
