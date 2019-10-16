@@ -16,10 +16,12 @@
 						<th>Jumlah</th>
 						<th>Jumlah Nilai</th>
 						<th>Ranking</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>

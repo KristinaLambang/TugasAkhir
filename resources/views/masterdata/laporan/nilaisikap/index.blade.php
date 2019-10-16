@@ -10,17 +10,15 @@
 						<th>No</th>
 						<th>NIS</th>
 						<th>Nama</th>
-						<th>JK</th>
-						<th>Nilai Pengetahuan</th>
-						<th>Nilai Keterampilan</th>
-						<th>Jumlah</th>
-						<th>Jumlah Nilai</th>
-						<th>Ranking</th>
+						<th>Spiritual</th>
+						<th>Predikat</th>
+						<th>Sikap</th>
+						<th>Predikat</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>

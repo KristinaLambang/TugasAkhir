@@ -10,16 +10,34 @@
 						<th>No</th>
 						<th>NIS</th>
 						<th>Nama</th>
-						<th>JK</th>
-						<th>Nilai Pengetahuan</th>
-						<th>Nilai Keterampilan</th>
-						<th>Jumlah</th>
-						<th>Jumlah Nilai</th>
+						<th>BIND</th>
+						<th>BING</th>
+						<th>MTK</th>
+						<th>FSK</th>
+						<th>KIM</th>
+						<th>BIO</th>
+						<th>Eks 1</th>
+						<th>Eks 2</th>
+						<th>Spiritual</th>
+						<th>Sosial</th>
+						<th>S</th>
+						<th>I</th>
+						<th>A</th>
+						<th>Komentar</th>
 						<th>Ranking</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
