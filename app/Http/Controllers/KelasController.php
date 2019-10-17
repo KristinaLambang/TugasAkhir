@@ -35,7 +35,7 @@ class KelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
         Kelas::create([
                 'nama_kelas' => $request->nama_kelas,
                 'jurusan' => $request->jurusan,

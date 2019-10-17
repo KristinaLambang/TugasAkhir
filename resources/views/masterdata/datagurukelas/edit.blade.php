@@ -6,7 +6,7 @@
 			<h3>Tambah Data Jadwal</h3>
 		</div> 
 
-    <form role="form" method="POST" action="{{ route('jadwal.update',$id) }}">
+    <form role="form" method="POST" action="{{ route('gurukelas.update',$id) }}">
         {{ csrf_field() }} {{ method_field('PUT') }}
       <div class="box-body">
 

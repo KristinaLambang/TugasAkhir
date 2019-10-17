@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\NilaiSikap;
 
 class NilaiSikapController extends Controller
 {
@@ -13,7 +14,8 @@ class NilaiSikapController extends Controller
      */
     public function index()
     {
-        return view('masterdata.laporan.nilaisikap.index');
+        $nilaisikap = NilaiSikap::all();
+        return view('masterdata.laporan.nilaisikap.index',compact('nilaisikap'));
     }
 
     /**
@@ -34,7 +36,16 @@ class NilaiSikapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        NilaiSikap::create([
+                'nis' => $request->nis,
+                'nama_siswa' => $request->nama_siswa,
+                'spiritual' => $request->spiritual,
+                'predikat' => $request->predikat,
+                'sikap' => $request->sikap,
+                'predikat' => $request->predikat,
+            ]);
+
+        return redirect()->route('laporan.nilaisikap.index');
     }
 
     /**

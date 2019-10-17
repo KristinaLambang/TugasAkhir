@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mapel;
+use App\Kelas;
+use App\GuruKelas;
 
 class MapelController extends Controller
 {
@@ -36,14 +38,10 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        Mapel::create([
-                'nama_mapel' => $request->nama_mapel,
-                'nama_kelas' => $request->nama_kelas,
-                'nama_pengajar' => $request->nama_pengajar,
-                'kkm' => $request->kkm,
-            ]);
-
-        return redirect()->route('mapel.index');
+        $gurukelas = GuruKelas::all();
+        $kelas = Kelas::all();
+        $isEdit = FALSE;
+        return view('masterdata.datamapel.form', compact('gurukelas','kelas','isEdit'));
     }
 
     /**

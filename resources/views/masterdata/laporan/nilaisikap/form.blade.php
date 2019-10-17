@@ -4,9 +4,9 @@
 	<div class="box box-primary">
 		<div class="box-harder"></div>
 
-    <!-- <form role="form" method="POST" action="{{ route('laporanleger.store') }}">
+    <form role="form" method="POST" action="{{ route('laporan.nilaisikap.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
-      <div class="box-body"> -->
+      <div class="box-body">
 
     <div class="form-group">
     <div class="row">

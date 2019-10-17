@@ -8,7 +8,7 @@ class Mapel extends Model
 {
     protected $table = 'tb_mapel';
     protected $primaryKey = 'id_mapel';
-    protected $guarded = ['id_mapel','created_at','updated_at'];
+    protected $guarded = ['id_mapel','nama_kelas', 'nama_pengajar','created_at','updated_at'];
 
     public function mapel()
   {
