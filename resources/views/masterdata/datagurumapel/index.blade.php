@@ -15,7 +15,6 @@
 						<th>JK</th>
 						<th>Tempat Lahir</th>
 						<th>Tanggal Lahir</th>
-						<th>Guru Mata Pelajaran</th>
 						<th>Agama</th>
 						<th>Alamat</th>
 						<th>Telepon</th>
@@ -31,7 +30,6 @@
 						<td>{{ $row->jenis_kelamin }}</td>
 						<td>{{ $row->tempat_lahir }}</td>
 						<td>{{ $row->tanggal_lahir }}</td>
-						<td>{{ $row->guru_mapel }}</td>
 						<td>{{ $row->agama }}</td>
 						<td>{{ $row->alamat }}</td>
 						<td>{{ $row->telepon }}</td>

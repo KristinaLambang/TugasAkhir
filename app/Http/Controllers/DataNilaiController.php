@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataNilai;
+use App\Siswa;
+use DataTables;
 
 class DataNilaiController extends Controller
 {
@@ -17,7 +19,7 @@ class DataNilaiController extends Controller
         $datanilai = DataNilai::all();
         return view('masterdata.datanilai.index');
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +27,8 @@ class DataNilaiController extends Controller
      */
     public function create()
     {
-        return view('masterdata.datanilai.form');
+        $siswa=Siswa::all();
+        return view('masterdata.datanilai.form',compact('siswa'));
     }
 
     /**
@@ -36,7 +39,21 @@ class DataNilaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DataNilai::create([
+                'nis' => $request->nis,
+                'tugas_1' => $request->tugas_1,
+                'tugas_2' => $request->tugas_2,
+                'ulangan_harian_1' => $request->ulangan_harian_1,
+                'ulangan_harian_2' => $request->ulangan_harian_2,
+                'uts' => $request->uts,
+                'uas' => $request->uas,
+                'nilai_raport' => $request->nilai_raport,
+                'nilai_keterampilan' => $request->nilai_keterampilan,
+                'deskripsi' => $request->deskripsi,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+        return redirect()->route('datanilai.index');
     }
 
     /**
@@ -70,7 +87,21 @@ class DataNilaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DataNilai::create([
+                'nis' => $request->nis,
+                'tugas_1' => $request->tugas_1,
+                'tugas_2' => $request->tugas_2,
+                'ulangan_harian_1' => $request->ulangan_harian_1,
+                'ulangan_harian_2' => $request->ulangan_harian_2,
+                'uts' => $request->uts,
+                'uas' => $request->uas,
+                'nilai_raport' => $request->nilai_raport,
+                'nilai_keterampilan' => $request->nilai_keterampilan,
+                'deskripsi' => $request->deskripsi,
+                'deskripsi' => $request->deskripsi,
+            ]);
+
+        return redirect()->route('datanilai.index');
     }
 
     /**

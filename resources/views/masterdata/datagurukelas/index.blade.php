@@ -23,7 +23,6 @@
 						<td>{{ $row->guru->nama_guru_mapel }}</td>
 						<td>{{ $row->guru->guru_mapel }}</td>
 						<td>{{ $row->kelas->nama_kelas }}</td>
-						<td>
 							<a href="{{route('gurukelas.edit',$row->id_guru_kelas)}}" class="btn btn-success btn-xs"> Edit</a>
 						</td>
 					</tr>

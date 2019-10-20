@@ -563,7 +563,36 @@
     })
   })
   
+  $(document).ready(function() {
+            var t = $('#lookupSiswa').DataTable( {
+            "columnDefs": [ {
+            "searchable": false,
+            "orderable": false,
+            "targets": 0,
+            } ],
+              "order": [[ 0, 'asc' ]]
+            } );
+ 
+            t.on( 'order.dt search.dt', function () {
+            t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+} );
+
 </script>
+
+<script type="text/javascript">
+            $(document).on('click', '.pilihSiswa', function (e) {
+                document.getElementById("NamaSiswa").value = $(this).attr('data-nama');
+                document.getElementById("IdSiswa").value = $(this).attr('data-id');
+                document.getElementById("NisSiswa").value = $(this).attr('data-nis');
+                $('#modalSiswa').modal('hide');
+            });
+            
+
+            
+        </script>
 
 </body>
 </html>

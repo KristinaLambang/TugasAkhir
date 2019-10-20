@@ -11,20 +11,13 @@
     <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Guru Mata Pelajaran</label>
-      </div>
+      <div class="row">
+            <label for="nama_guru_mapel" class="col-sm-2 control-label">Nama Guru Mata Pelajaran</label>
             <div class="col-sm-10">
-             <select id="nama_guru_mapel" name="nama_guru_mapel" class="form-control" requireds>
-                <option value="nama_guru_mapel">-Pilih Nama Guru Mata Pelajaran-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+              <input type="text" class="form-control" id="nama_guru_mapel" name="nama_guru_mapel" placeholder="Nama Guru Mata Pelajaran">
             </div>
-    </div>
-    </div>
+      </div>
+      </div>
 
     <div class="form-group">
       <div class="row">

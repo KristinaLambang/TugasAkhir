@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Siswa;
+use App\Kelas;
 
 class SiswaController extends Controller
 {
@@ -25,7 +26,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('masterdata.datasiswa.form');
+        $kelas=Kelas::all();
+        return view('masterdata.datasiswa.form',compact('kelas'));
     }
 
     /**

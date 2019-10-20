@@ -27,9 +27,9 @@
       <div class="col-sm-10">
        <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
           <option value="">-Pilih Nama Kelas-</option>
-          <option>X</option>
-          <option>XI</option>
-          <option>XII</option>
+          @foreach($kelas as $k)
+            <option value="{{$k->nama_kelas}}">{{$k->nama_kelas}}</option>
+          @endforeach
         </select>
       </div>
     </div>

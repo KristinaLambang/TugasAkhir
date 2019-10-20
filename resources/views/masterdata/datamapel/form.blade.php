@@ -11,21 +11,14 @@
     <div class="box-body">
     
     <div class="form-group">
-       <div class="row">
-        <div class="col-sm-2">
-          <label>Nama Mata Pelajaran</label>
-        </div>
-        <div class="col-sm-10">
-          <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
-            <option>-Pilih Mata Pelajaran-</option>
-            <option>Bahasa Inggris</option>
-            <option>Matematika</option>
-            <option>Fisika</option>
-            <option>Geografi</option>
-            <option>Sosiolagi</option>
-          </select>
-        </div>
-       </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Nama Mata Pelajaran</label>
+      </div>
+            <div class="col-sm-10">
+             <input type="text" name="mata_pelajaran" placeholder="Nama Mata Pelajaran" required="" class="form-control" id="mata_pelajaran">
+            </div>
+    </div>
     </div>
 
     <div class="form-group">
