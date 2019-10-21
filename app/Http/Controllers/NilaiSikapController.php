@@ -47,7 +47,7 @@ class NilaiSikapController extends Controller
 
         return redirect()->route('laporan.nilaisikap.index');
     }
-
+ 
     /**
      * Display the specified resource.
      *
@@ -67,7 +67,8 @@ class NilaiSikapController extends Controller
      */
     public function edit($id)
     {
-        //
+        $nilaisikap = NilaiSikap::find($id);
+        return view('masterdata.laporan.nilaisikap.edit',compact('id','nilaisikap'));
     }
 
     /**
@@ -79,7 +80,17 @@ class NilaiSikapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nilaisikap = NilaiSikap::find($id);
+        $nilaisikap->update([
+                'nis' => $request->nis,
+                'nama_siswa' => $request->nama_siswa,
+                'spiritual' => $request->spiritual,
+                'predikat' => $request->predikat,
+                'sikap' => $request->sikap,
+                'predikat' => $request->predikat,
+            ]);
+
+        return redirect()->route('nilaisikap.index');
     }
 
     /**

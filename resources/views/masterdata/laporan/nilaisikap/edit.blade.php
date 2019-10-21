@@ -2,13 +2,15 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-harder"></div>
+		<div class="box-harder">
+			<h3>Tambah Nilai Sikap</h3>
+		</div>
 
-    <form role="form" method="POST" action="{{ route('nilaisikap.store') }}">
-        {{ csrf_field() }} {{ method_field('POST') }}
+    <form role="form" method="POST" action="{{ route('nilaisikap.update',$id) }}">
+        {{ csrf_field() }} {{ method_field('PUT') }}
       <div class="box-body">
-
-    <div class="form-group">
+    
+<div class="form-group">
     <div class="row">
       <div class="col-sm-2">
         <label>NIS</label>
@@ -86,18 +88,14 @@
             </select>
             </div>
     </div>
-    </div> 
+    </div>
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
-
+    
     </form>
 	</div>
 </div>
-<!-- <script type="text/javascript">
-$(document).ready(function() {
-  console.log('yaha');
-});
-</script> -->
+
 @endsection

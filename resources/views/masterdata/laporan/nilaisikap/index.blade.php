@@ -11,7 +11,7 @@
 					<tr> 
 						<th>No</th>
 						<th>NIS</th>
-						<th>Nama</th>
+						<th>Nama Siswa</th>
 						<th>Spiritual</th>
 						<th>Predikat</th>
 						<th>Sikap</th>
@@ -20,15 +20,20 @@
 					</tr>
 				</thead>
 				<tbody>
+				@foreach($nilaisikap as $row)
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $row->nis }}</td>
+						<td>{{ $row->nama_siswa }}</td>
+						<td>{{ $row->spiritual }}</td>
+						<td>{{ $row->predikat }}</td>
+						<td>{{ $row->sikap }}</td>
+						<td>{{ $row->predikat }}</td>
+						<td class="box-footer">
+                			<a href="{{route('nilaisikap.edit',$row->id_nilai)}}" class="btn btn-success btn-xs"> Edit</a>
+        				</td>
+					</tr>
+				@endforeach
 				</tbody>
 			</table>
 			</div>
