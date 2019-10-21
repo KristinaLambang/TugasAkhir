@@ -20,7 +20,7 @@
 						<th>Alamat</th>
 						<th>Telepon</th>
 					</tr>
-				</thead>
+				</thead> 
 				<tbody>
 				@foreach($guruwalas as $row)
 					<tr>

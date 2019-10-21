@@ -2,7 +2,7 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-harder">
+		<div class="box-harder"> 
 			<h3>Tambah Data Kelas</h3>
 		</div>
 

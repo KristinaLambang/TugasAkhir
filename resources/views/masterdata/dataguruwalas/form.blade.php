@@ -11,21 +11,14 @@
       <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Guru Wali Kelas</label>
-      </div>
+      <div class="row">
+            <label for="tempat_lahir" class="col-sm-2 control-label">Nama Guru Wali Kelas</label>
             <div class="col-sm-10">
-             <select id="nama_guru_walas" name="nama_guru_walas" class="form-control" requireds>
-                <option value="nama_guru_walas">-Pilih Nama Guru-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+              <input type="text" class="form-control" id="nama_guru_walas" name="nama_guru_walas" placeholder="Nama Guru Wali Kelas">
             </div>
     </div>
-    </div>      
-
+    </div>     
+ 
     <div class="form-group">
       <div class="row">
           <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
@@ -50,8 +43,8 @@
             <div class="col-sm-10">
               <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="TempatLahir">
             </div>
-      </div>
-      </div>
+    </div>
+    </div>
 
       <div class="form-group">
       <div class="row">

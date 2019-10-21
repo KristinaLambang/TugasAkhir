@@ -10,9 +10,9 @@
 				<thead>
 					<tr> 
 						<th>No</th>
-						<th>Nama Guru</th>
-						<th>Mata Pelajaran</th>
+						<th>Nama Guru Kelas</th>
 						<th>Nama Kelas</th>
+						<th>Mata Pelajaran</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -21,9 +21,9 @@
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->guru->nama_guru_mapel }}</td>
-						<td>{{ $row->guru->guru_mapel }}</td>
 						<td>{{ $row->kelas->nama_kelas }}</td>
-							<a href="{{route('gurukelas.edit',$row->id_guru_kelas)}}" class="btn btn-success btn-xs"> Edit</a>
+						<td>{{ $row->guru->guru_mapel }}</td>
+						<td><a href="{{route('gurukelas.edit',$row->id_guru_kelas)}}" class="btn btn-success btn-xs"> Edit</a>
 						</td>
 					</tr>
 				@endforeach

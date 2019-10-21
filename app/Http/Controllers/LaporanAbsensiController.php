@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LaporanAbsensi;
 
 class LaporanAbsensiController extends Controller
 {
@@ -13,7 +14,8 @@ class LaporanAbsensiController extends Controller
      */
     public function index()
     {
-        return view('masterdata.laporan.absensi.index');
+        $absensi = LaporanAbsensi::all();
+        return view('masterdata.laporan.absensi.index', compact('absensi'));
     }
 
     /**
@@ -23,6 +25,7 @@ class LaporanAbsensiController extends Controller
      */
     public function create()
     {
+        $absensi = LaporanAbsensi::all();
         return view('masterdata.laporan.absensi.form');
     }
 
@@ -34,7 +37,15 @@ class LaporanAbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        LaporanAbsensi::create([
+                'nis' => $request->nis,
+                'nama_siswa' => $request->nama_siswa,
+                'alpa' => $request->alpa,
+                'ijin' => $request->ijin,
+                'sakit' => $request->sakit,
+            ]);
+
+        return redirect()->route('laporan.absensi.index');
     }
 
     /**
@@ -56,7 +67,8 @@ class LaporanAbsensiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $absensi = LaporanAbsensi::find($id);
+        return view('masterdata.laporan.absensi.edit',compact('id','absensi'));
     }
 
     /**

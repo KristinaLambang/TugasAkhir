@@ -12,7 +12,7 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nama Guru</label>
+        <label>Nama Guru Kelas</label>
       </div> 
             <div class="col-sm-10">
               <select name="id_guru" class="form-control" id="id_guru">
@@ -49,7 +49,28 @@
                 </select>
             </div>
     </div> 
-    </div>  
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Guru Mata Pelajaran</label>
+        </div>
+           <div class="col-sm-10">
+              <select name="id_mapel" class="form-control" id="id_mapel">
+                  @if ($isEdit == FALSE)
+                  @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                  @else
+                  @foreach($mapel as $row)
+                    <option {{ $row->id == $mapel->id_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                  @endif
+                </select>
+            </div>
+    </div>
+    </div>
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>

@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-harder">
-			<h3>Tambah Data Jadwal</h3>
+			<h3>Tambah Data Guru Kelas</h3>
 		</div> 
 
     <form role="form" method="POST" action="{{ route('gurukelas.update',$id) }}">
@@ -32,59 +32,44 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nama Kelas</label>
+        <label>Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>X</option>
-                <option>XI</option>
-                <option>XII</option>
-              </select>
+              <select name="id_kelas" class="form-control" id="id_kelas">
+                  @if ($isEdit == FALSE)
+                  @foreach($kelas as $row)
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                  @else
+                  @foreach($kelas as $row)
+                    <option {{ $row->id == $kelas->id_kelas ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                  @endif
+                </select>
             </div>
-    </div>
+    </div> 
     </div>
 
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
             <label>Guru Mata Pelajaran</label>
+        </div>
+           <div class="col-sm-10">
+              <select name="id_mapel" class="form-control" id="id_mapel">
+                  @if ($isEdit == FALSE)
+                  @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                  @else
+                  @foreach($mapel as $row)
+                    <option {{ $row->id == $mapel->id_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                  @endif
+                </select>
             </div>
-            <div class="col-sm-10">
-              <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
-                <option>-Pilih Mata Pelajaran-</option>
-                <option>Bahasa Inggris</option>
-                <option>Matematika</option>
-                <option>Fisika</option>
-                <option>Geografi</option>
-                <option>Sosiolagi</option>
-              </select>
     </div>
     </div>
-    </div>
-
-    <div class="form-group">
-      <label>Date and time range:</label>
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-clock-o"></i>
-          </div>
-          <input type="text" class="form-control pull-right" id="reservationtime" name="date">
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label>Date range button:</label>
-
-        <div class="input-group">
-          <button type="button" class="btn btn-default pull-right" id="daterange-btn" name="date">
-            <span>
-              <i class="fa fa-calendar"></i> Date range picker
-            </span>
-            <i class="fa fa-caret-down"></i>
-          </button>
-        </div>
-      </div>
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
@@ -93,7 +78,7 @@
     </form>
 	</div>
 </div>
-@section('javascript')
+<!-- @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#date').val('{{$jadwal->date}}');
@@ -102,6 +87,6 @@
     $('#nama_pengajar').val('{{$jadwal->nama_pengajar}}');
 	});
 </script>
-@endsection
+@endsection -->
 
 @endsection

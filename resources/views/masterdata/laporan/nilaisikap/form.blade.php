@@ -4,7 +4,7 @@
 	<div class="box box-primary">
 		<div class="box-harder"></div>
 
-    <form role="form" method="POST" action="{{ route('laporan.nilaisikap.store') }}">
+    <form role="form" method="POST" action="{{ route('nilaisikap.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
       <div class="box-body">
 

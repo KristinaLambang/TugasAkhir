@@ -8,21 +8,21 @@
         {{ csrf_field() }} {{ method_field('POST') }}
       <div class="box-body"> -->
 
-    <div class="form-group">
-    <div class="row">
+    <div class="box-body">
+      <div class="form-group">
+      <div class="row"> 
       <div class="col-sm-2">
-        <label>Tahun Ajaran</label>
-      </div>
-            <div class="col-sm-10">
-              <select id="tahun_ajaran" name="tahun_ajaran" class="form-control" requireds>
-                <option value="">-Pilih Tahun Ajaran-</option>
-                <option>2018/2019</option>
-                <option>2019/2020</option>
-              </select>
-            </div>
+        <label>NIS</label>
+      </div> 
+          <div class="col-sm-10">
+          <a href="" title="Pilih NIS" data-toggle="modal" data-target="#modalSiswa">
+           <input type="text" name="txtNis" placeholder="NIS" required="" class="form-control" id="NisSiswa">
+           <input type="hidden" name="txtIdSiswa" placeholder="" required="" class="form-control" id="IdSiswa">
+           </a>
+          </div>
     </div>
-    </div>      
-
+    </div>  
+ 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
@@ -51,3 +51,4 @@ $(document).ready(function() {
 });
 </script> -->
 @endsection
+

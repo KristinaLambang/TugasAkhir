@@ -11,22 +11,10 @@
       <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Guru Mata Pelajaran</label>
-      </div>
+      <div class="row">
+            <label for="tempat_lahir" class="col-sm-2 control-label">Nama Guru Mata Pelajaran</label>
             <div class="col-sm-10">
-              <select name="id_guru" class="form-control" id="id_guru">
-                  @if ($isEdit == FALSE)
-                  @foreach($guru as $row)
-                  <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
-                  @endforeach
-                  @else
-                  @foreach($guru as $row)
-                    <option {{ $row->id == $guru->id_guru_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_guru_mapel }}</option>
-                  @endforeach
-                  @endif
-                </select>
+              <input type="text" class="form-control" id="nama_guru_mapel" name="nama_guru_mapel" placeholder="Nama Guru Mata Pelajaran">
             </div>
     </div>
     </div>
@@ -88,7 +76,7 @@
                   </select>
         </div>
     </div>
-    </div>
+    </div> 
 
     <div class="form-group">
     <div class="row">

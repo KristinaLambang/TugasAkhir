@@ -7,18 +7,18 @@
     <form role="form" method="POST" action="{{ route('datanilai.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
 
-      <div class="box-body">
-        <div class="form-group">
-        <div class="row"> 
-        <div class="col-sm-2">
-          <label>NIS</label>
-        </div> 
-            <div class="col-sm-10">
-            <a href="" title="Pilih NIS" data-toggle="modal" data-target="#modalSiswa">
-             <input type="text" name="txtNis" placeholder="NIS" required="" class="form-control" id="NisSiswa">
-             <input type="hidden" name="txtIdSiswa" placeholder="" required="" class="form-control" id="IdSiswa">
-             </a>
-            </div>
+    <div class="box-body">
+      <div class="form-group">
+      <div class="row"> 
+      <div class="col-sm-2">
+        <label>NIS</label>
+      </div> 
+          <div class="col-sm-10">
+          <a href="" title="Pilih NIS" data-toggle="modal" data-target="#modalSiswa">
+           <input type="text" name="txtNis" placeholder="NIS" required="" class="form-control" id="NisSiswa">
+           <input type="hidden" name="txtIdSiswa" placeholder="" required="" class="form-control" id="IdSiswa">
+           </a>
+          </div>
     </div>
     </div>
 
