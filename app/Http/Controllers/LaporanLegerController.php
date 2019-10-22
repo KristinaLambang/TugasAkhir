@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\LaporanLeger;
 
 class LaporanLegerController extends Controller
 {
@@ -13,7 +14,8 @@ class LaporanLegerController extends Controller
      */ 
     public function index()
     {
-        return view('masterdata.laporan.leger.index');
+        $laporanleger = LaporanLeger::all();
+        return view('masterdata.laporan.leger.index', compact('laporanleger'));
     }
 
     /**

@@ -6,7 +6,7 @@
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
 				<thead>
-					<tr> 
+					<tr>  
 						<th rowspan="2"><p style="top: -50px">No</p></th>
 						<th rowspan="2"><p style="top: -50px">NIS</p></th>
 						<th rowspan="2"><p style="top: -50px">Nama Siswa</p></th>
@@ -20,30 +20,31 @@
 						<th rowspan="2"><p style="top: -50px">Ranking</p></th>
 					</tr>
 					<tr>
-						<td>MTK</td>
-						<td>BINDO</td>
-						<td>BING</td>
-						<td>AGAMA</td>
-						<td>PPKN</td>
-						<td>SJRH</td>
+						<td>Mtk</td>
+						<td>Bindo</td>
+						<td>Bing</td>
+						<td>Agm</td>
+						<td>Pkn</td>
+						<td>Sjrh</td>
 						<td>IPA</td>
 						<td>IPS</td>
-						<td>MTK</td>
-						<td>BINDO</td>
-						<td>BING</td>
-						<td>AGAMA</td>
-						<td>PPKN</td>
-						<td>SJRH</td>
+						<td>Mtk</td>
+						<td>Bindo</td>
+						<td>Bing</td>
+						<td>Agm</td>
+						<td>Pkn</td>
+						<td>Sjrh</td>
 						<td>IPA</td>
 						<td>IPS</td>
 					</tr>
 				</thead>
 				<tbody>
+				@foreach ($laporanleger as $row)
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $row->nis }}</td>
+						<td>{{ $row->nama_siswa }}</td>
+						<td>{{ $row->jenis_kelamin }}</td>
 						<td>80</td>
 						<td>90</td>
 						<td>70</td>
@@ -52,10 +53,14 @@
 						<td>76</td>
 						<td>80</td>
 						<td>70</td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>jumlah</td>
+						<td>jumlah_nilai</td>
+						<td>ranking</td>
+						<td class="box-footer">
+                			<a href="{{route('laporanleger.edit',$row->id_laporan_leger)}}" class="btn btn-success btn-xs"> Edit</a>
+        				</td>
 					</tr>
+				@endforeach
 				</tbody>
 			</table>
 			</div>
