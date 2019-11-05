@@ -8,22 +8,22 @@
 
     <form role="form" method="POST" action="{{ route('kelas.update',$id) }}">
         {{ csrf_field() }} {{ method_field('PUT') }}
-      <div class="box-body">
-    
+        <div class="box-body">
+      
 
-    <div class="form-group">
-      <div class="row">
-            <label for="nama_kelas" class="col-sm-2 control-label">Nama Kelas</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama Kelas">
-            </div>
-      </div>
-      </div>
+      <div class="form-group">
+        <div class="row">
+              <label for="nama_kelas" class="col-sm-2 control-label">Nama Kelas</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama Kelas">
+              </div>
+        </div>
+        </div>
 
-    <div class="box-footer">
-        <button type="submit" class="btn btn-info">Simpan</button>
-    </div>  
-    
+      <div class="box-footer">
+          <button type="submit" class="btn btn-info">Simpan</button>
+      </div>  
+      
     </form>
 	</div>
 </div>
