@@ -16,12 +16,11 @@
         <label>Nama Pengajar</label>
       </div> 
             <div class="col-sm-10">
-             <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
-                <option value="nama_pengajar">-Pilih Nama Pengajar-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+             <select name="nama_pengajar" class="form-control" id="id_guru_mapel">
+                  @foreach($guru as $row)
+                  <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>
@@ -32,18 +31,11 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>X IPA PA</option>
-                <option>X IPA PI</option>
-                <option>X IPS PA</option>
-                <option>XI IPA PA</option>
-                <option>XI IPA PI</option>
-                <option>XI IPS PA</option>
-                <option>XII IPA PA</option>
-                <option>XII IPA PI</option>
-                <option>XII IPS PI</option>
-              </select>
+             <select name="nama_kelas" class="form-control" id="id_kelas">
+                  @foreach($kelas as $row)
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>
@@ -51,49 +43,58 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
-            <label>Guru Mata Pelajaran</label>
+            <label>Nama Mata Pelajaran</label>
             </div>
             <div class="col-sm-10">
-              <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
-                <option>-Pilih Mata Pelajaran-</option>
-                <option>Bahasa Inggris</option>
-                <option>Matematika</option>
-                <option>Fisika</option>
-                <option>Geografi</option>
-                <option>Sosiolagi</option>
-              </select>
-    </div>
+             <select name="nama_mapel" class="form-control" id="id_mapel">
+                  @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                </select> 
+            </div>
     </div>
     </div>
 
     <div class="form-group">
-      <label>Date range:</label>
-
-      <div class="input-group">
-        <div class="input-group-addon">
-          <i class="fa fa-calendar"></i>
-        </div>
-        <input type="text" class="form-control pull-right" id="reservation">
-      </div>
-      <!-- /.input group -->
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Hari</label>
+            </div>
+            <div class="col-sm-10">
+              <select id="hari" name="hari" class="form-control" requireds>
+                <option>-Pilih Hari-</option>
+                <option>Senin</option>
+                <option>Selasa</option>
+                <option>Rabu</option>
+                <option>Kamis</option>
+                <option>Jumat</option>
+              </select>
+       </div>
     </div>
-    <!-- /.form group -->
+    </div>
 
-    <!-- Date and time range -->
-      <div class="form-group">
-        <label>Date and time range:</label>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Dari Jam</label>
+            </div>
+            <div class="col-sm-10">
+              <input id="dari_jam" value="dari_jam" name="dari_jam" type="time" required>
+       </div>
+    </div>
+    </div>
 
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-clock-o"></i>
-          </div>
-          <input type="text" class="form-control pull-right" id="reservationtime">
-        </div>
-        <!-- /.input group -->
-      </div>
-      <!-- /.form group -->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Sampai Jam</label>
+            </div>
+            <div class="col-sm-10">
+              <input id="sampai_jam" value="sampai_jam" name="sampai_jam" type="time" required>
+       </div>
+    </div>
+    </div>
       
-
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  

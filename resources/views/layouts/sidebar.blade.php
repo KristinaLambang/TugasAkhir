@@ -9,7 +9,7 @@
         </div>
         
         <div class="pull-left info" >
-          <p>{{ strtoupper(Auth::user()->name) }}</p>
+          <p><!-- {{ strtoupper(Auth::user()->name) }} -->{{ Auth::user()->name }} {{ Auth::user()->id }}</p>
           <a href="">{{ strtoupper(Auth::user()->level_user) }}</a>
           
         </div>
@@ -94,6 +94,12 @@
             <i class="fa fa-users"></i> <span>Dashboard</span>
           </a>
         </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'kelassaya') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('kelassaya.index') }}">
+            <i class="fa fa-list"></i> <span>Kelas Saya</span>
+          </a>
+        </li>        
 
         <li class="{{ (strpos(Route::currentRouteName(), 'datanilai') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('datanilai.index') }}">

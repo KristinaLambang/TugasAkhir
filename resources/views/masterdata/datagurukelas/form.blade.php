@@ -6,25 +6,19 @@
 
     <form role="form" method="POST" action="{{ route('gurukelas.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
-     
+      
      <div class="box-body">
 
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
         <label>Nama Guru Kelas</label>
-      </div> 
+      </div>
             <div class="col-sm-10">
               <select name="id_guru" class="form-control" id="id_guru">
-                  @if ($isEdit == FALSE)
                   @foreach($guru as $row)
                   <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach
-                  @else
-                  @foreach($guru as $row)
-                    <option {{ $row->id == $guru->id_guru_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_guru_mapel }}</option>
-                  @endforeach
-                  @endif
                 </select>
             </div>
     </div> 
@@ -37,15 +31,9 @@
       </div>
             <div class="col-sm-10">
               <select name="id_kelas" class="form-control" id="id_kelas">
-                  @if ($isEdit == FALSE)
                   @foreach($kelas as $row)
                   <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
-                  @else
-                  @foreach($kelas as $row)
-                    <option {{ $row->id == $kelas->id_kelas ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_kelas }}</option>
-                  @endforeach
-                  @endif
                 </select>
             </div>
     </div> 
@@ -58,15 +46,9 @@
         </div>
            <div class="col-sm-10">
               <select name="id_mapel" class="form-control" id="id_mapel">
-                  @if ($isEdit == FALSE)
-                  @foreach($mapel as $row)
+                 @foreach($mapel as $row)
                   <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
                   @endforeach
-                  @else
-                  @foreach($mapel as $row)
-                    <option {{ $row->id == $mapel->id_mapel ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_mapel }}</option>
-                  @endforeach
-                  @endif
                 </select>
             </div>
     </div>

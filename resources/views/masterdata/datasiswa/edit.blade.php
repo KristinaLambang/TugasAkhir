@@ -24,14 +24,19 @@
       <div class="col-sm-2">
         <label>Nama Kelas</label>
       </div>
-      <div class="col-sm-10">
-       <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-          <option value="">-Pilih Nama Kelas-</option>
-          <option>X</option>
-          <option>XI</option>
-          <option>XII</option>
-        </select>
-      </div>
+            <div class="col-sm-10">
+             <select name="nama_kelas" class="form-control" id="id_kelas">
+                 @if ($isEdit == FALSE)
+                  @foreach($kelas as $row)
+                  <option value="{{ $row->nama_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                  @else
+                  @foreach($kelas as $row)
+                    <option {{ $row->id == $kelas->nama_kelas ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                  @endif
+                </select> 
+            </div>
     </div>
     </div>
 

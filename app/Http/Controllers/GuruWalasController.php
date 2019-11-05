@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Walas;
+use App\Kelas;
+use App\GuruMapel;
+use App\Mapel;
 
 class GuruWalasController extends Controller
 {
@@ -15,7 +18,8 @@ class GuruWalasController extends Controller
     public function index() 
     {
         $guruwalas = Walas::all();
-        return view('masterdata.dataguruwalas.index', compact('guruwalas'));
+        $kelas = Kelas::all();
+        return view('masterdata.dataguruwalas.index', compact('guruwalas', 'kelas'));
     }
 
     /**
@@ -25,7 +29,9 @@ class GuruWalasController extends Controller
      */
     public function create()
     {
-        return view('masterdata.dataguruwalas.form');
+        $guruwalas = Walas::all();
+        $kelas = Kelas::all();
+        return view('masterdata.dataguruwalas.form', compact('guruwalas', 'kelas'));
     }
 
     /**
@@ -69,8 +75,11 @@ class GuruWalasController extends Controller
      */
     public function edit($id)
     {
+        $guru = GuruMapel::all();
+        $kelas = Kelas::all();
+        $mapel = Mapel::all();
         $guruwalas = Walas::find($id);
-        return view('masterdata.dataguruwalas.edit',compact('id','guruwalas'));
+        return view('masterdata.dataguruwalas.edit', compact('guru','kelas', 'mapel','id', 'guruwalas'));
     }
 
     /**
@@ -88,7 +97,7 @@ class GuruWalasController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
-                'wali_kelas' => $request->wali_kelas,
+                'wali_kelas' => $request->id_kelas,
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,

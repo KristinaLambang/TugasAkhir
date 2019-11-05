@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-harder">
-			<h3>Tambah Data Jadwal</h3>
+			<h3>Edit Data Jadwal</h3>
 		</div> 
 
     <form role="form" method="POST" action="{{ route('jadwal.update',$id) }}">
@@ -14,14 +14,13 @@
     <div class="row"> 
       <div class="col-sm-2">
         <label>Nama Pengajar</label>
-      </div>
+      </div> 
             <div class="col-sm-10">
-             <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
-                <option value="nama_pengajar">-Pilih Nama Pengajar-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+             <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
+                  @foreach($gurumapel as $row)
+                  <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>
@@ -33,10 +32,9 @@
       </div>
             <div class="col-sm-10">
               <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>X</option>
-                <option>XI</option>
-                <option>XII</option>
+                 @foreach($kelas as $row)
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
               </select>
             </div>
     </div>
@@ -49,39 +47,53 @@
             </div>
             <div class="col-sm-10">
               <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
-                <option>-Pilih Mata Pelajaran-</option>
-                <option>Bahasa Inggris</option>
-                <option>Matematika</option>
-                <option>Fisika</option>
-                <option>Geografi</option>
-                <option>Sosiolagi</option>
+                @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
               </select>
     </div>
     </div>
     </div>
 
     <div class="form-group">
-      <label>Date and time range:</label>
-        <div class="input-group">
-          <div class="input-group-addon">
-            <i class="fa fa-clock-o"></i>
-          </div>
-          <input type="text" class="form-control pull-right" id="reservationtime" name="date">
-        </div>
-      </div>
-      
-      <div class="form-group">
-        <label>Date range button:</label>
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Hari</label>
+            </div>
+            <div class="col-sm-10">
+              <select id="hari" name="hari" class="form-control" requireds>
+                <option>-Pilih Hari-</option>
+                <option>Senin</option>
+                <option>Selasa</option>
+                <option>Rabu</option>
+                <option>Kamis</option>
+                <option>Jumat</option>
+              </select>
+       </div>
+    </div>
+    </div>
 
-        <div class="input-group">
-          <button type="button" class="btn btn-default pull-right" id="daterange-btn" name="date">
-            <span>
-              <i class="fa fa-calendar"></i> Date range picker
-            </span>
-            <i class="fa fa-caret-down"></i>
-          </button>
-        </div>
-      </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Dari Jam</label>
+            </div>
+            <div class="col-sm-10">
+              <input id="dari_jam" value="dari_jam" name="dari_jam" type="time" required>
+       </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Sampai Jam</label>
+            </div>
+            <div class="col-sm-10">
+              <input id="sampai_jam" value="sampai_jam" name="sampai_jam" type="time" required>
+       </div>
+    </div>
+    </div>
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
@@ -93,10 +105,25 @@
 @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#date').val('{{$jadwal->date}}');
-    $('#mata_pelajaran').val('{{$jadwal->mata_pelajaran}}');
-    $('#nama_kelas').val('{{$jadwal->nama_kelas}}');
-    $('#nama_pengajar').val('{{$jadwal->nama_pengajar}}');
+    $("#dari_jam").val('{{$jadwal->dari_jam}}')
+
+    $("#sampai_jam").val('{{$jadwal->sampai_jam}}')
+
+		$("#hari option").filter(function() {
+      return $(this).text() == '{{$jadwal->hari}}';
+    }).prop('selected', true);
+
+    $("#mata_pelajaran option").filter(function() {
+      return $(this).text() == '{{$jadwal->mata_pelajaran}}';
+    }).prop('selected', true);
+    
+    $("#nama_kelas option").filter(function() {
+      return $(this).text() == '{{$jadwal->nama_kelas}}';
+    }).prop('selected', true);
+
+    $("#id_guru_mapel option").filter(function() {
+      return $(this).text() == '{{$jadwal->nama_pengajar}}';
+    }).prop('selected', true);
 	});
 </script>
 @endsection

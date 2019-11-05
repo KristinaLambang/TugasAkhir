@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataNilai;
 use App\Siswa;
+use Auth;
+use DB;
 use DataTables;
 
 class DataNilaiController extends Controller
@@ -27,7 +29,17 @@ class DataNilaiController extends Controller
      */
     public function create()
     {
+        
+        $login=Auth::user()->name;
         $siswa=Siswa::all();
+        // $siswa=DB::table('tb_siswa as siswa')
+        // ->join('tb_kelas','tb_kelas.nama_kelas','=','siswa.nama_kelas')
+        // ->join('tb_guru_kelas','tb_guru_kelas.id_kelas','=','tb_kelas.id_kelas')
+        // ->join('tb_guru_mapel','tb_guru_mapel.id_guru_mapel','=','tb_guru_kelas.id_guru_mapel')
+        // ->join('users','users.id','=','tb_guru_mapel.id_users_login')
+        // ->where('users.id',$login)
+        // ->select('siswa.*')
+        // ->get();
         return view('masterdata.datanilai.form',compact('siswa'));
     }
 

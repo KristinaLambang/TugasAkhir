@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mapel;
-use App\Kelas;
-use App\GuruMapel;
+use App\GuruKelas;
+use Auth;
 
-class MapelController extends Controller
+class KelasSayaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,10 @@ class MapelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $mapel = Mapel::all();
-        $kelas = Kelas::all();
-        $gurumapel = GuruMapel::all();
-        return view('masterdata.datamapel.index', compact('mapel', 'kelas', 'gurumapel'));
+    {
+        $kelassaya = GuruKelas::where('id_guru_mapel',Auth::user()->id)->get();
+        dd($kelassaya);
+        return view('masterdata.kelassaya.index', compact('kelassaya'));
     }
 
     /**
@@ -29,11 +27,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        $mapel = Mapel::all();
-        $kelas = Kelas::all();
-        $gurumapel = GuruMapel::all();
-        $isEdit = FALSE;
-        return view('masterdata.datamapel.form', compact('mapel', 'kelas', 'gurumapel', 'isEdit'));
+        return view('masterdata.kelassaya.form');
     }
 
     /**
@@ -44,10 +38,7 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        $gurumapel = GuruMapel::all();
-        $kelas = Kelas::all();
-        $isEdit = FALSE;
-        return view('masterdata.datamapel.form', compact('gurumapel','kelas','isEdit'));
+        //
     }
 
     /**
@@ -69,8 +60,7 @@ class MapelController extends Controller
      */
     public function edit($id)
     {
-        $mapel = Mapel::find($id);
-        return view('masterdata.datamapel.edit',compact('id','mapel'));
+        //
     }
 
     /**
@@ -82,15 +72,7 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mapel = Mapel::find($id);
-        $mapel->update([
-                'nama_mapel' => $request->nama_mapel,
-                'nama_kelas' => $request->nama_kelas,
-                'nama_pengajar' => $request->nama_pengajar,
-                'kkm' => $request->kkm,
-            ]);
-
-        return redirect()->route('mapel.index');
+        //
     }
 
     /**

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Dashboard</title>
@@ -580,18 +581,14 @@
     } ).draw();
 } );
 
-</script>
 
-<script type="text/javascript">
             $(document).on('click', '.pilihSiswa', function (e) {
                 document.getElementById("NamaSiswa").value = $(this).attr('data-nama');
                 document.getElementById("IdSiswa").value = $(this).attr('data-id');
                 document.getElementById("NisSiswa").value = $(this).attr('data-nis');
                 $('#modalSiswa').modal('hide');
-            });
-            
-
-            
+            });            
+         
         </script>
 
 </body>

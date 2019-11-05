@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GuruMapel;
+use App\User;
 
 class GuruMapelController extends Controller
 {
@@ -36,7 +37,13 @@ class GuruMapelController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::create([
+                'name'=>$request->nama_guru_mapel,
+                'email'=>$request->email,
+                'password'=>bcrypt($request->password),
+            ]);
         GuruMapel::create([
+                'user_id'=>$user->id,
                 'nama_guru_mapel' => $request->nama_guru_mapel,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,

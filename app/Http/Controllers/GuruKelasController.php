@@ -7,6 +7,7 @@ use App\Kelas;
 use App\GuruMapel;
 use App\GuruKelas;
 use App\Mapel;
+use App\Jadwal;
 
 class GuruKelasController extends Controller
 {
@@ -35,8 +36,7 @@ class GuruKelasController extends Controller
         // exit();
         $kelas = Kelas::all();
         $mapel = Mapel::all();
-        $isEdit = FALSE;
-        return view('masterdata.datagurukelas.form', compact('guru','kelas','mapel', 'isEdit'));    
+        return view('masterdata.datagurukelas.form', compact('guru','kelas','mapel'));    
     }
 
     /**
@@ -83,8 +83,8 @@ class GuruKelasController extends Controller
         // exit();
         $kelas = Kelas::all();
         $mapel = Mapel::all();
-        $isEdit = FALSE;
-        return view('masterdata.datagurukelas.form', compact('guru','kelas', 'mapel','isEdit'));
+        $jadwal = Jadwal::all();
+        return view('masterdata.datagurukelas.edit', compact('guru','kelas', 'mapel','id', 'jadwal'));
     }
 
     /**
@@ -96,13 +96,13 @@ class GuruKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dataguru = new GuruKelas();
-        $dataguru->id_guru_mapel = $request->get('id_guru');
-        $dataguru->id_kelas = $request->get('id_kelas');
-        $dataguru->id_mapel = $request->get('id_mapel');
-        // print_r($dataguru);
-        // exit();
-        $dataguru->save();
+        $dataguru = GuruKelas::find($id);
+
+        $dataguru->update([
+            'id_guru_mapel' => $request->id_guru_mapel,
+            'id_kelas' => $request->id_kelas,
+            'id_mapel' => $request->id_mapel,
+        ]);
         return redirect('/gurukelas');
     }
 

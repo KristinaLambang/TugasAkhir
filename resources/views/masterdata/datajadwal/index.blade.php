@@ -14,7 +14,9 @@
 						<th>Nama Pengajar</th>
 						<th>Nama Kelas</th>
 						<th>Nama Mata Pelajaran</th>
-						<th>Hari / Jam</th>
+						<th>Hari</th>
+						<th>Dari Jam</th>
+						<th>Sampai Jam</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -26,7 +28,9 @@
 						<td>{{ $row->nama_pengajar }}</td>
 						<td>{{ $row->nama_kelas }}</td>
 						<td>{{ $row->nama_mapel }}</td>
-						<td>{{ $row->hari_jam }}</td>
+						<td>{{ $row->hari }}</td>
+						<td>{{ $row->dari_jam }}</td>
+						<td>{{ $row->sampai_jam }}</td>
 						<td class="box-footer">
                 			<a href="{{route('jadwal.edit',$row->id_jadwal)}}" class="btn btn-success btn-xs"> Edit</a>
         				</td>

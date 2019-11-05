@@ -38,4 +38,5 @@ Route::resource('/laporanabsensi', 'LaporanAbsensiController');
 Route::resource('/tahunajaran', 'TahunAjaranController');
 Route::resource('/datanilai', 'DataNilaiController');
 Route::resource('/gurukelas', 'GuruKelasController');
+Route::resource('/kelassaya', 'KelasSayaController');
 	});

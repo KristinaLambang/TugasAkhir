@@ -11,36 +11,13 @@
       <div class="box-body">
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Kelas</label>
-      </div>
+      <div class="row">
+            <label for="nama_kelas" class="col-sm-2 control-label">Nama Kelas</label>
             <div class="col-sm-10">
-             <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>X</option>
-                <option>XI</option>
-                <option>XII</option>
-              </select>
+              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama Kelas">
             </div>
-    </div>
-    </div>      
-    
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Jurusan</label>
       </div>
-            <div class="col-sm-10">
-              <select id="jurusan" name="jurusan" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>IPA PA</option>
-                <option>IPA PI</option>
-                <option>IPS PA</option>
-              </select>
-            </div>
-    </div>
-    </div> 
+      </div>      
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>

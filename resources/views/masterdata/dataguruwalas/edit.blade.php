@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-harder">
-			<h3>Tambah Data Guru Wali Kelas</h3>
+			<h3>Edit Data Guru Wali Kelas</h3>
 		</div>
 
     <form role="form" method="POST" action="{{ route('guruwalas.update',$id) }}">
@@ -64,21 +64,14 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Wali Kelas</label>
+        <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="wali_kelas" name="wali_kelas" class="form-control" requireds>
-              <option>-Pilih Wali Kelas-</option>
-                <option>X IPA PA</option>
-                <option>X IPA PI</option>
-                <option>X IPS PA</option>
-                <option>XI IPA PA</option>
-                <option>XI IPA PI</option>
-                <option>XI IPS PA</option>
-                <option>XII IPA PA</option>
-                <option>XII IPA PI</option>
-                <option>XII IPS PA</option>
-              </select>
+             <select name="id_kelas" class="form-control" id="id_kelas">
+                  @foreach($kelas as $row)
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>

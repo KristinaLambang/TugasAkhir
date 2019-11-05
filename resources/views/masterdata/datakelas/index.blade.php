@@ -12,7 +12,6 @@
 						<th>No</th>
 						<th>Id Kelas</th>
 						<th>Nama Kelas</th>
-						<th>Jurusan</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -22,7 +21,6 @@
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_kelas }}</td>
 						<td>{{ $row->nama_kelas }}</td>
-						<td>{{ $row->jurusan }}</td>
 						<td class="box-footer">
                 			<a href="{{route('kelas.edit',$row->id_kelas)}}" class="btn btn-success btn-xs"> Edit</a>
         				</td>

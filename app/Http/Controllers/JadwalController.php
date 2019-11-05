@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\GuruMapel;
 use App\Jadwal;
+use App\Kelas;
+use App\Mapel;
 
 class JadwalController extends Controller
 { 
@@ -15,7 +18,10 @@ class JadwalController extends Controller
     public function index()
     {
         $jadwal = Jadwal::all();
-        return view('masterdata.datajadwal.index', compact('jadwal'));
+        $kelas = Kelas::all();
+        $gurumapel = GuruMapel::all();
+        $mapel = Mapel::all();
+        return view('masterdata.datajadwal.index', compact('jadwal', 'kelas', 'gurumapel', 'mapel'));
     }
 
     /**
@@ -25,7 +31,11 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        return view('masterdata.datajadwal.form');
+         $guru = GuruMapel::all();
+         $kelas = Kelas::all();
+         $mapel = Mapel::all();
+         $isEdit = FALSE;
+        return view('masterdata.datajadwal.form', compact('guru', 'kelas', 'mapel', 'isEdit'));
     }
 
     /**
@@ -36,12 +46,13 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        Jadwal::create([
+        Jadwal::create([ 
             'nama_pengajar' => $request->nama_pengajar,
             'nama_kelas' => $request->nama_kelas,
             'nama_mapel' => $request->nama_mapel,
             'hari' => $request->hari,
-            'jam' => $request->jam,
+            'dari_jam' => $request->dari_jam,
+            'sampai_jam' => $request->sampai_jam,
         ]);
 
         return redirect()->route('jadwal.index');
@@ -67,7 +78,11 @@ class JadwalController extends Controller
     public function edit($id)
     {
         $jadwal = Jadwal::find($id);
-        return view('masterdata.datajadwal.edit',compact('id','jadwal'));
+        $kelas = Kelas::all();
+        $gurumapel = GuruMapel::all();
+        $mapel = Mapel::all();
+        $isEdit = TRUE;
+        return view('masterdata.datajadwal.edit', compact('jadwal', 'kelas', 'gurumapel', 'mapel', 'isEdit', 'id'));
     }
 
     /**
@@ -81,14 +96,14 @@ class JadwalController extends Controller
     {
         $jadwal = Jadwal::find($id);
         $jadwal->update([
-            'nama_pengajar' => $request->nama_pengajar,
+            'nama_pengajar' => $request->nama_guru_mapel,
             'nama_kelas' => $request->nama_kelas,
-            'nama_mapel' => $request->nama_mapel,
+            'nama_mapel' => $request->mata_pelajaran,
             'hari' => $request->hari,
-            'jam' => $request->jam,
+            'dari_jam' => $request->dari_jam,
+            'sampai_jam' => $request->sampai_jam,
         ]);
-
-        return redirect()->route('jadwal.index');
+        return redirect('/jadwal');
     }
 
     /**

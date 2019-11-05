@@ -16,7 +16,8 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('masterdata.datasiswa.index', compact('siswa'));
+        $kelas = Kelas::all();
+        return view('masterdata.datasiswa.index', compact('siswa', 'kelas'));
     }
 
     /**
@@ -26,8 +27,10 @@ class SiswaController extends Controller
      */
     public function create()
     {
+        $siswa = Siswa::all();
         $kelas=Kelas::all();
-        return view('masterdata.datasiswa.form',compact('kelas'));
+        $isEdit = FALSE;
+        return view('masterdata.datasiswa.form',compact('siswa', 'kelas', 'isEdit'));
     }
 
     /**
@@ -74,8 +77,10 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $siswa = Siswa::find($id);
-        return view('masterdata.datasiswa.edit',compact('id','siswa'));
+        $siswa = Siswa::all();
+        $kelas=Kelas::all();
+        $isEdit = FALSE;
+        return view('masterdata.datasiswa.form',compact('siswa', 'kelas', 'isEdit'));
     }
 
     /**
