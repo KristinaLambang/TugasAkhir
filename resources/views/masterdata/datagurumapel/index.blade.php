@@ -31,7 +31,7 @@
 						<td>{{ $row->jenis_kelamin }}</td>
 						<td>{{ $row->tempat_lahir }}</td>
 						<td>{{ $row->tanggal_lahir }}</td>
-						<td>{{ $row->nama_mapel }}</td>
+						<td>{{ $row->id_mapel }}</td>
 						<td>{{ $row->agama }}</td>
 						<td>{{ $row->alamat }}</td>
 						<td>{{ $row->telepon }}</td>

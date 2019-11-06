@@ -15,7 +15,7 @@
 						<th>JK</th>
 						<th>Tempat Lahir</th>
 						<th>Tanggal Lahir</th>
-						<th>Wali Kelas</th>
+						<th>Nama Kelas</th>
 						<th>Agama</th>
 						<th>Alamat</th>
 						<th>Telepon</th>

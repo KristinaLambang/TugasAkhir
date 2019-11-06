@@ -63,7 +63,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
-            <label>Guru Mata Pelajaran</label>
+            <label>Mata Pelajaran</label>
         </div>
            <div class="col-sm-10">
               <select name="nama_mapel" class="form-control" id="id_mapel">

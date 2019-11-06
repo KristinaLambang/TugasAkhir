@@ -16,7 +16,7 @@
         <label>Nama Guru</label>
       </div> 
             <div class="col-sm-10">
-              <select name="id_guru_mapel" class="form-control" id="id_guru_mapel">
+              <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
                   @foreach($guru as $row)
                   <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach

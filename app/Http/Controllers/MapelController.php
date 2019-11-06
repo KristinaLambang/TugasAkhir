@@ -8,7 +8,7 @@ use App\Kelas;
 use App\GuruMapel;
 
 class MapelController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
@@ -32,8 +32,7 @@ class MapelController extends Controller
         $mapel = Mapel::all();
         $kelas = Kelas::all();
         $gurumapel = GuruMapel::all();
-        $isEdit = FALSE;
-        return view('masterdata.datamapel.form', compact('mapel', 'kelas', 'gurumapel', 'isEdit'));
+        return view('masterdata.datamapel.form', compact('mapel', 'kelas', 'gurumapel'));
     }
 
     /**
@@ -44,10 +43,14 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        $gurumapel = GuruMapel::all();
-        $kelas = Kelas::all();
-        $isEdit = FALSE;
-        return view('masterdata.datamapel.form', compact('gurumapel','kelas','isEdit'));
+        Mapel::create([
+            'nama_mapel' => $request->nama_mapel,
+            'nama_kelas' => $request->nama_kelas,
+            'nama_pengajar' => $request->nama_pengajar,
+            'kkm' => $request ->kkm,
+        ]);
+
+    return redirect()->route('mapel.index');
     }
 
     /**
@@ -70,7 +73,9 @@ class MapelController extends Controller
     public function edit($id)
     {
         $mapel = Mapel::find($id);
-        return view('masterdata.datamapel.edit',compact('id','mapel'));
+        $kelas = Kelas::all();
+        $gurumapel = GuruMapel::all();
+        return view('masterdata.datamapel.edit',compact('id','mapel', 'kelas', 'gurumapel'));
     }
 
     /**
@@ -85,8 +90,8 @@ class MapelController extends Controller
         $mapel = Mapel::find($id);
         $mapel->update([
                 'nama_mapel' => $request->nama_mapel,
-                'nama_kelas' => $request->nama_kelas,
-                'nama_pengajar' => $request->nama_pengajar,
+                'id_kelas' => $request->nama_kelas,
+                'id_guru_mapel' => $request->nama_guru_mapel,
                 'kkm' => $request->kkm,
             ]);
 

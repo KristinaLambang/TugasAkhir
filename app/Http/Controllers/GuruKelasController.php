@@ -50,7 +50,7 @@ class GuruKelasController extends Controller
         // echo 'gurukeals store';
         // exit();
         $dataguru = new GuruKelas();
-        $dataguru->id_guru_mapel = $request->get('id_guru');
+        $dataguru->id_guru_mapel = $request->get('id_guru_mapel');
         $dataguru->id_kelas = $request->get('id_kelas');
         $dataguru->id_mapel = $request->get('id_mapel');
         // print_r($dataguru);

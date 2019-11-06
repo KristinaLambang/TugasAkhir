@@ -583,9 +583,9 @@
 
 
             $(document).on('click', '.pilihSiswa', function (e) {
-                document.getElementById("NamaSiswa").value = $(this).attr('data-nama');
-                document.getElementById("IdSiswa").value = $(this).attr('data-id');
-                document.getElementById("NisSiswa").value = $(this).attr('data-nis');
+                document.getElementById("nama_siswa").value = $(this).attr('data-nama');
+                document.getElementById("id_siswa").value = $(this).attr('data-id');
+                document.getElementById("nis").value = $(this).attr('data-nis');
                 $('#modalSiswa').modal('hide');
             });            
          

@@ -67,15 +67,9 @@
       </div>
             <div class="col-sm-10">
              <select name="nama_kelas" class="form-control" id="id_kelas">
-                 @if ($isEdit == FALSE)
                   @foreach($kelas as $row)
                   <option value="{{ $row->nama_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
-                  @else
-                  @foreach($kelas as $row)
-                    <option {{ $row->id == $kelas->nama_kelas ? "selected" : "" }} value="{{ $row->id }}">{{ $row->nama_kelas }}</option>
-                  @endforeach
-                  @endif
                 </select> 
             </div>
     </div>

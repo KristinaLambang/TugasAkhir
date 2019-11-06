@@ -11,14 +11,12 @@
     <div class="box-body">
     
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Mata Pelajaran</label>
-      </div>
-            <div class="col-sm-10">
-             <input type="text" name="mata_pelajaran" placeholder="Nama Mata Pelajaran" required="" class="form-control" id="mata_pelajaran">
-            </div>
-    </div>
+        <div class="row">
+          <label for="nama_mapel" class="col-sm-2 control-label">Nama Mata Pelajaran</label>
+        <div class="col-sm-10">
+          <input type="text" id="nama_mapel" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran">
+        </div>
+        </div>
     </div>
 
     <div class="form-group">
@@ -29,7 +27,7 @@
             <div class="col-sm-10">
              <select name="nama_kelas" class="form-control" id="id_kelas">
                   @foreach($kelas as $row)
-                  <option value="{{ $row->nama_kelas }}">{{ $row->nama_kelas }}</option>
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
                 </select> 
             </div>
@@ -42,9 +40,9 @@
         <label>Nama Pengajar</label>
       </div>
            <div class="col-sm-10">
-             <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
+             <select name="nama_pengajar" class="form-control" id="id_guru_mapel">
                   @foreach($gurumapel as $row)
-                  <option value="{{ $row->nama_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
+                  <option value="{{ $row->nama_pengajar }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach
                 </select> 
             </div>

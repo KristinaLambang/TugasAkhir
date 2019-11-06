@@ -12,22 +12,13 @@
     
 
     <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Mata Pelajaran</label>
-      </div>
-            <div class="col-sm-10">
-              <select id="nama_mapel" name="nama_mapel" class="form-control" requireds>
-                <option>-Pilih Mata Pelajaran-</option>
-                <option>Bahasa Inggris</option>
-                <option>Matematika</option>
-                <option>Fisika</option>
-                <option>Geografi</option>
-                <option>Sosiolagi</option>
-              </select>
-            </div>
-    </div>
-    </div>      
+        <div class="row">
+          <label for="nam_mapel" class="col-sm-2 control-label">Nama Mata Pelajaran</label>
+        <div class="col-sm-10">
+          <input type="text" id="nama_mapel" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran">
+        </div>
+        </div>
+    </div>    
 
     <div class="form-group">
     <div class="row">
@@ -35,12 +26,11 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
-                <option value="">-Pilih Nama Kelas-</option>
-                <option>IPA PA</option>
-                <option>IPA PI</option>
-                <option>IPS PA</option>
-              </select>
+             <select name="nama_kelas" class="form-control" id="id_kelas">
+                  @foreach($kelas as $row)
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>
@@ -50,13 +40,12 @@
       <div class="col-sm-2">
         <label>Nama Pengajar</label>
       </div>
-            <div class="col-sm-10">
-              <select id="nama_pengajar" name="nama_pengajar" class="form-control" requireds>
-                <option value="">-Pilih Nama Pengajar-</option>
-                <option>Dina Kirana, S.Pd</option>
-                <option>Dicky Pratama, S.Pd</option>
-                <option>Puji Astuti, S.Pd</option>
-              </select>
+           <div class="col-sm-10">
+             <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
+                  @foreach($gurumapel as $row)
+                  <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
+                  @endforeach
+                </select> 
             </div>
     </div>
     </div>
@@ -82,8 +71,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#kkm').val('{{$mapel->kkm}}');
-    $('#nama_pengajar').val('{{$mapel->nama_pengajar}}'); 
-    $('#nama_kelas').val('{{$mapel->nama_kelas}}');
+    $('#id_guru_mapel').val('{{$mapel->id_guru_mapel}}'); 
+    $('#id_kelas').val('{{$mapel->id_guru_mapel}}');
     $('#nama_mapel').val('{{$mapel->nama_mapel}}');		
 	});
 </script>

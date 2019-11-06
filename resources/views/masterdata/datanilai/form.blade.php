@@ -15,8 +15,8 @@
       </div> 
           <div class="col-sm-10">
           <a href="" title="Pilih NIS" data-toggle="modal" data-target="#modalSiswa">
-           <input type="text" name="txtNis" placeholder="NIS" required="" class="form-control" id="NisSiswa">
-           <input type="hidden" name="txtIdSiswa" placeholder="" required="" class="form-control" id="IdSiswa">
+           <input type="text" name="nis" placeholder="NIS" required="" class="form-control" id="nis">
+           <input type="hidden" name="id_siswa" placeholder="" required="" class="form-control" id="id_siswa">
            </a>
           </div>
     </div>
@@ -28,7 +28,33 @@
         <label>Nama Siswa</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtNamaSiswa" placeholder="Nama Siswa" required="" class="form-control" id="NamaSiswa">
+             <input type="text" name="txtNamaSiswa" placeholder="Nama Siswa" required="" class="form-control" id="nama_siswa">
+            </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Mata Pelajaran</label>
+        </div>
+           <div class="col-sm-10">
+              <select name="nama_mapel" class="form-control" id="id_mapel">
+                 @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                </select>
+            </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Tahun Ajaran</label>
+      </div>
+            <div class="col-sm-10">
+            <input name="tahun_ajaran" placeholder="" required="" class="form-control" id="tahun_ajaran">             
             </div>
     </div>
     </div>
@@ -39,7 +65,7 @@
         <label>Tugas 1</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtTugas1" placeholder="Tugas 1" required="" class="form-control">
+             <input type="text" name="tugas_1" placeholder="Tugas 1" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -50,7 +76,7 @@
         <label>Tugas 2</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtTugas2" placeholder="Tugas 2" required="" class="form-control">
+             <input type="text" name="tugas_2" placeholder="Tugas 2" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -61,7 +87,7 @@
         <label>UH 1</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtUh1" placeholder="UH 1" required="" class="form-control">
+             <input type="text" name="ulangan_harian_1" placeholder="UH 1" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -71,7 +97,7 @@
         <label>UH 2</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtUh2" placeholder="UH 2" required="" class="form-control">
+             <input type="text" name="ulangan_harian_2" placeholder="UH 2" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -82,7 +108,7 @@
         <label>UTS</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtUTS" placeholder="UTS" required="" class="form-control">
+             <input type="text" name="uts" placeholder="UTS" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -93,7 +119,7 @@
         <label>UAS</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtUAS" placeholder="UAS" required="" class="form-control">
+             <input type="text" name="uas" placeholder="UAS" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -104,7 +130,7 @@
         <label>Nilai Rapot</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtNilaiRapot" placeholder="Nilai Rapot" required="" class="form-control">
+             <input type="text" name="nilai_raport" placeholder="Nilai Rapot" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -115,7 +141,7 @@
         <label>Nilai Keterampilan</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtNilaiKeterampilan" placeholder="Nilai Keterampilan" required="" class="form-control">
+             <input type="text" name="nilai_keterampilan" placeholder="Nilai Keterampilan" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -126,7 +152,7 @@
         <label>Deskripsi Pengetahuan</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtNilaiPengetahuan" placeholder="Nilai Pengetahuan" required="" class="form-control">
+             <input type="text" name="deskripsi_pengetahuan" placeholder="Nilai Pengetahuan" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -137,7 +163,7 @@
         <label>Deskripsi Keterampilan</label>
       </div>
             <div class="col-sm-10">
-             <input type="text" name="txtNilaiKeterampilan" placeholder="Nilai Keterampilan" required="" class="form-control">
+             <input type="text" name="deskripsi_keterampilan" placeholder="Nilai Keterampilan" required="" class="form-control">
             </div>
     </div>
     </div>
@@ -151,11 +177,20 @@
 	</div>
   </div>
 </div>
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function() {
-  console.log('yaha');
+  var d = new Date();
+  var bulanSekarang = d.getMonth();
+  var tahunSekarang = d.getFullYear();
+  if (bulanSekarang > 6) {
+    var tahunAjaran = tahunSekarang + '/' + (tahunSekarang + 1)
+    $('#tahun_ajaran').val(tahunAjaran)
+  } else {
+    var tahunAjaran = tahunSekarang - 1 + '/' + tahunSekarang
+    $('#tahun_ajaran').val(tahunAjaran)
+  }
 });
-</script> -->
+</script>
 @endsection
  
 <div class="modal fade" id="modalSiswa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -54,13 +54,7 @@
           <a href="{{ route('siswa.index') }}">
             <i class="fa fa-user"></i> <span>Data Siswa</span>
           </a>
-        </li>
-
-        <li class="{{ (strpos(Route::currentRouteName(), 'siswa') === 0 ) ? 'active' : '' }}">
-          <a href="{{ route('siswa.index') }}">
-            <i class="fa fa-user"></i> <span>Nilai Per Mata Pelajaran</span>
-          </a>
-        </li>        
+        </li>      
         
         @endif
 
