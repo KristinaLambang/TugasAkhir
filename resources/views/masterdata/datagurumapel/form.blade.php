@@ -4,8 +4,8 @@
 	<div class="box box-primary">
 		<div class="box-harder">
 			<h3>Tambah Data Guru Mata Pelajaran</h3>
-		</div> 
-
+		</div>  
+ 
 		<form role="form" method="POST" action="{{ route('gurumapel.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
     <div class="box-body">
@@ -61,20 +61,17 @@
     </div>
 
     <div class="form-group">
-          <div class="row">
-            <div class="col-sm-2">
-                <label>Guru Mata Pelajaran</label>
-                </div>
-                <div class="col-sm-10">
-                  <select id="guru_mapel" name="guru_mapel" class="form-control" requireds>
-                    <option>-Pilih Mata Pelajaran-</option>
-                    <option>Bahasa Inggris</option>
-                    <option>Matematika</option>
-                    <option>Fisika</option>
-                    <option>Geografi</option>
-                    <option>Sosiolagi</option>
-                  </select>
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Guru Mata Pelajaran</label>
         </div>
+           <div class="col-sm-10">
+              <select name="nama_mapel" class="form-control" id="id_mapel">
+                 @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                </select>
+            </div>
     </div>
     </div>
 

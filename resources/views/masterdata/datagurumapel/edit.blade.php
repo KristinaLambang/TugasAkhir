@@ -61,20 +61,17 @@
     </div>
 
     <div class="form-group">
-          <div class="row">
-            <div class="col-sm-2">
-                <label>Guru Mata Pelajaran</label>
-                </div>
-                <div class="col-sm-10">
-                  <select id="guru_mapel" name="guru_mapel" class="form-control" requireds>
-                    <option>-Pilih Mata Pelajaran-</option>
-                    <option>Bahasa Inggris</option>
-                    <option>Matematika</option>
-                    <option>Fisika</option>
-                    <option>Geografi</option>
-                    <option>Sosiolagi</option>
-                  </select>
+      <div class="row">
+        <div class="col-sm-2">
+            <label>Guru Mata Pelajaran</label>
         </div>
+           <div class="col-sm-10">
+              <select name="nama_mapel" class="form-control" id="id_mapel">
+                 @foreach($mapel as $row)
+                  <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
+                  @endforeach
+                </select>
+            </div>
     </div>
     </div> 
 
@@ -146,7 +143,7 @@
 		$('#telepon').val('{{$gurumapel->telepon}}');
     $('#alamat').val('{{$gurumapel->alamat}}');
     $('#agama').val('{{$gurumapel->agama}}');
-    $('#gurumapel').val('{{$gurumapel->gurumapel}}');
+    $('#id_mapel').val('{{$gurumapel->nama_mapel}}');
     $('#tanggal_lahir').val('{{$gurumapel->tanggal_lahir}}');
     $('#tempat_lahir').val('{{$gurumapel->tempat_lahir}}');
     $('#jenis_kelamin').val('{{$gurumapel->jenis_kelamin}}');

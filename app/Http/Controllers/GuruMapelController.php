@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GuruMapel;
+use App\Mapel;
 use App\User;
 
 class GuruMapelController extends Controller
@@ -16,7 +17,8 @@ class GuruMapelController extends Controller
     public function index()
     {
         $gurumapel = GuruMapel::all();
-        return view('masterdata.datagurumapel.index', compact('gurumapel'));
+        $mapel = Mapel::all();
+        return view('masterdata.datagurumapel.index', compact('gurumapel', 'mapel'));
     }
 
     /**
@@ -26,7 +28,9 @@ class GuruMapelController extends Controller
      */
     public function create()
     {
-        return view('masterdata.datagurumapel.form');
+        $gurumapel = GuruMapel::all();
+        $mapel = Mapel::all();
+        return view('masterdata.datagurumapel.form', compact('gurumapel', 'mapel'));
     }
 
     /**
@@ -48,7 +52,7 @@ class GuruMapelController extends Controller
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,
-                'guru_mapel' => $request->guru_mapel,
+                'id_mapel' => $request->nama_mapel,
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
@@ -77,7 +81,8 @@ class GuruMapelController extends Controller
     public function edit($id)
     {
         $gurumapel = GuruMapel::find($id);
-        return view('masterdata.datagurumapel.edit',compact('id','gurumapel'));
+        $mapel = Mapel::all();
+        return view('masterdata.datagurumapel.edit',compact('id', 'gurumapel', 'mapel'));
     }
 
     /**
@@ -95,7 +100,7 @@ class GuruMapelController extends Controller
             'jenis_kelamin' => $request->jenis_kelamin,
             'tempat_lahir' => $request->tempat_lahir,
             'tanggal_lahir' => $request->tanggal_lahir,
-            'guru_mapel' => $request->guru_mapel,
+            'id_mapel' => $request->nama_mapel,
             'agama' => $request->agama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
