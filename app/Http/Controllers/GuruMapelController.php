@@ -56,6 +56,7 @@ class GuruMapelController extends Controller
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
+                'level_user' => $request->level_user,
             ]);
 
         return redirect()->route('gurumapel.index');
@@ -104,6 +105,7 @@ class GuruMapelController extends Controller
             'agama' => $request->agama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
+            'level_user' => $request->level_user,
         ]);
 
         return redirect()->route('gurumapel.index');

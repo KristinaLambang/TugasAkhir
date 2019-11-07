@@ -63,7 +63,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
-            <label>Guru Mata Pelajaran</label>
+            <label>Mata Pelajaran</label>
         </div>
            <div class="col-sm-10">
               <select name="nama_mapel" class="form-control" id="id_mapel">
@@ -157,13 +157,15 @@
 @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
+    $('#password').val('{{$gurumapel->password}}');
+    $('#email').val('{{$gurumapel->email}}');
 		$('#telepon').val('{{$gurumapel->telepon}}');
     $('#alamat').val('{{$gurumapel->alamat}}');
     $('#agama').val('{{$gurumapel->agama}}');
-    $('#id_mapel').val('{{$gurumapel->nama_mapel}}');
+    $('#id_mapel').val('{{$gurumapel->id_mapel}}');
     $('#tanggal_lahir').val('{{$gurumapel->tanggal_lahir}}');
     $('#tempat_lahir').val('{{$gurumapel->tempat_lahir}}');
-    $('#jenis_kelamin').val('{{$gurumapel->jenis_kelamin}}');
+    $("input[name='jenis_kelamin'][value='{{$gurumapel->jenis_kelamin}}']").prop("checked",true);
     $('#nama_guru_mapel').val('{{$gurumapel->nama_guru_mapel}}');		
 	});
 </script>
