@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-harder">
-			<h3>Tambah Data Guru Mata Pelajaran</h3>
+			<h3>Edit Data Siswa</h3>
 		</div> 
 
     <form role="form" method="POST" action="{{ route('siswa.update',$id) }}">
@@ -156,8 +156,9 @@
     $('#agama').val('{{$siswa->agama}}');
     $('#tanggal_lahir').val('{{$siswa->tanggal_lahir}}');
     $('#tempat_lahir').val('{{$siswa->tempat_lahir}}');
-    $('#jenis_kelamin').val('{{$siswa->jenis_kelamin}}');
+    $("input[name='jenis_kelamin'][value='{{$siswa->jenis_kelamin}}']").prop("checked",true);
     $('#nama_siswa').val('{{$siswa->nama_siswa}}');
+    $('#id_kelas').val('{{$siswa->nama_kelas  }}');
     $('#nis').val('{{$siswa->nis}}');
   });
 </script>
