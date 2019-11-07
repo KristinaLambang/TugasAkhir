@@ -45,7 +45,7 @@ class MapelController extends Controller
     {
         Mapel::create([
             'nama_mapel' => $request->nama_mapel,
-            'nama_kelas' => $request->nama_kelas,
+            'id_kelas' => $request->nama_kelas,
             'nama_pengajar' => $request->nama_pengajar,
             'kkm' => $request ->kkm,
         ]);

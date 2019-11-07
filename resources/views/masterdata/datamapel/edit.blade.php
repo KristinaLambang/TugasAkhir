@@ -72,7 +72,7 @@
 	$(document).ready(function() {
 		$('#kkm').val('{{$mapel->kkm}}');
     $('#id_guru_mapel').val('{{$mapel->id_guru_mapel}}'); 
-    $('#id_kelas').val('{{$mapel->id_guru_mapel}}');
+    $('#id_kelas').val('{{$mapel->id_kelas}}');
     $('#nama_mapel').val('{{$mapel->nama_mapel}}');		
 	});
 </script>
