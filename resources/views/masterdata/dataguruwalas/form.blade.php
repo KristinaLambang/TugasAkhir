@@ -66,9 +66,9 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-             <select name="nama_kelas" class="form-control" id="id_kelas">
+             <select name="id_kelas" class="form-control" id="id_kelas">
                   @foreach($kelas as $row)
-                  <option value="{{ $row->nama_kelas }}">{{ $row->nama_kelas }}</option>
+                  <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
                 </select> 
             </div>

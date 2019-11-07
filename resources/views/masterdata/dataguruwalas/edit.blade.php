@@ -22,15 +22,15 @@
  
     <div class="form-group">
       <div class="row">
-          <label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
+          <label for="" class="col-sm-2 control-label">Jenis Kelamin</label>
           <div class="radio">
           <div class="col-sm-10">
               <label>
-                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="jenis_kelamin" checked>
+                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked>
                 Laki-Laki
               </label>
               <label>
-                <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="jenis_kelamin">
+                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
                 Perempuan
               </label>
           </div>
@@ -67,7 +67,7 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-             <select name="id_kelas" class="form-control" id="id_kelas">
+             <select name="nama_kelas" class="form-control" id="id_kelas">
                   @foreach($kelas as $row)
                   <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
@@ -125,10 +125,10 @@
 		$('#telepon').val('{{$guruwalas->telepon}}');
 		$('#alamat').val('{{$guruwalas->alamat}}');
 		$('#agama').val('{{$guruwalas->agama}}');
-		$('#wali_kelas').val('{{$guruwalas->wali_kelas}}');
+		$('#id_kelas').val('{{$guruwalas->id_kelas}}');
 		$('#tanggal_lahir').val('{{$guruwalas->tanggal_lahir}}');
 		$('#tempat_lahir').val('{{$guruwalas->tempat_lahir}}');
-		$('#jenis_kelamin').val('{{$guruwalas->jenis_kelamin}}');
+		$("input[name='jenis_kelamin'][value='{{$guruwalas->jenis_kelamin}}']").prop("checked",true);
 		$('#nama_guru_walas').val('{{$guruwalas->nama_guru_walas}}');
 	});
 </script>

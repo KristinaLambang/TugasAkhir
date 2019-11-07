@@ -158,7 +158,7 @@
     $('#tempat_lahir').val('{{$siswa->tempat_lahir}}');
     $("input[name='jenis_kelamin'][value='{{$siswa->jenis_kelamin}}']").prop("checked",true);
     $('#nama_siswa').val('{{$siswa->nama_siswa}}');
-    $('#id_kelas').val('{{$siswa->nama_kelas  }}');
+    $('#id_kelas').val('{{$siswa->nama_kelas}}');
     $('#nis').val('{{$siswa->nis}}');
   });
 </script>

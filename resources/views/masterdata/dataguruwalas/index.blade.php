@@ -30,7 +30,7 @@
 						<td>{{ $row->jenis_kelamin }}</td>
 						<td>{{ $row->tempat_lahir }}</td>
 						<td>{{ $row->tanggal_lahir }}</td>
-						<td>{{ $row->wali_kelas }}</td>
+						<td>{{ $row->id_kelas }}</td>
 						<td>{{ $row->agama }}</td>
 						<td>{{ $row->telepon }}</td>
 						<td class="box-footer">
