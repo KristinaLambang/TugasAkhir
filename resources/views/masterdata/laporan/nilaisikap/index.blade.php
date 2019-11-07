@@ -2,9 +2,6 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-header">
-			<p><a href="{{ route('nilaisikap.create') }}" class="btn btn-primary">Tambah Data Nilai Sikap</a></p>
-		</div>
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
 				<thead>
