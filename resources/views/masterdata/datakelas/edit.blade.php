@@ -30,7 +30,6 @@
 @section('javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#jurusan').val('{{$kelas->jurusan}}');		
 		$('#nama_kelas').val('{{$kelas->nama_kelas}}');		
 	});
 </script>

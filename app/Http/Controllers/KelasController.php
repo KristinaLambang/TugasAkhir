@@ -38,7 +38,6 @@ class KelasController extends Controller
     { 
         Kelas::create([
                 'nama_kelas' => $request->nama_kelas,
-                'jurusan' => $request->jurusan,
             ]);
 
         return redirect()->route('kelas.index');
@@ -79,7 +78,6 @@ class KelasController extends Controller
         $kelas = Kelas::find($id);
         $kelas->update([
                 'nama_kelas' => $request->nama_kelas,
-                'jurusan' => $request->jurusan,
             ]);
 
         return redirect()->route('kelas.index');
