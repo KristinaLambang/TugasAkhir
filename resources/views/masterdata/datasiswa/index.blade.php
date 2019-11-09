@@ -31,7 +31,7 @@
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_siswa }}</td>
 						<td>{{ $row->nis }}</td>
-						<td>{{ $row->nama_kelas }}</td>
+						<td>{{ $row->kelas->nama_kelas }}</td>
 						<td>{{ $row->nama_siswa }}</td>
 						<td>{{ $row->jenis_kelamin }}</td>
 						<td>{{ $row->tempat_lahir }}</td>

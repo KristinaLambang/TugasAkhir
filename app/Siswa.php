@@ -14,4 +14,9 @@ class Siswa extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function kelas()
+    {
+        return $this->belongsTo('App\Kelas','nama_kelas','id_kelas');
+    }
 }
