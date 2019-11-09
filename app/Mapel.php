@@ -8,19 +8,16 @@ class Mapel extends Model
 {
     protected $table = 'tb_mapel';
     protected $primaryKey = 'id_mapel';
-    protected $guarded = ['id_mapel','nama_kelas', 'nama_pengajar','created_at','updated_at'];
+    protected $guarded = ['created_at','updated_at'];
 
-    public function mapel()
-  {
-    return $this->belongsTo('App\Mapel','id_mapel');
-  }
   public function kelas()
+    {
+        return $this->belongsTo('App\Kelas','id_kelas','id_kelas');
+    }
+  
+  public function gurumapel()
   {
-    return $this->belongsTo('App\Kelas','nama_kelas');
-  }
-  public function gurukelas()
-  {
-    return $this->belongsTo('App\GuruKelas','nama_pengajar');
+    return $this->belongsTo('App\GuruMapel', 'id_guru_mapel', 'id_guru_mapel');
   }
 
 }

@@ -24,8 +24,8 @@
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_mapel }}</td>
 						<td>{{ $row->nama_mapel }}</td>
-						<td>{{ $row->id_kelas }}</td>
-						<td>{{ $row->id_guru_mapel }}</td>
+						<td>{{ $row->kelas->nama_kelas }}</td>
+						<td>{{ $row->gurumapel->nama_guru_mapel }}</td>
 						<td>{{ $row->kkm }}</td>
 						<td class="box-footer">
                 			<a href="{{route('mapel.edit',$row->id_mapel)}}" class="btn btn-success btn-xs"> Edit </a>
