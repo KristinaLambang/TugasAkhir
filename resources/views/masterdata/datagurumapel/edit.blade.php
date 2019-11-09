@@ -130,23 +130,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Level User</label>
-      </div>
-            <div class="col-sm-10">
-              <select id="level_user" name="level_user" class="form-control" requireds>
-                <option>-Pilih Level User-</option>
-                <option value="admin">Admin</option>
-                <option value="guru">Guru Mata Pelajaran</option>
-                <option value="walas">Wali Kelas</option>
-                <option value="siswa">Siswa</option>
-              </select>
-            </div>
-    </div>
-    </div>
-
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
