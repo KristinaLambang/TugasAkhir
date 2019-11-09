@@ -45,9 +45,10 @@ class GuruMapelController extends Controller
                 'name'=>$request->nama_guru_mapel,
                 'email'=>$request->email,
                 'password'=>bcrypt($request->password),
+                'level_user'=> 'guru'
             ]);
         GuruMapel::create([
-                'user_id'=>$user->id,
+                'id_guru_mapel'=>$user->id,
                 'nama_guru_mapel' => $request->nama_guru_mapel,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,
@@ -56,7 +57,8 @@ class GuruMapelController extends Controller
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
-                'level_user' => $request->level_user,
+                'email' => $request->email,
+                'password' => $request->password,
             ]);
 
         return redirect()->route('gurumapel.index');
@@ -81,7 +83,7 @@ class GuruMapelController extends Controller
      */
     public function edit($id)
     {
-        $gurumapel = GuruMapel::find($id);
+        $gurumapel = GuruMapel::where('id_guru_mapel', $id)->first();
         $mapel = Mapel::all();
         return view('masterdata.datagurumapel.edit',compact('id', 'gurumapel', 'mapel'));
     }
@@ -95,7 +97,7 @@ class GuruMapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $gurumapel = GuruMapel::find($id);
+        $gurumapel = GuruMapel::where('id_guru_mapel', $id);
         $gurumapel->update([
             'nama_guru_mapel' => $request->nama_guru_mapel,
             'jenis_kelamin' => $request->jenis_kelamin,
@@ -105,7 +107,16 @@ class GuruMapelController extends Controller
             'agama' => $request->agama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
-            'level_user' => $request->level_user,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        $user = User::find($id);
+        $user->update([
+            'name'=>$request->nama_guru_mapel,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'level_user'=> 'guru'
         ]);
 
         return redirect()->route('gurumapel.index');
