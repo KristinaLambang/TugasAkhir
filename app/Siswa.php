@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     protected $table = 'tb_siswa';
-    protected $guarded = [];
-
+    protected $guarded = ['created_at', 'updated_at'];
 
     public function data()
     {

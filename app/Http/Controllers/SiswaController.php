@@ -61,6 +61,8 @@ class SiswaController extends Controller
             'nama_ayah' => $request->nama_ayah,
             'pekerjaan' => $request->pekerjaan,
             'telepon' => $request->telepon,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
         return redirect()->route('siswa.index');
@@ -85,7 +87,7 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $siswa = Siswa::find($id);
+        $siswa = Siswa::where('id_siswa', $id)->first();
         $kelas=Kelas::all();
         return view('masterdata.datasiswa.edit',compact('siswa', 'kelas', 'id'));
     }
@@ -99,7 +101,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $siswa = Siswa::find($id);
+        $siswa = Siswa::where('id_siswa', $id);
         $siswa->update([
             'nis' => $request->nis,
             'nama_kelas' => $request->nama_kelas,
@@ -114,6 +116,14 @@ class SiswaController extends Controller
             'telepon' => $request->telepon,
             'email' => $request->email,
             'password' => $request->password,
+        ]);
+
+        $user = User::find($id);
+        $user->update([
+            'name'=> $request->nama_siswa,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'level_user'=> 'siswa'
         ]);
 
         return redirect()->route('siswa.index');

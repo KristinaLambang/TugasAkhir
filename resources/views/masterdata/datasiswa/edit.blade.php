@@ -167,6 +167,8 @@
 @section('javascript')
 <script type="text/javascript">
   $(document).ready(function() {
+    $('#password').val('{{$siswa->password}}');
+    $('#email').val('{{$siswa->email}}');
     $('#telepon').val('{{$siswa->telepon}}');
     $('#pekerjaan').val('{{$siswa->pekerjaan}}');
     $('#nama_ayah').val('{{$siswa->nama_ayah}}');
