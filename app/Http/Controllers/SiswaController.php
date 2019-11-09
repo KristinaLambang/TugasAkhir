@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Siswa;
 use App\Kelas;
+use App\User;
 
 class SiswaController extends Controller
 {
@@ -39,20 +40,28 @@ class SiswaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $user = User::create([
+            'name'=> $request->nama_siswa,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'level_user'=> 'siswa'
+        ]);
+
         Siswa::create([
-                'nis' => $request->nis,
-                'nama_kelas' => $request->nama_kelas,
-                'nama_siswa' => $request->nama_siswa,
-                'jenis_kelamin' => $request->jenis_kelamin,
-                'tempat_lahir' => $request->tempat_lahir,
-                'tanggal_lahir' => $request->tanggal_lahir,
-                'agama' => $request->agama,
-                'alamat' => $request->alamat,
-                'nama_ayah' => $request->nama_ayah,
-                'pekerjaan' => $request->pekerjaan,
-                'telepon' => $request->telepon,
-            ]);
+            'id_siswa' => $user->id,
+            'nis' => $request->nis,
+            'nama_kelas' => $request->nama_kelas,
+            'nama_siswa' => $request->nama_siswa,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'agama' => $request->agama,
+            'alamat' => $request->alamat,
+            'nama_ayah' => $request->nama_ayah,
+            'pekerjaan' => $request->pekerjaan,
+            'telepon' => $request->telepon,
+        ]);
 
         return redirect()->route('siswa.index');
     }
@@ -103,6 +112,8 @@ class SiswaController extends Controller
             'nama_ayah' => $request->nama_ayah,
             'pekerjaan' => $request->pekerjaan,
             'telepon' => $request->telepon,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
         return redirect()->route('siswa.index');

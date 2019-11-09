@@ -139,6 +139,24 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <div class="row">
+          <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+          <input type="text" id="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        </div>
+    </div>
+
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>
     </div>  
