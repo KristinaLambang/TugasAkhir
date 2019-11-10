@@ -7,6 +7,7 @@ use App\Walas;
 use App\Kelas;
 use App\GuruMapel;
 use App\Mapel;
+use App\User;
 
 class GuruWalasController extends Controller
 {
@@ -42,7 +43,15 @@ class GuruWalasController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::create([
+            'name'=>$request->nama_guru_walas,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'level_user'=> 'walas'
+        ]);
+
         Walas::create([
+                'id_guru_walas'=>$user->id,
                 'nama_guru_walas' => $request->nama_guru_walas,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'tempat_lahir' => $request->tempat_lahir,
@@ -51,6 +60,8 @@ class GuruWalasController extends Controller
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
+                'email' => $request->email,
+                'password' => $request->password,
             ]);
 
         return redirect()->route('guruwalas.index');
@@ -101,6 +112,16 @@ class GuruWalasController extends Controller
                 'agama' => $request->agama,
                 'alamat' => $request->alamat,
                 'telepon' => $request->telepon,
+                'email' => $request->email,
+                'password' => $request->password,
+            ]);
+        
+        $user = User::find($id);
+        $user->update([
+                'name'=>$request->nama_guru_walas,
+                'email'=>$request->email,
+                'password'=>bcrypt($request->password),
+                'level_user'=> 'walas'
             ]);
 
         return redirect()->route('guruwalas.index');

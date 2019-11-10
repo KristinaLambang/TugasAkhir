@@ -8,5 +8,10 @@ class Walas extends Model
 {
     protected $table = 'tb_walas';
     protected $primaryKey = 'id_guru_walas';
-    protected $guarded = ['id_guru_walas','created_at','updated_at'];
+    protected $guarded = ['created_at','updated_at'];
+    
+    public function kelas()
+    {
+        return $this->belongsTo('App\Kelas','id_kelas', 'id_kelas');
+    }
 }
