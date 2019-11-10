@@ -25,9 +25,9 @@
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $row->id_jadwal }}</td>
-						<td>{{ $row->nama_pengajar }}</td>
-						<td>{{ $row->nama_kelas }}</td>
-						<td>{{ $row->nama_mapel }}</td>
+						<td>{{ $row->gurumapel->nama_guru_mapel }}</td>
+						<td>{{ $row->kelas->nama_kelas }}</td>
+						<td>{{ $row->mapel->nama_mapel }}</td>
 						<td>{{ $row->hari }}</td>
 						<td>{{ $row->dari_jam }}</td>
 						<td>{{ $row->sampai_jam }}</td>

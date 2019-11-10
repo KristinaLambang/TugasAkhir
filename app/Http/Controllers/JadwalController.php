@@ -34,8 +34,7 @@ class JadwalController extends Controller
          $guru = GuruMapel::all();
          $kelas = Kelas::all();
          $mapel = Mapel::all();
-         $isEdit = FALSE;
-        return view('masterdata.datajadwal.form', compact('guru', 'kelas', 'mapel', 'isEdit'));
+        return view('masterdata.datajadwal.form', compact('guru', 'kelas', 'mapel'));
     }
 
     /**
@@ -81,8 +80,7 @@ class JadwalController extends Controller
         $kelas = Kelas::all();
         $gurumapel = GuruMapel::all();
         $mapel = Mapel::all();
-        $isEdit = TRUE;
-        return view('masterdata.datajadwal.edit', compact('jadwal', 'kelas', 'gurumapel', 'mapel', 'isEdit', 'id'));
+        return view('masterdata.datajadwal.edit', compact('jadwal', 'kelas', 'gurumapel', 'mapel', 'id'));
     }
 
     /**

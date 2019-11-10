@@ -43,7 +43,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
-            <label>Guru Mata Pelajaran</label>
+            <label>Mata Pelajaran</label>
             </div>
             <div class="col-sm-10">
               <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
@@ -110,19 +110,19 @@
     $("#sampai_jam").val('{{$jadwal->sampai_jam}}')
 
 		$("#hari option").filter(function() {
-      return $(this).text() == '{{$jadwal->hari}}';
+      return $(this).val() == '{{$jadwal->hari}}';
     }).prop('selected', true);
 
     $("#mata_pelajaran option").filter(function() {
-      return $(this).text() == '{{$jadwal->mata_pelajaran}}';
+      return $(this).val() == '{{$jadwal->nama_mapel}}';
     }).prop('selected', true);
     
     $("#nama_kelas option").filter(function() {
-      return $(this).text() == '{{$jadwal->nama_kelas}}';
+      return $(this).val() == '{{$jadwal->nama_kelas}}';
     }).prop('selected', true);
 
     $("#id_guru_mapel option").filter(function() {
-      return $(this).text() == '{{$jadwal->nama_pengajar}}';
+      return $(this).val() == '{{$jadwal->nama_pengajar}}';
     }).prop('selected', true);
 	});
 </script>
