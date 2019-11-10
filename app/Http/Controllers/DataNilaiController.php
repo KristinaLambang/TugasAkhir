@@ -17,10 +17,16 @@ class DataNilaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // public function index()
+    // {
+    //     $datanilai = DataNilai::all();
+    //     return view('masterdata.datanilai.index');
+    // }
+
+    public function list($kelas, $mapel)
     {
-        $datanilai = DataNilai::all();
-        return view('masterdata.datanilai.index');
+        $datanilai = DataNilai::where('id_mapel', $mapel)->where('id_kelas', $kelas)->get();
+        return view('masterdata.datanilai.list',compact('datanilai'));
     }
  
     /**

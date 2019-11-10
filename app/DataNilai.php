@@ -14,6 +14,11 @@ class DataNilai extends Model
   {
     return $this->belongsTo('App\GuruMapel','id_guru_mapel');
   }
+  
+  public function siswa()
+  {
+      return $this->belongsTo('App\Siswa','id_siswa','id_siswa');
+  }
   public function kelas()
   {
     return $this->belongsTo('App\Kelas','id_kelas');

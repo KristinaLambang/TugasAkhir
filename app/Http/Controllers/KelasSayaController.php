@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GuruKelas;
+use App\Jadwal;
+use App\Kelas;
+use App\GuruMapel;
+use App\Mapel;
 use Auth;
 
 class KelasSayaController extends Controller
@@ -15,9 +19,12 @@ class KelasSayaController extends Controller
      */
     public function index()
     {
-        $kelassaya = GuruKelas::where('id_guru_mapel',Auth::user()->id)->get();
-        dd($kelassaya);
-        return view('masterdata.kelassaya.index', compact('kelassaya'));
+        $user = Auth::user()->id;
+        $jadwal = Jadwal::where('nama_pengajar', $user)->get();
+        $kelas = Kelas::all();
+        $gurumapel = GuruMapel::all();
+        $mapel = Mapel::all();
+        return view('masterdata.kelassaya.index', compact('jadwal', 'kelas', 'gurumapel', 'mapel'));
     }
 
     /**

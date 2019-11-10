@@ -10,7 +10,6 @@
 				<thead>
 					<tr> 
 						<th>No</th>
-						<th>NIS</th>
 						<th>Nama</th>
 						<th>Tugas 1</th>
 						<th>Tugas 2</th>
@@ -27,6 +26,9 @@
 				</thead>
 				<tbody>
 					<tr>
+					@foreach($datanilai as $row)
+						<td>{{$loop->iteration }}</td>
+						<td>{{$row->siswa->nama_siswa}}</td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -37,10 +39,8 @@
 						<td></td>
 						<td></td>
 						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>Edit</td>
+					@endforeach
 				</tbody>
 			</table>
 			</div>

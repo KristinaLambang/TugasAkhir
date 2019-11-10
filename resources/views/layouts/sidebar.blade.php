@@ -93,13 +93,7 @@
               <a href="{{ route('kelassaya.index') }}">
             <i class="fa fa-list"></i> <span>Kelas Saya</span>
           </a>
-        </li>        
-
-        <li class="{{ (strpos(Route::currentRouteName(), 'datanilai') === 0 ) ? 'active' : '' }}">
-          <a href="{{ route('datanilai.index') }}">
-            <i class="fa fa-list"></i> <span>Data Nilai</span>
-          </a>
-        </li>
+        </li>  
 
         <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
           <a href="{{ route('laporanleger.index') }}">
