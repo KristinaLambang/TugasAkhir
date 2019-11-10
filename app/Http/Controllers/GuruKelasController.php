@@ -19,9 +19,10 @@ class GuruKelasController extends Controller
     public function index()
     {
         $dataguru = GuruKelas::all();
-        // print_r($dataguru);
-        // exit();
-        return view('masterdata.datagurukelas.index', compact('dataguru'));
+        $guru = GuruMapel::all();
+        $kelas = Kelas::all();
+        $mapel = Mapel::all();
+        return view('masterdata.datagurukelas.index', compact('dataguru', 'guru', 'kelas', 'mapel'));
     }
 
     /**
@@ -78,13 +79,12 @@ class GuruKelasController extends Controller
      */
     public function edit($id)
     {
+        $dataguru = GuruKelas::find($id);
         $guru = GuruMapel::all();
-        // print_r($guru);
-        // exit();
         $kelas = Kelas::all();
         $mapel = Mapel::all();
         $jadwal = Jadwal::all();
-        return view('masterdata.datagurukelas.edit', compact('guru','kelas', 'mapel','id', 'jadwal'));
+        return view('masterdata.datagurukelas.edit', compact('dataguru', 'guru','kelas', 'mapel','id', 'jadwal'));
     }
 
     /**
@@ -96,8 +96,7 @@ class GuruKelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dataguru = GuruKelas::find($id);
-
+        $dataguru = GuruKelas::where('id_guru_kelas',$id)->first();
         $dataguru->update([
             'id_guru_mapel' => $request->id_guru_mapel,
             'id_kelas' => $request->id_kelas,

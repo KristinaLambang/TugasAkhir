@@ -20,9 +20,9 @@
 				@foreach($dataguru as $row)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
-						<td>{{ $row->id_guru_mapel }}</td>
-						<td>{{ $row->id_kelas }}</td>
-						<td>{{ $row->id_mapel }}</td>
+						<td>{{ $row->guru->nama_guru_mapel }}</td>
+						<td>{{ $row->kelas->nama_kelas }}</td>
+						<td>{{ $row->mapel->nama_mapel }}</td>
 						<td><a href="{{route('gurukelas.edit',$row->id_guru_kelas)}}" class="btn btn-success btn-xs"> Edit</a>
 						</td>
 					</tr>

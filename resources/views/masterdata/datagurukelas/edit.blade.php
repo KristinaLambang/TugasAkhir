@@ -16,7 +16,7 @@
         <label>Nama Guru</label>
       </div> 
             <div class="col-sm-10">
-              <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
+              <select name="id_guru_mapel" class="form-control" id="id_guru_mapel">
                   @foreach($guru as $row)
                   <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach
@@ -43,7 +43,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-2">
-            <label>Guru Mata Pelajaran</label>
+            <label>Mata Pelajaran</label>
         </div>
            <div class="col-sm-10">
               <select name="id_mapel" class="form-control" id="id_mapel">
@@ -62,5 +62,22 @@
     </form>
 	</div>
 </div>
+@section('javascript')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#id_mapel option").filter(function() {
+      return $(this).val() == '{{$dataguru->id_mapel}}';
+    }).prop('selected', true);
+    
+    $("#id_kelas option").filter(function() {
+      return $(this).val() == '{{$dataguru->id_kelas}}';
+    }).prop('selected', true);
+
+    $("#id_guru_mapel option").filter(function() {
+      return $(this).val() == '{{$dataguru->id_guru_mapel}}';
+    }).prop('selected', true);
+  });
+</script>
+@endsection
 
 @endsection
