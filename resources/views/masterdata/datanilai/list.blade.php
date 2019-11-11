@@ -11,6 +11,7 @@
 					<tr> 
 						<th>No</th>
 						<th>Nama</th>
+						<th>Nama Guru</th>
 						<th>Tugas 1</th>
 						<th>Tugas 2</th>
 						<th>UH 1</th>
@@ -29,17 +30,46 @@
 					@foreach($datanilai as $row)
 						<td>{{$loop->iteration }}</td>
 						<td>{{$row->siswa->nama_siswa}}</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td>Edit</td>
+						<td>{{$row->guru->nama_guru_mapel}}</td>
+						<td>{{$row->tugas_1}}</td>
+						<td>{{$row->tugas_2}}</td>
+						<td>{{$row->ulangan_harian_1}}</td>
+						<td>{{$row->ulangan_harian_2}}</td>
+						<td>{{$row->uts}}</td>
+						<td>{{$row->uas}}</td>
+						<td>{{$row->nilai_raport}}</td>
+						<td>
+							
+								@if( $row->nilai_raport > 90 )
+										A
+								@elseif( $row->nilai_raport >= 80 && $row->nilai_raport <= 89)
+									B
+								@elseif( $row->nilai_raport >= 70 && $row->nilai_raport <= 79)
+									C
+								@elseif( $row->nilai_raport >= 60 && $row->nilai_raport <= 69)
+									D
+								@elseif( $row->nilai_raport >= 50 && $row->nilai_raport <= 59)
+									E
+								@endif
+						
+						</td>
+						<td>{{$row->nilai_keterampilan}}</td>
+						<td>
+							@if( $row->nilai_keterampilan > 90 )
+										A
+								@elseif( $row->nilai_keterampilan >= 80 && $row->nilai_keterampilan <= 89)
+									B
+								@elseif( $row->nilai_keterampilan >= 70 && $row->nilai_keterampilan <= 79)
+									C
+								@elseif( $row->nilai_keterampilan >= 60 && $row->nilai_keterampilan <= 69)
+									D
+								@elseif( $row->nilai_keterampilan >= 50 && $row->nilai_keterampilan <= 59)
+									E
+								@endif
+						</td>
+						<td class="box-footer">
+                			<a href="/datanilai/{{$row->id_nilai}}/edit" class="btn btn-success btn-xs"> Edit </a>
+             			</td>
 					@endforeach
 				</tbody>
 			</table>

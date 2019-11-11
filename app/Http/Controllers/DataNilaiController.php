@@ -96,7 +96,12 @@ class DataNilaiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datanilai=DataNilai::find($id);
+        $siswa=Siswa::all();
+        $mapel=Mapel::all();
+        $id_nilai = $id;
+        return view('masterdata.datanilai.edit', compact('datanilai', 'siswa', 'mapel', 'id_nilai'));
+
     }
 
     /**
@@ -108,21 +113,7 @@ class DataNilaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        DataNilai::create([
-                'nis' => $request->nis,
-                'tugas_1' => $request->tugas_1,
-                'tugas_2' => $request->tugas_2,
-                'ulangan_harian_1' => $request->ulangan_harian_1,
-                'ulangan_harian_2' => $request->ulangan_harian_2,
-                'uts' => $request->uts,
-                'uas' => $request->uas,
-                'nilai_raport' => $request->nilai_raport,
-                'nilai_keterampilan' => $request->nilai_keterampilan,
-                'deskripsi' => $request->deskripsi,
-                'deskripsi' => $request->deskripsi,
-            ]);
-
-        return redirect()->route('datanilai.index');
+       
     }
 
     /**
