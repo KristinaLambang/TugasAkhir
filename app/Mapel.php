@@ -10,7 +10,7 @@ class Mapel extends Model
     protected $primaryKey = 'id_mapel';
     protected $guarded = ['created_at','updated_at'];
 
-  public function kelas()
+  public function kelas() 
     {
         return $this->belongsTo('App\Kelas','id_kelas','id_kelas');
     }

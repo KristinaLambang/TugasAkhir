@@ -2,6 +2,7 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
+			<h3>Kelas Yang Diampu</h3>
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
 				<thead>
@@ -29,7 +30,7 @@
 						<td>{{ $row->dari_jam }}</td>
 						<td>{{ $row->sampai_jam }}</td>
 						<td class="box-footer">
-                			<a href="/datanilai/{{$row->nama_kelas}}/{{$row->nama_mapel}}" class="btn btn-success btn-xs"> Tambah Nilai</a>
+                			<a href="/datanilai/list/{{$row->nama_kelas}}/{{$row->nama_mapel}}" class="btn btn-success btn-xs">Tampilkan</a>
         				</td>
 					</tr>
 				@endforeach
