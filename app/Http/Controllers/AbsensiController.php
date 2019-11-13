@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\NilaiSikap;
 
-class NilaiSikapController extends Controller
+class AbsensiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class NilaiSikapController extends Controller
      */
     public function index()
     {
-        $nilaisikap = NilaiSikap::all();
-        return view('masterdata.laporan.nilaisikap.index',compact('nilaisikap'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class NilaiSikapController extends Controller
      */
     public function create()
     {
-        return view('masterdata.laporan.nilaisikap.form');
+        //
     }
 
     /**
@@ -36,16 +34,9 @@ class NilaiSikapController extends Controller
      */
     public function store(Request $request)
     {
-        NilaiSikap::create([
-                'nis' => $request->nis,
-                'nama_siswa' => $request->nama_siswa,
-                'spiritual' => $request->spiritual,
-                'sikap' => $request->sikap,
-            ]);
-
-        return redirect()->route('laporan.nilaisikap.index');
+        //
     }
- 
+
     /**
      * Display the specified resource.
      *
@@ -65,8 +56,7 @@ class NilaiSikapController extends Controller
      */
     public function edit($id)
     {
-        $nilaisikap = NilaiSikap::find($id);
-        return view('masterdata.laporan.nilaisikap.edit',compact('id','nilaisikap'));
+        //
     }
 
     /**
@@ -78,15 +68,7 @@ class NilaiSikapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nilaisikap = NilaiSikap::find($id);
-        $nilaisikap->update([
-                'nis' => $request->nis,
-                'nama_siswa' => $request->nama_siswa,
-                'spiritual' => $request->spiritual,
-                'sikap' => $request->sikap,
-            ]);
-
-        return redirect()->route('nilaisikap.index');
+        //
     }
 
     /**
