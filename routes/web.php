@@ -39,5 +39,9 @@ Route::resource('/tahunajaran', 'TahunAjaranController');
 Route::resource('/datanilai', 'DataNilaiController');
 Route::resource('/gurukelas', 'GuruKelasController');
 Route::resource('/kelassaya', 'KelasSayaController');
-Route::get('/datanilai/list/{kelas}/{mapel}', ['uses' =>'DataNilaiController@list']);
-	});
+// Route::get('/datanilai/list/{kelas}/{mapel}', ['uses' =>'DataNilaiController@list']);
+Route::get('/datanilai/create/{kelas}/{mapel}', ['uses' =>'DataNilaiController@create']);
+
+Route::get('/datanilai/list/{kelas}/{mapel}', ['as' => 'list_per_kelas_per_mapel', 'uses' => 'DataNilaiController@list']);
+Route::get('/datanilai/{nilai}/{kelas}/{mapel}/edit', ['as' => 'edit_nilai', 'uses' => 'DataNilaiController@edit']);
+});

@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-header">
-			<p><a href="{{ route('datanilai.create') }}" class="btn btn-primary">Tambah Data Nilai</a></p>
+			<p><a href="/datanilai/create/{{$kelas}}/{{$mapel}}" class="btn btn-primary">Tambah Data Nilai</a></p>
 		</div>
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
@@ -26,8 +26,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
 					@foreach($datanilai as $row)
+
+					<tr>
 						<td>{{$loop->iteration }}</td>
 						<td>{{$row->siswa->nama_siswa}}</td>
 						<td>{{$row->guru->nama_guru_mapel}}</td>
@@ -40,7 +41,7 @@
 						<td>{{$row->nilai_raport}}</td>
 						<td>
 							
-								@if( $row->nilai_raport > 90 )
+								@if( $row->nilai_raport >= 90 )
 										A
 								@elseif( $row->nilai_raport >= 80 && $row->nilai_raport <= 89)
 									B
@@ -55,7 +56,7 @@
 						</td>
 						<td>{{$row->nilai_keterampilan}}</td>
 						<td>
-							@if( $row->nilai_keterampilan > 90 )
+							@if( $row->nilai_keterampilan >= 90 )
 										A
 								@elseif( $row->nilai_keterampilan >= 80 && $row->nilai_keterampilan <= 89)
 									B
@@ -68,7 +69,7 @@
 								@endif
 						</td>
 						<td class="box-footer">
-                			<a href="/datanilai/{{$row->id_nilai}}/edit" class="btn btn-success btn-xs"> Edit </a>
+							<a href="{{route('edit_nilai', ['id_nilai' => $row->id_nilai, 'id_kelas' => $row->id_kelas, 'id_mapel' => $row->id_mapel])}}" class="btn btn-success btn-xs"> Edit </a>
              			</td>
 					@endforeach
 				</tbody>

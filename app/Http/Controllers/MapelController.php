@@ -50,7 +50,7 @@ class MapelController extends Controller
             'kkm' => $request ->kkm,
         ]);
 
-    return redirect()->route('mapel.index');
+        return redirect()->route('mapel.index');
     }
 
     /**
