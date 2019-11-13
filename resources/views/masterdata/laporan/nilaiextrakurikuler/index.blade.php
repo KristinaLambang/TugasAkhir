@@ -2,7 +2,9 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-header">
+	<div class="box-header">
+			<p><a href="{{ route('nilaiextrakurikuler.create') }}" class="btn btn-primary">Tambah Nilai Extrakuriler</a></p>
+	</div>
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
 				<thead>

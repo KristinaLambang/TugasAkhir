@@ -2,8 +2,9 @@
 @section('content')
 <div class="section">
 	<div class="box box-primary">
-		<div class="box-harder"></div>
-
+		<div class="box-harder">
+        <h3>Tambah Nilai Sikap</h3>
+    </div>
     <form role="form" method="POST" action="{{ route('nilaisikap.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
       <div class="box-body">
@@ -44,47 +45,11 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Predikat</label>
-      </div>
-            <div class="col-sm-10">
-            <select id="predikat" name="predikat" class="form-control" requireds>
-                <option value="">-Pilih Predikat-</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-            </select>
-            </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
         <label>Sikap</label>
       </div>
           <div class="col-sm-10">
              <input type="text" name="sikap" placeholder="Sikap" required="" class="form-control" id="sikap">
           </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Predikat</label>
-      </div>
-            <div class="col-sm-10">
-            <select id="predikat" name="predikat" class="form-control" requireds>
-                <option value="">-Pilih Predikat-</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-            </select>
-            </div>
     </div>
     </div> 
 

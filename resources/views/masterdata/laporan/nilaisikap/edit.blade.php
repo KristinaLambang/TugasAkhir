@@ -46,47 +46,11 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Predikat</label>
-      </div>
-            <div class="col-sm-10">
-            <select id="predikat" name="predikat" class="form-control" requireds>
-                <option value="">-Pilih Predikat-</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-            </select>
-            </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
         <label>Sikap</label>
       </div>
           <div class="col-sm-10">
              <input type="text" name="sikap" placeholder="Sikap" required="" class="form-control" id="sikap">
           </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
-      <div class="col-sm-2">
-        <label>Predikat</label>
-      </div>
-            <div class="col-sm-10">
-            <select id="predikat" name="predikat" class="form-control" requireds>
-                <option value="">-Pilih Predikat-</option>
-                <option>A</option>
-                <option>B</option>
-                <option>C</option>
-                <option>D</option>
-                <option>E</option>
-            </select>
-            </div>
     </div>
     </div>
 
@@ -98,4 +62,12 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#sikap').val('{{$nilaisikap->sikap}}');
+    $('#spiritual').val('{{$nilaisikap->spiritual}}');
+    $('#nama_siswa').val('{{$nilaisikap->nama_siswa}}');
+    $('#nis').val('{{$nilaisikap->nis}}');
+	});
+</script>
 @endsection
