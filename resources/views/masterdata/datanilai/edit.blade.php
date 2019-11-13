@@ -36,7 +36,7 @@
             <label>Mata Pelajaran</label>
         </div>
            <div class="col-sm-10">
-              <select name="nama_mapel" class="form-control" id="id_mapel">
+              <select name="nama_mapel" class="form-control" id="id_mapel" disabled>
                  @foreach($mapel as $row)
                   <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
                   @endforeach
@@ -124,7 +124,7 @@
      <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Nilai Rapot</label>
+        <label>Nilai Raport</label>
       </div>
             <div class="col-sm-10">
              <input type="text" name="nilai_raport" placeholder="Nilai Rapot" required="" class="form-control" id="nilai_raport">
@@ -196,7 +196,7 @@ $(document).ready(function() {
     $('#ulangan_harian_1').val('{{$datanilai->ulangan_harian_1}}');
     $('#tugas_2').val('{{$datanilai->tugas_2}}');
     $('#tugas_1').val('{{$datanilai->tugas_1}}');
-    $('#nama_mapel').val('{{$datanilai->mapel->nama_mapel}}');
+    $('#id_mapel').val('{{$datanilai->id_mapel}}');
     $('#nama_siswa').val('{{$datanilai->siswa->nama_siswa}}');
     $('#nis').val('{{$datanilai->siswa->nis}}');
 	});
@@ -229,7 +229,7 @@ $(document).ready(function() {
                                         <td>{{$o->nis}}</td>
                                         <td>{{$o->nama_siswa}}</td>
                                     </tr>
-                                  @endforeach
+                                @endforeach
                             </tbody>
                         </table>  
                     </div>
