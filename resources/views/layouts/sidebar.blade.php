@@ -65,20 +65,34 @@
           </a>
         </li>
 
-        <li class="treeview menu-open">
-          <a href="#">
-            <i class="fa fa-file-text-o"></i> <span>Laporan</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li class="{{ (strpos(Route::currentRouteName(), 'nilaisikap') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('nilaisikap.index') }}">
+            <i class="fa fa-file"></i> <span>Nilai Sikap</span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('nilaisikap.index') }}"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
-            <li class="active"><a href="{{ route('nilaiextrakurikuler.index') }}"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
-            <li class="active"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger </a></li>
-            <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport </a></li>
-            <li class="active"><a href="{{ route('laporanabsensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
-          </ul>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'nilaiextrakurikuler') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('nilaiextrakurikuler.index') }}">
+            <i class="fa fa-list"></i> <span>Nilai Extrakurikuler</span>
+          </a>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('laporanleger.index') }}">
+            <i class="fa fa-book"></i> <span>Leger</span>
+          </a>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'laporanraport') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('laporanraport.index') }}">
+            <i class="fa fa-file-text"></i> <span>Raport</span>
+          </a>
+        </li>
+
+        <li class="{{ (strpos(Route::currentRouteName(), 'laporanabsensi') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('laporanabsensi.index') }}">
+            <i class="fa fa-calendar-o"></i> <span>Absensi</span>
+          </a>
         </li>
         @endif
 

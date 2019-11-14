@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\NilaiSikap;
+use App\Siswa;
 
 class NilaiSikapController extends Controller
 {
@@ -15,7 +16,8 @@ class NilaiSikapController extends Controller
     public function index()
     {
         $nilaisikap = NilaiSikap::all();
-        return view('masterdata.laporan.nilaisikap.index',compact('nilaisikap'));
+        $siswa = Siswa::all();
+        return view('masterdata.laporan.nilaisikap.index',compact('nilaisikap', 'siswa'));
     }
 
     /**
@@ -25,7 +27,8 @@ class NilaiSikapController extends Controller
      */
     public function create()
     {
-        return view('masterdata.laporan.nilaisikap.form');
+        $siswa = Siswa::all();
+        return view('masterdata.laporan.nilaisikap.form',compact('siswa'));
     }
 
     /**

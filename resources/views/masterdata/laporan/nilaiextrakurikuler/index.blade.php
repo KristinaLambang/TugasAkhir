@@ -18,13 +18,30 @@
 					</tr>
 				</thead>
 				<tbody>
+					@foreach ($siswa as $row)
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $loop->nis }}</td>
+						<td>{{ $row->nama_siswa }}</td>
+						<td>{{ $row->nama_extrakurikuler }}</td>
+						<td>
+							@if( $row->nama_extrakurikuler > 90 )
+										A
+								@elseif( $row->nama_extrakurikuler >= 80 && $row->nama_extrakurikuler <= 89)
+									B
+								@elseif( $row->nama_extrakurikuler >= 70 && $row->nama_extrakurikuler <= 79)
+									C
+								@elseif( $row->nama_extrakurikuler >= 60 && $row->nama_extrakurikuler <= 69)
+									D
+								@elseif( $row->nama_extrakurikuler >= 50 && $row->nama_extrakurikuler <= 59)
+									E
+							@endif
+						</td>
+						<td class="box-footer">
+                			<a href="{{route('nilaiextrakurikuler.edit',$row->id_nilai)}}" class="btn btn-success btn-xs"> Edit</a>
+						</td>
+					</tr>
+					@endforeach
 				</tbody>
 			</table>
 			</div>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DataNilai;
+use App\Siswa;
 use Illuminate\Http\Request;
 
 class NilaiExtrakurikulerController extends Controller
@@ -13,7 +15,9 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function index()
     {
-        return view('masterdata.laporan.nilaiextrakurikuler.index');
+        $siswa = Siswa::all();
+        $datanilai = DataNilai::all();
+        return view('masterdata.laporan.nilaiextrakurikuler.index', compact('siswa', 'datanilai'));
     }
 
     /**
@@ -23,7 +27,8 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function create()
     {
-        return view('masterdata.laporan.nilaiextrakurikuler.form');
+        $siswa = Siswa::all();
+        return view('masterdata.laporan.nilaiextrakurikuler.form', compact('siswa'));
     }
 
     /**
