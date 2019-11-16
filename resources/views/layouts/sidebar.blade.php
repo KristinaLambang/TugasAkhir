@@ -178,7 +178,7 @@
             <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
             <li class="active"><a href="{{ route('nilaiextrakurikuler.index') }}"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
             <li class="active"><a href="{{ route('nilaisikap.index') }}"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
-            <li class="active"><a href="{{ route('laporanabsensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
+            <li class="active"><a href="{{ route('absensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
           </ul>
         </li>
 

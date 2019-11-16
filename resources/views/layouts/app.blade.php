@@ -49,7 +49,7 @@
                                 <a class="dropdown-item" href="{{ route('laporanraport.index') }}">Laporan Raport</a>
                                 <a class="dropdown-item" href="{{ route('nilaiextrakurikuler.index') }}">Nilai Extrakurikuler</a>
                                 <a class="dropdown-item" href="{{ route('nilaisikap.index') }}">Nilai Sikap</a>
-                                <a class="dropdown-item" href="{{ route('laporanabsensi.index') }}">Absensi</a>
+                                <a class="dropdown-item" href="{{ route('absensi.index') }}">Absensi</a>
                                 <a class="dropdown-item" href="{{ route('tahunajaran.index') }}">Tahun Ajaran</a>
                                 <a class="dropdown-item" href="{{ route('datanilai.index') }}">Data Nilai</a>
                             </div>
