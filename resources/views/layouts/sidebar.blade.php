@@ -82,19 +82,6 @@
             <i class="fa fa-calendar-o"></i> <span>Absensi</span>
           </a>
         </li>
-
-        <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
-              <a href="{{ route('laporanleger.index') }}">
-            <i class="fa fa-book"></i> <span>Leger</span>
-          </a>
-        </li>
-
-        <li class="{{ (strpos(Route::currentRouteName(), 'laporanraport') === 0 ) ? 'active' : '' }}">
-              <a href="{{ route('laporanraport.index') }}">
-            <i class="fa fa-file-text"></i> <span>Raport</span>
-          </a>
-        </li>
-
         @endif
 
         @if(Auth::user()->level_user == 'guru')
@@ -108,13 +95,7 @@
               <a href="{{ route('kelassaya.index') }}">
             <i class="fa fa-list"></i> <span>Kelas Saya</span>
           </a>
-        </li>  
-
-        <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
-          <a href="{{ route('laporanleger.index') }}">
-            <i class="fa fa-book"></i> <span>Laporan Nilai</span>
-          </a>
-        </li>        
+        </li>     
         @endif
 
         @if(Auth::user()->level_user == 'admin')
@@ -176,17 +157,8 @@
           <ul class="treeview-menu">
             <li class="active"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
             <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
-            <li class="active"><a href="{{ route('nilaiextrakurikuler.index') }}"><i class="fa fa-circle-o"></i> Nilai Extrakurikuler</a></li>
-            <li class="active"><a href="{{ route('nilaisikap.index') }}"><i class="fa fa-circle-o"></i> Nilai Sikap</a></li>
-            <li class="active"><a href="{{ route('absensi.index') }}"><i class="fa fa-circle-o"></i> Absensi</a></li>
           </ul>
         </li>
-
-        <li>
-          <a href="{{ route('tahunajaran.index') }}">
-            <i class="fa fa-gears"></i> <span>Tahun Ajaran</span>
-          </a>
-        </li> 
         @endif
 
         
