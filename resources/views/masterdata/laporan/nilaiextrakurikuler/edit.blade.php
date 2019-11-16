@@ -46,10 +46,10 @@
         <div class="form-group">
         <div class="row">
         <div class="col-sm-2">
-            <label>Predikat</label>
+            <label>Nilai Extrakurikuler</label>
         </div>
             <div class="col-sm-10">
-                <input type="text" name="predikat" placeholder="Predikat" required="" class="form-control" id="predikat">
+                <input type="text" name="nilai_extrakurikuler" placeholder="Predikat" required="" class="form-control" id="nilai_extrakurikuler">
             </div>
         </div>
         </div>
@@ -64,10 +64,10 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#predikat').val('{{$nilaisikap->predikat}}');
-    $('#nama_extrakurikuler').val('{{$nilaisikap->nama_extrakurikuler}}');
-    $('#nama_siswa').val('{{$nilaisikap->nama_siswa}}');
-    $('#nis').val('{{$nilaisikap->nis}}');
+    $('#nilai_extrakurikuler').val('{{$nilaiextrakurikuler->nilai_extrakurikuler}}');
+    $('#nama_extrakurikuler').val('{{$nilaiextrakurikuler->nama_extrakurikuler}}');
+    $('#nama_siswa').val('{{$nilaiextrakurikuler->siswa->nama_siswa}}');
+    $('#nis').val('{{$nilaiextrakurikuler->siswa->nis}}');
 	});
 </script>
 @endsection

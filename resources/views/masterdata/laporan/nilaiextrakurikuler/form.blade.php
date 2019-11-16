@@ -6,7 +6,7 @@
           <h3>Tambah Nilai Extrakurikuler</h3>
     </div>
 
-    <form role="form" method="POST" action="{{ route('laporanleger.store') }}">
+    <form role="form" method="POST" action="{{ route('nilaiextrakurikuler.store') }}">
         {{ csrf_field() }} {{ method_field('POST') }}
       <div class="box-body">
     
@@ -36,28 +36,27 @@
         </div>
       </div>     
 
-        <div class="form-group">
-        <div class="row">
-          <div class="col-sm-2">
-            <label>Nama Extrakurikuler</label>
-          </div>
-              <div class="col-sm-10">
-                <input type="text" name="nama_extrakurikuler" placeholder="Spiritual" required="" class="form-control" id="nama_extrakurikuler">
-              </div>
+      <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Nama Extrakurikuler</label>
         </div>
-        </div>
+            <div class="col-sm-10">
+              <input type="text" name="nama_extrakurikuler" placeholder="Nama Extrakurikuler" required="" class="form-control" id="nama_extrakurikuler">
+            </div>
+      </div>
+      </div>
 
-        <div class="form-group">
-        <div class="row">
-          <div class="col-sm-2">
-            <label>Predikat</label>
-          </div>
-              <div class="col-sm-10">
-                <input type="text" name="predikat" placeholder="Predikat" required="" class="form-control" id="predikat">
-              </div>
+      <div class="form-group">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Nilai Extrakurikuler</label>
         </div>
-        </div> 
-    
+            <div class="col-sm-10">
+              <input type="text" name="nilai_extrakurikuler" placeholder="Nilai Extrakurikuler" required="" class="form-control" id="nilai_extrakurikuler">
+            </div>
+      </div>
+      </div>
 
     <div class="box-footer">
         <button type="submit" class="btn btn-info">Simpan</button>

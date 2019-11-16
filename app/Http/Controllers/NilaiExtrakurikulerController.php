@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\DataNilai;
 use App\Siswa;
+use App\NilaiExtrakurikuler;
+use Auth;
 use Illuminate\Http\Request;
 
 class NilaiExtrakurikulerController extends Controller
@@ -15,9 +16,10 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function index()
     {
+        $login=Auth::user()->id;
+        $nilaiextrakurikuler = NilaiExtrakurikuler::where('id_guru_walas', $login)->get();
         $siswa = Siswa::all();
-        $datanilai = DataNilai::all();
-        return view('masterdata.laporan.nilaiextrakurikuler.index', compact('siswa', 'datanilai'));
+        return view('masterdata.laporan.nilaiextrakurikuler.index', compact('siswa', 'nilaiextrakurikuler'));
     }
 
     /**
@@ -27,6 +29,7 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function create()
     {
+        $login=Auth::user()->id;
         $siswa = Siswa::all();
         return view('masterdata.laporan.nilaiextrakurikuler.form', compact('siswa'));
     }
@@ -39,7 +42,15 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $login=Auth::user()->id;
+        NilaiExtrakurikuler::create([
+                'id_siswa' => $request->id_siswa,
+                'id_guru_walas' => $login,
+                'nama_extrakurikuler' => $request->nama_extrakurikuler,
+                'nilai_extrakurikuler' => $request->nilai_extrakurikuler,
+            ]);
+
+        return redirect()->route('nilaiextrakurikuler.index');
     }
 
     /**
@@ -61,7 +72,9 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $login=Auth::user()->id;   
+        $nilaiextrakurikuler = NilaiExtrakurikuler::find($id);
+        return view('masterdata.laporan.nilaiextrakurikuler.edit',compact('id','nilaiextrakurikuler', 'login'));
     }
 
     /**
@@ -73,7 +86,13 @@ class NilaiExtrakurikulerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nilaiextrakurikuler = NilaiExtrakurikuler::find($id);
+        $nilaiextrakurikuler->update([
+                'nama_extrakurikuler' => $request->nama_extrakurikuler,
+                'nilai_extrakurikuler' => $request->nilai_extrakurikuler,
+            ]);
+
+        return redirect()->route('nilaiextrakurikuler.index');
     }
 
     /**
