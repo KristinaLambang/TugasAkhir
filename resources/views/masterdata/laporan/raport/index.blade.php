@@ -3,6 +3,8 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-header">
+				<p><a href="{{}}" class="btn btn-success" >Cetak</a></p>
+		</div>
 		<div class="box-body">
 			<table id="example1" class="table table-bordered">
 				<thead>
@@ -16,8 +18,6 @@
 						<th>FSK</th>
 						<th>KIM</th>
 						<th>BIO</th>
-						<th>Eks 1</th>
-						<th>Eks 2</th>
 						<th>Spiritual</th>
 						<th>Sosial</th>
 						<th>S</th>
@@ -25,11 +25,11 @@
 						<th>A</th>
 						<th>Komentar</th>
 						<th>Ranking</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
