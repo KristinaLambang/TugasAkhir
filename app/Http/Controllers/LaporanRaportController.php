@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use Illuminate\Http\Request;
 
 class LaporanRaportController extends Controller
@@ -13,7 +14,8 @@ class LaporanRaportController extends Controller
      */
     public function index()
     {
-        return view('masterdata.laporan.raport.index');
+        $kelas = Kelas::all();
+        return view('masterdata.laporan.raport.index', compact('kelas'));
     }
 
     /**
