@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Siswa;
+use App\Absensi;
+use Auth;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -13,7 +16,10 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        //
+        $login=Auth::user()->id;
+        $absensi = Absensi::where('id_guru_walas', $login)->get();
+        $siswa = Siswa::all();
+        return view('masterdata.laporan.absensi.index', compact('siswa', 'absensi'));
     }
 
     /**
@@ -23,7 +29,9 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        //
+        $login=Auth::user()->id;
+        $siswa = Siswa::all();
+        return view('masterdata.laporan.absensi.form', compact('siswa'));
     }
 
     /**
@@ -34,7 +42,16 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $login=Auth::user()->id;
+        Absensi::create([
+                'id_siswa' => $request->id_siswa,
+                'id_guru_walas' => $login,
+                'alpa' => $request->alpa,
+                'ijin' => $request->ijin,
+                'sakit' => $request->sakit,
+            ]);
+
+        return redirect()->route('absensi.index');
     }
 
     /**
@@ -56,7 +73,9 @@ class AbsensiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $login=Auth::user()->id;   
+        $absensi = Absensi::find($id);
+        return view('masterdata.laporan.absensi.edit',compact('id','absensi', 'login'));
     }
 
     /**
@@ -68,7 +87,14 @@ class AbsensiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $absensi = Absensi::find($id);
+        $absensi->update([
+            'alpa' => $request->alpa,
+            'ijin' => $request->ijin,
+            'sakit' => $request->sakit,
+        ]);
+
+        return redirect()->route('absensi.index');
     }
 
     /**

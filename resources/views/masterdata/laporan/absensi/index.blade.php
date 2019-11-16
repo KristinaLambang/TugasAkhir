@@ -22,13 +22,13 @@
 				@foreach($absensi as $row)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>{{ $row->siswa->nis }}</td>
+						<td>{{ $row->siswa->nama_siswa }}</td>
+						<td>{{ $row->alpa }}</td>
+						<td>{{ $row->ijin }}</td>
+						<td>{{ $row->sakit }}</td>
 						<td class="box-footer">
-                			<a href="{{route('laporan.absensi.edit',$row->id_laporan_absensi)}}" class="btn btn-success btn-xs"> Edit</a>
+                			<a href="{{route('absensi.edit',$row->id_absensi)}}" class="btn btn-success btn-xs"> Edit</a>
         				</td>
         			</tr>
         		@endforeach
