@@ -41,7 +41,7 @@
         <label>Spiritual</label>
       </div>
           <div class="col-sm-10">
-             <input type="text" name="spiritual" placeholder="Spiritual" required="" class="form-control" id="spiritual">
+             <input type="text" name="nilai_spiritual" placeholder="Spiritual" required="" class="form-control" id="nilai_spiritual">
           </div>
     </div>
     </div>
@@ -52,7 +52,7 @@
         <label>Sikap</label>
       </div>
           <div class="col-sm-10">
-             <input type="text" name="sikap" placeholder="Sikap" required="" class="form-control" id="sikap">
+             <input type="text" name="nilai_sikap" placeholder="Sikap" required="" class="form-control" id="nilai_sikap">
           </div>
     </div>
     </div> 

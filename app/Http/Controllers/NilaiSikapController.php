@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\NilaiSikap;
 use App\Siswa;
+use Auth;
 
 class NilaiSikapController extends Controller
 {
@@ -15,7 +16,8 @@ class NilaiSikapController extends Controller
      */
     public function index()
     {
-        $nilaisikap = NilaiSikap::all();
+        $login=Auth::user()->id;
+        $nilaisikap = NilaiSikap::where('id_guru_walas', $login)->get();
         $siswa = Siswa::all();
         return view('masterdata.laporan.nilaisikap.index',compact('nilaisikap', 'siswa'));
     }
@@ -27,6 +29,7 @@ class NilaiSikapController extends Controller
      */
     public function create()
     {
+        $login=Auth::user()->id;
         $siswa = Siswa::all();
         return view('masterdata.laporan.nilaisikap.form',compact('siswa'));
     }
@@ -39,14 +42,15 @@ class NilaiSikapController extends Controller
      */
     public function store(Request $request)
     {
+        $login=Auth::user()->id;
         NilaiSikap::create([
-                'nis' => $request->nis,
-                'nama_siswa' => $request->nama_siswa,
-                'spiritual' => $request->spiritual,
-                'sikap' => $request->sikap,
+                'id_siswa' => $request->id_siswa,
+                'id_guru_walas' => $login,
+                'nilai_spiritual' => $request->nilai_spiritual,
+                'nilai_sikap' => $request->nilai_sikap,
             ]);
 
-        return redirect()->route('laporan.nilaisikap.index');
+        return redirect()->route('nilaisikap.index');
     }
  
     /**
@@ -68,8 +72,10 @@ class NilaiSikapController extends Controller
      */
     public function edit($id)
     {
+        $login=Auth::user()->id;   
         $nilaisikap = NilaiSikap::find($id);
-        return view('masterdata.laporan.nilaisikap.edit',compact('id','nilaisikap'));
+        // dd($nilaisikap);
+        return view('masterdata.laporan.nilaisikap.edit',compact('id','nilaisikap', 'login'));
     }
 
     /**
@@ -83,10 +89,8 @@ class NilaiSikapController extends Controller
     {
         $nilaisikap = NilaiSikap::find($id);
         $nilaisikap->update([
-                'nis' => $request->nis,
-                'nama_siswa' => $request->nama_siswa,
-                'spiritual' => $request->spiritual,
-                'sikap' => $request->sikap,
+                'nilai_spiritual' => $request->nilai_spiritual,
+                'nilai_sikap' => $request->nilai_sikap,
             ]);
 
         return redirect()->route('nilaisikap.index');

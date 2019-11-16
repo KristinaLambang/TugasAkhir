@@ -3,7 +3,7 @@
 <div class="section">
 	<div class="box box-primary">
 		<div class="box-harder">
-			<h3>Tambah Nilai Sikap</h3>
+			<h3>Edit Nilai Sikap</h3>
 		</div>
 
     <form role="form" method="POST" action="{{ route('nilaisikap.update',$id) }}">
@@ -38,7 +38,7 @@
         <label>Spiritual</label>
       </div>
           <div class="col-sm-10">
-             <input type="text" name="spiritual" placeholder="Spiritual" required="" class="form-control" id="spiritual">
+             <input type="text" name="nilai_spiritual" placeholder="Spiritual" required="" class="form-control" id="nilai_spiritual">
           </div>
     </div>
     </div>
@@ -49,7 +49,7 @@
         <label>Sikap</label>
       </div>
           <div class="col-sm-10">
-             <input type="text" name="sikap" placeholder="Sikap" required="" class="form-control" id="sikap">
+            <input type="text" name="nilai_sikap" placeholder="Sikap" required="" class="form-control" id="nilai_sikap">
           </div>
     </div>
     </div>
@@ -64,10 +64,10 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#sikap').val('{{$nilaisikap->sikap}}');
-    $('#spiritual').val('{{$nilaisikap->spiritual}}');
-    $('#nama_siswa').val('{{$nilaisikap->nama_siswa}}');
-    $('#nis').val('{{$nilaisikap->nis}}');
+    $('#nilai_sikap').val('{{$nilaisikap->nilai_sikap}}');
+    $('#nilai_spiritual').val('{{$nilaisikap->nilai_spiritual}}');
+    $('#nama_siswa').val('{{$nilaisikap->siswa->nama_siswa}}');
+    $('#nis').val('{{$nilaisikap->siswa->nis}}');
 	});
 </script>
 @endsection

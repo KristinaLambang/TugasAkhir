@@ -23,42 +23,42 @@
 				@foreach($nilaisikap as $row)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
-						<td>{{ $row->nis }}</td>
-						<td>{{ $row->nama_siswa }}</td>
-						<td>{{ $row->spiritual }}</td>
+						<td>{{ $row->siswa->nis }}</td>
+						<td>{{ $row->siswa->nama_siswa }}</td>
+						<td>{{ $row->nilai_spiritual }}</td>
 						<td>
 							
-							@if( $row->spiritual > 90 )
+							@if( $row->nilai_spiritual >= 90 )
 										A
-								@elseif( $row->spiritual >= 80 && $row->spiritual <= 89)
+								@elseif( $row->nilai_spiritual >= 80 && $row->nilai_spiritual <= 89)
 									B
-								@elseif( $row->spiritual >= 70 && $row->spiritual <= 79)
+								@elseif( $row->nilai_spiritual >= 70 && $row->nilai_spiritual <= 79)
 									C
-								@elseif( $row->spiritual >= 60 && $row->spiritual <= 69)
+								@elseif( $row->nilai_spiritual >= 60 && $row->nilai_spiritual <= 69)
 									D
-								@elseif( $row->spiritual >= 50 && $row->spiritual <= 59)
+								@elseif( $row->nilai_spiritual >= 50 && $row->nilai_spiritual <= 59)
 									E
 							@endif
 						
 						</td>
-						<td>{{ $row->sikap }}</td>
+						<td>{{ $row->nilai_sikap }}</td>
 						<td>
 							
-							@if( $row->sikap > 90 )
+							@if( $row->nilai_sikap >= 90 )
 										A
-								@elseif( $row->sikap >= 80 && $row->sikap <= 89)
+								@elseif( $row->nilai_sikap >= 80 && $row->nilai_sikap <= 89)
 									B
-								@elseif( $row->sikap >= 70 && $row->sikap <= 79)
+								@elseif( $row->nilai_sikap >= 70 && $row->nilai_sikap <= 79)
 									C
-								@elseif( $row->sikap >= 60 && $row->sikap <= 69)
+								@elseif( $row->nilai_sikap >= 60 && $row->nilai_sikap <= 69)
 									D
-								@elseif( $row->sikap >= 50 && $row->sikap <= 59)
+								@elseif( $row->nilai_sikap >= 50 && $row->nilai_sikap <= 59)
 									E
 							@endif
 						
 						</td>
 						<td class="box-footer">
-                			<a href="{{route('nilaisikap.edit',$row->id_nilai)}}" class="btn btn-success btn-xs"> Edit</a>
+                			<a href="{{route('nilaisikap.edit',$row->id_nilai_sikap)}}" class="btn btn-success btn-xs"> Edit</a>
         				</td>
 					</tr>
 				@endforeach
