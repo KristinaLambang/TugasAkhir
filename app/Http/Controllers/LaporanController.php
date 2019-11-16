@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -80,5 +81,14 @@ class LaporanController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function preview_laporan_test()
+    {
+        $data = [
+            'foo' => 'bar'
+        ];
+        $pdf = PDF::loadView('laporan.cetaktest', $data);
+        return $pdf->stream('titin.pdf');
     }
 }
