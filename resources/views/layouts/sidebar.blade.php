@@ -9,7 +9,7 @@
         </div>
         
         <div class="pull-left info" >
-          <p><!-- {{ strtoupper(Auth::user()->name) }} -->{{ Auth::user()->name }} {{ Auth::user()->id }}</p>
+          <p><!-- {{ strtoupper(Auth::user()->name) }} -->{{ Auth::user()->name }}</p>
           <a href="">{{ strtoupper(Auth::user()->level_user) }}</a>
           
         </div>
