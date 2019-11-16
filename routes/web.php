@@ -34,7 +34,7 @@ Route::resource('/laporanleger', 'LaporanLegerController');
 Route::resource('/laporanraport', 'LaporanRaportController');
 Route::resource('/nilaiextrakurikuler', 'NilaiExtrakurikulerController');
 Route::resource('/nilaisikap', 'NilaiSikapController');
-Route::resource('/laporanabsensi', 'LaporanAbsensiController');
+Route::resource('/absensi', 'AbsensiController');
 Route::resource('/tahunajaran', 'TahunAjaranController');
 Route::resource('/datanilai', 'DataNilaiController');
 Route::resource('/gurukelas', 'GuruKelasController');

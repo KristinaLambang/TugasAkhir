@@ -77,6 +77,12 @@
           </a>
         </li>
 
+        <li class="{{ (strpos(Route::currentRouteName(), 'absensi') === 0 ) ? 'active' : '' }}">
+              <a href="{{ route('absensi.index') }}">
+            <i class="fa fa-calendar-o"></i> <span>Absensi</span>
+          </a>
+        </li>
+
         <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
               <a href="{{ route('laporanleger.index') }}">
             <i class="fa fa-book"></i> <span>Leger</span>
@@ -89,11 +95,6 @@
           </a>
         </li>
 
-        <li class="{{ (strpos(Route::currentRouteName(), 'laporanabsensi') === 0 ) ? 'active' : '' }}">
-              <a href="{{ route('laporanabsensi.index') }}">
-            <i class="fa fa-calendar-o"></i> <span>Absensi</span>
-          </a>
-        </li>
         @endif
 
         @if(Auth::user()->level_user == 'guru')
