@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Siswa;
 use App\Kelas;
 use App\User;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class SiswaController extends Controller
 {
@@ -31,6 +32,12 @@ class SiswaController extends Controller
         $siswa = Siswa::all();
         $kelas=Kelas::all();
         return view('masterdata.datasiswa.form',compact('siswa', 'kelas'));
+    }
+
+    public function profile($id)
+    {
+        $siswa = Siswa::all();
+        return view('masterdata.datasiswa.profile',compact('id', 'siswa'));
     }
 
     /**
