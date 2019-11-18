@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Kelas;
 use Illuminate\Http\Request;
 
@@ -82,5 +83,14 @@ class LaporanRaportController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function preview_raport()
+    {
+        $data = [
+            'foo' => 'bar'
+        ];
+        $pdf = PDF::loadView('masterdata.laporan.raport.cetak_raport', $data);
+        return $pdf->stream('Raport.pdf');
     }
 }
