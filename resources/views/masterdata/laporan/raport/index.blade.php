@@ -35,12 +35,14 @@
 				</tr>
 			</thead>
 			<tbody>
+				@foreach ($siswa as $row)
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>{{ $loop->iteration }}</td>
+					<td>{{ $row->siswa->nis }}</td>
+					<td>{{ $row->siswa->nama_siswa }}</td>
 					<td></td>
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

@@ -39,7 +39,6 @@ Route::resource('/tahunajaran', 'TahunAjaranController');
 Route::resource('/datanilai', 'DataNilaiController');
 Route::resource('/gurukelas', 'GuruKelasController');
 Route::resource('/kelassaya', 'KelasSayaController');
-Route::resource('/profile', 'SiswaController');
 Route::get('/cetaktest', 'LaporanController@preview_laporan_test')->name('cetaktest');
 // Route::get('/datanilai/list/{kelas}/{mapel}', ['uses' =>'DataNilaiController@list']);
 Route::get('/datanilai/create/{kelas}/{mapel}', ['uses' =>'DataNilaiController@create']);
