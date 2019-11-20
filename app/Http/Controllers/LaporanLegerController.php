@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\LaporanLeger;
+use PDF;
 
 class LaporanLegerController extends Controller
 {
@@ -11,7 +12,7 @@ class LaporanLegerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function index()
     {
         $laporanleger = LaporanLeger::all();
@@ -36,7 +37,7 @@ class LaporanLegerController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        //
     }
 
     /**
@@ -83,5 +84,14 @@ class LaporanLegerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function preview_leger()
+    {
+        $data = [
+            'foo' => 'bar'
+        ];
+        $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', $data, [], ['format' => 'A4-L']);
+        return $pdf->stream('Leger.pdf');
     }
 }
