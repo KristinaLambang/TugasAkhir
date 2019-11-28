@@ -7,6 +7,7 @@ use App\Siswa;
 use App\Kelas;
 use App\User;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+use Auth;
 
 class SiswaController extends Controller
 {
