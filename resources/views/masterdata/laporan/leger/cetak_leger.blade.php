@@ -71,20 +71,20 @@
                 <td style="font-weight: bold;" colspan="1" rowspan="2">NIS</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Nama Siswa</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">JK</td>
-                <td style="font-weight: bold; text-align: center;" colspan="3">Nilai Pengetahuan</td>
-                <td style="font-weight: bold; text-align: center;" colspan="3">Nilai Keterampilan</td>
+                <td style="font-weight: bold; text-align: center;" colspan="{{count('mapel') + 1}}">Nilai Pengetahuan</td>
+                <td style="font-weight: bold; text-align: center;" colspan="{{count('mapel') + 1}}">Nilai Keterampilan</td>
                 <td style="font-weight: bold; text-align: center;" colspan="2">Jumlah</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Jumlah Nilai</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Rangking</td>
                 <td style="font-weight: bold; text-align: center;" colspan="3">Ketidakhadiran</td>
             </tr>
             <tr>
-                <td style="font-weight: bold;">MTK</td>
-                <td style="font-weight: bold;">B.IND</td>
-                <td style="font-weight: bold;">B.ING</td>
-                <td style="font-weight: bold;">MTK</td>
-                <td style="font-weight: bold;">B.IND</td>
-                <td style="font-weight: bold;">B.ING</td>
+                @foreach($mapel as $row)
+                    <td style="font-weight: bold;">{{$row->nama_mapel}}</td>
+                @endforeach
+                @foreach($mapel as $row)
+                    <td style="font-weight: bold;">{{$row->nama_mapel}}</td>
+                @endforeach
                 <td style="font-weight: bold;">Pengetahuan</td>
                 <td style="font-weight: bold;">Keterampilan</td>
                 <td style="font-weight: bold;">A</td>
@@ -93,815 +93,104 @@
             </tr>
         </thead>
         <tbody id="items_tbody">
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
+            @php
+             $semuaNilai = [];
+            @endphp
+            
+            @foreach($siswa as $rowSiswa)
+                <tr style="height: 20px;">
+                    <td style="vertical-align: middle;" height="25" valign="middle">
+                        {{ $loop->iteration }}
+                    </td>
+                    <td style="vertical-align: middle;">
+                        {{ $rowSiswa->nis }}
+                    </td>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        {{ $rowSiswa->nama_siswa }}
+                    </td>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        {{ $rowSiswa->jenis_kelamin }}
+                    </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
+                    @foreach($mapel as $rowMapel)
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $rowSiswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                    <td style="vertical-align: middle;">
+                                        {{$rowNilai->nilai_raport}}
+                                    </td>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
+                    @foreach($mapel as $rowMapel)
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $rowSiswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                    <td style="vertical-align: middle;">
+                                        {{$rowNilai->nilai_keterampilan}}
+                                    </td>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
+                    {{$totalPengetahuan = 0}}
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        @foreach($mapel as $rowMapel)
+                            @foreach($dataNilai as $rowNilai)
+                                @if ($rowNilai->id_siswa === $rowSiswa->id_siswa)
+                                    @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                    <p style="display: none">{{$totalPengetahuan += $rowNilai->nilai_raport}}</p>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                        {{$totalPengetahuan}}
+                    </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
 
-            </tr>
-            <tr style="height: 20px;">
-                <td style="vertical-align: middle;" height="25" valign="middle">
-                    1
-                </td>
-                <td style="vertical-align: middle;">
-                    75854589
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    Alexander
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    L
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;">
-                    80
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    85
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    45
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    1
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    2
-                </td>
-                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                    7
-                </td>
+                    {{$totalKeterampilan = 0}}
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        @foreach($mapel as $rowMapel)
+                            @foreach($dataNilai as $rowNilai)
+                                @if ($rowNilai->id_siswa === $rowSiswa->id_siswa)
+                                    @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                        <p style="display: none">{{$totalKeterampilan += $rowNilai->nilai_keterampilan}}</p>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                        {{$totalKeterampilan}}
+                    </td>
 
-            </tr>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        {{$totalPengetahuan + $totalKeterampilan}}
+                    </td>
+
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        1
+                    </td>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        1
+                    </td>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        2
+                    </td>
+                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                        7
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 

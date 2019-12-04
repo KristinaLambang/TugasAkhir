@@ -17,28 +17,32 @@
         </div>
     </div>
 	</div>
-	<div class="box-header">
-		<p><a href="{{ route('absensi.create') }}" class="btn btn-success">Cetak</a></p>
-	</div>
 
 	<div class="box-body">
-		<table id="example1" class="table table-bordered">
-			<thead>
-				<tr> 
-					<th>No</th>
-					<th>Nama Kelas</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+			<table id="example1" class="table table-bordered">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Id Kelas</th>
+						<th>Nama Kelas</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach($kelas as $row)
+					<tr>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $row->id_kelas }}</td>
+						<td>{{ $row->nama_kelas }}</td>
+						<td class="box-footer">
+                			<a href="/preview_leger/{{ $row->id_kelas }}" class="btn btn-success btn-xs"> Cetak</a>
+        				</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+            </div>
+		</div>
 
 	</div>
 	</div>

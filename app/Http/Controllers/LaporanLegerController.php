@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\LaporanLeger;
+use App\Kelas;
+use App\DataNilai;
+use App\Siswa;
+use App\Mapel;
 use PDF;
 
 class LaporanLegerController extends Controller
@@ -15,8 +19,8 @@ class LaporanLegerController extends Controller
      */
     public function index()
     {
-        $laporanleger = LaporanLeger::all();
-        return view('masterdata.laporan.leger.index', compact('laporanleger'));
+        $kelas = Kelas::all();
+        return view('masterdata.laporan.leger.index', compact('kelas'));
     }
 
     /**
@@ -86,12 +90,12 @@ class LaporanLegerController extends Controller
         //
     }
 
-    public function preview_leger()
+    public function preview_leger($id_Kelas)
     {
-        $data = [
-            'foo' => 'bar'
-        ];
-        $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', $data, [], ['format' => 'A4-L']);
+        $dataNilai = DataNilai::all();
+        $mapel = Mapel::all();
+        $siswa = Siswa::where('nama_kelas', $id_Kelas)->get();
+        $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', compact('siswa', 'dataNilai', 'mapel'), [], ['format' => 'A4-L']);
         return $pdf->stream('Leger.pdf');
     }
 }
