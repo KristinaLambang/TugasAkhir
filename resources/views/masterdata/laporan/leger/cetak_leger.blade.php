@@ -71,8 +71,8 @@
                 <td style="font-weight: bold;" colspan="1" rowspan="2">NIS</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Nama Siswa</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">JK</td>
-                <td style="font-weight: bold; text-align: center;" colspan="{{count('mapel') + 1}}">Nilai Pengetahuan</td>
-                <td style="font-weight: bold; text-align: center;" colspan="{{count('mapel') + 1}}">Nilai Keterampilan</td>
+                <td style="font-weight: bold; text-align: center;" colspan="{{count($mapel) + 0}}">Nilai Pengetahuan</td>
+                <td style="font-weight: bold; text-align: center;" colspan="{{count($mapel) + 0}}">Nilai Keterampilan</td>
                 <td style="font-weight: bold; text-align: center;" colspan="2">Jumlah</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Jumlah Nilai</td>
                 <td style="font-weight: bold;" colspan="1" rowspan="2">Rangking</td>
@@ -177,18 +177,26 @@
                         {{$totalPengetahuan + $totalKeterampilan}}
                     </td>
 
+                    <!-- Ranking -->
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
                         1
                     </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        1
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        2
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        7
-                    </td>
+                    <!-- Absensi -->
+                    @foreach($absensi as $rowAbsensi)
+                        @if ($rowAbsensi->id_siswa === $rowSiswa->id_siswa)
+                        <td>{{$rowAbsensi->alpa}}</td>
+                        @endif
+                    @endforeach
+                    @foreach($absensi as $rowAbsensi)
+                        @if ($rowAbsensi->id_siswa === $rowSiswa->id_siswa)
+                        <td>{{$rowAbsensi->ijin}}</td>
+                        @endif
+                    @endforeach
+                    @foreach($absensi as $rowAbsensi)
+                        @if ($rowAbsensi->id_siswa === $rowSiswa->id_siswa)
+                        <td>{{$rowAbsensi->sakit}}</td>
+                        @endif
+                    @endforeach
                 </tr>
             @endforeach
         </tbody>

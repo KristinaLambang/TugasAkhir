@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Absensi;
 use Illuminate\Http\Request;
 use App\LaporanLeger;
 use App\Kelas;
@@ -94,8 +95,9 @@ class LaporanLegerController extends Controller
     {
         $dataNilai = DataNilai::all();
         $mapel = Mapel::all();
+        $absensi = Absensi::all();
         $siswa = Siswa::where('nama_kelas', $id_Kelas)->get();
-        $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', compact('siswa', 'dataNilai', 'mapel'), [], ['format' => 'A4-L']);
+        $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', compact('siswa', 'dataNilai', 'mapel', 'absensi'), [], ['format' => 'A4-L']);
         return $pdf->stream('Leger.pdf');
     }
 }
