@@ -51,11 +51,11 @@
                         <table width="100%" border="0">
                             <tr>
                                 <td width="20%" id="tes_java">Kelas</td>
-                                <td>: X IPA PA</td>
+                                <td>: {{$kelas->nama_kelas}}</td>
                             </tr>
                             <tr>
                                 <td width="20%" id="tes_java">Wali Kelas</td>
-                                <td>: Diana Kirana, S.Pd.</td>
+                                <td>: {{$walas->nama_guru_walas}}</td>
                             </tr>
 
                         </table>
