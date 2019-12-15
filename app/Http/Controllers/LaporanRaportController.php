@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataNilai;
 use PDF;
 use App\Kelas;
 use App\Siswa;
@@ -87,12 +88,12 @@ class LaporanRaportController extends Controller
         //
     }
 
-    public function preview_raport()
+    public function preview_raport($id_siswa)
     {
-        $data = [
-            'foo' => 'bar'
-        ];
-        $pdf = PDF::loadView('masterdata.laporan.raport.cetak_raport', $data);
+        $siswa = Siswa::where('id_siswa', $id_siswa)->first();
+        $nilaiFirst = DataNilai::where('id_siswa', $id_siswa)->first();
+        
+        $pdf = PDF::loadView('masterdata.laporan.raport.cetak_raport', compact('siswa', 'nilaiFirst'));
         return $pdf->stream('Raport.pdf');
     }
 }

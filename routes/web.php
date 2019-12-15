@@ -40,7 +40,7 @@ $router->group([
     Route::resource('/gurukelas', 'GuruKelasController');
     Route::resource('/kelassaya', 'KelasSayaController');
     Route::get('/cetaktest', 'LaporanController@preview_laporan_test')->name('cetaktest');
-    Route::get('/preview_raport', 'LaporanRaportController@preview_raport')->name('preview_raport');
+    Route::get('/cetak-raport/{id_siswa}', 'LaporanRaportController@preview_raport')->name('preview_raport');
     Route::get('/preview_leger/{kelas}', 'LaporanLegerController@preview_leger')->name('preview_leger');
     // Route::get('/datanilai/list/{kelas}/{mapel}', ['uses' =>'DataNilaiController@list']);
     Route::get('/datanilai/create/{kelas}/{mapel}', ['uses' => 'DataNilaiController@create']);

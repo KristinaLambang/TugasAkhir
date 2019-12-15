@@ -51,11 +51,11 @@
                             <table width="100%" border="0">
                                 <tr>
                                     <td width="20%" id="tes_java">Nama Peserta</td>
-                                    <td>: Dwiki Wiguna</td>
+                                    <td>: {{$siswa->nama_siswa}}</td>
                                 </tr>
                                 <tr>
                                     <td width="20%" id="tes_java">NIS</td>
-                                    <td>: 12374</td>
+                                    <td>: {{$siswa->nis}}</td>
                                 </tr>
                                 <tr>
                                     <td width="20%" id="tes_java">Nama Sekolah</td>
@@ -67,15 +67,21 @@
                                 </tr>
                                 <tr>
                                     <td>Kelas</td>
-                                    <td>: XI IPA 1</td>
+                                    <td>: {{ $siswa->kelas->nama_kelas }} </td>
                                 </tr>
                                 <tr>
                                     <td>Semester</td>
-                                    <td>: Ganjil</td>
+                                    <td>:
+                                        @if ($nilaiFirst->created_at->format('m') >= 6)
+                                           Genap
+                                        @else
+                                           Ganjil
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Tahun Ajaran</td>
-                                    <td>: 2018/2019</td>
+                                    <td>: {{$nilaiFirst->tahun_ajaran}}</td>
                                 </tr>
                             </table>
                         </td>
