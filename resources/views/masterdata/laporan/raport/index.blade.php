@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="box-body">
-                <table id="example1" class="table table-bordered">
+                <table id="tabel-kelas" class="table table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -30,17 +30,57 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    @section('javascript')
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var a= 0;
+        var arrSiswa = JSON.parse('{!!$siswa!!}');
+
+        let optionValue = $('#id_kelas').val();
+
+        let filteredSiswa = arrSiswa.filter((siswa) => {
+            return Number(siswa.nama_kelas) === Number(optionValue) 
+        });
+
+        filteredSiswa.forEach((siswa, i) => {
+            $('#tabel-kelas tbody').append(`<tr>
+                <td>${i+1}</td>
+                <td>${siswa.nis}</td>
+                <td>${siswa.nama_siswa}</td>
+                <td>
+                    <button class="btn btn-primary">Cetak</button>
+                </td>
+            </tr>`);
+        });
+
+
+        $('#id_kelas').change(function() {
+            optionValue = $('#id_kelas').val();
+            $('#tabel-kelas tbody').empty();
+
+            filteredSiswa = arrSiswa.filter((siswa) => {
+                return Number(siswa.nama_kelas) === Number(optionValue) 
+            });
+
+            filteredSiswa.forEach((siswa, i) => {
+                $('#tabel-kelas tbody').append(`<tr>
+                    <td>${i+1}</td>
+                    <td>${siswa.nis}</td>
+                    <td>${siswa.nama_siswa}</td>
+                    <td>
+                        <button class="btn btn-primary">Cetak</button>
+                    </td>
+                </tr>`);
+            });
+        });
+    });
+    </script>
+@endsection
 
 @endsection
