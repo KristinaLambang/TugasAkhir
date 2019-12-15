@@ -54,7 +54,7 @@
                 <td>${siswa.nis}</td>
                 <td>${siswa.nama_siswa}</td>
                 <td>
-                    <button class="btn btn-primary">Cetak</button>
+                    <a href="cetak-raport/${siswa.id_siswa}" class="btn btn-primary">Cetak</button>
                 </td>
             </tr>`);
         });
