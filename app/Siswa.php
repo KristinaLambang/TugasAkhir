@@ -18,4 +18,14 @@ class Siswa extends Model
     {
         return $this->belongsTo('App\Kelas','nama_kelas','id_kelas');
     }
+
+    public function sikap()
+    {
+        return $this->belongsTo('App\NilaiSikap','id_siswa','id_siswa');
+    }
+
+    public function absensi()
+    {
+        return $this->belongsTo('App\Absensi','id_siswa','id_siswa');
+    }
 }

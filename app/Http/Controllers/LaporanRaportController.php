@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\DataNilai;
 use PDF;
 use App\Kelas;
+use App\Walas;
 use App\Siswa;
+use App\Mapel;
+use App\NilaiExtrakurikuler;
 use Illuminate\Http\Request;
 
 class LaporanRaportController extends Controller
@@ -90,10 +93,14 @@ class LaporanRaportController extends Controller
 
     public function preview_raport($id_siswa)
     {
+        $dataNilai = DataNilai::all();
         $siswa = Siswa::where('id_siswa', $id_siswa)->first();
         $nilaiFirst = DataNilai::where('id_siswa', $id_siswa)->first();
-        
-        $pdf = PDF::loadView('masterdata.laporan.raport.cetak_raport', compact('siswa', 'nilaiFirst'));
+        $walas = Walas::where('id_kelas', $nilaiFirst->id_kelas)->first();
+        $extra = NilaiExtrakurikuler::where('id_siswa', $id_siswa)->get();
+        $mapel = Mapel::all();
+        $namaBulan = array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+        $pdf = PDF::loadView('masterdata.laporan.raport.cetak_raport', compact('siswa', 'nilaiFirst', 'mapel', 'dataNilai', 'extra', 'walas', 'namaBulan'));
         return $pdf->stream('Raport.pdf');
     }
 }

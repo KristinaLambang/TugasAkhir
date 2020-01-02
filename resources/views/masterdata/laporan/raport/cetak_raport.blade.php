@@ -104,13 +104,23 @@
                         1
                     </td>
                     <td style="vertical-align: middle;">
-                        Sikap Spritual
+                        Sikap Spiritual
                     </td>
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
+                        {{ $siswa->sikap->nilai_spiritual }}
                     </td>
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
+                        @if( $siswa->sikap->nilai_spiritual >= 90 )
+                            A
+                        @elseif( $siswa->sikap->nilai_spiritual >= 80 && $siswa->sikap->nilai_spiritual <= 89)
+                            B
+                        @elseif( $siswa->sikap->nilai_spiritual >= 70 && $siswa->sikap->nilai_spiritual <= 79)
+                            C
+                        @elseif( $siswa->sikap->nilai_spiritual >= 60 && $siswa->sikap->nilai_spiritual <= 69)
+                            D
+                        @elseif( $siswa->sikap->nilai_spiritual >= 50 && $siswa->sikap->nilai_spiritual <= 59)
+                            E
+                        @endif
                     </td>
                 </tr>
                 <tr style="height: 20px;">
@@ -121,10 +131,20 @@
                         Sikap Sosial
                     </td>
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
+                        {{ $siswa->sikap->nilai_sikap }}
                     </td>
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
+                    @if( $siswa->sikap->nilai_sikap >= 90 )
+                            A
+                        @elseif( $siswa->sikap->nilai_sikap >= 80 && $siswa->sikap->nilai_sikap <= 89)
+                            B
+                        @elseif( $siswa->sikap->nilai_sikap >= 70 && $siswa->sikap->nilai_sikap <= 79)
+                            C
+                        @elseif( $siswa->sikap->nilai_sikap >= 60 && $siswa->sikap->nilai_sikap <= 69)
+                            D
+                        @elseif( $siswa->sikap->nilai_sikap >= 50 && $siswa->sikap->nilai_sikap <= 59)
+                            E
+                        @endif
                     </td>
                 </tr>
             </tbody>
@@ -147,98 +167,79 @@
                 </tr>
             </thead>
             <tbody id="items_tbody">
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        1
-                    </td>
-                    <td style="vertical-align: middle;">
-                        Matematika
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        75
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        90
-                    </td>
-                    <td style="vertical-align: middle;">
-                        A
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
-                    </td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        2
-                    </td>
-                    <td style="vertical-align: middle;">
-                        IPA
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        75
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        90
-                    </td>
-                    <td style="vertical-align: middle;">
-                        A
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
-                    </td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        3
-                    </td>
-                    <td style="vertical-align: middle;">
-                        Agama
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        75
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        90
-                    </td>
-                    <td style="vertical-align: middle;">
-                        A
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
-                    </td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        4
-                    </td>
-                    <td style="vertical-align: middle;">
-                        IPS
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        75
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        90
-                    </td>
-                    <td style="vertical-align: middle;">
-                        A
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        45
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        B
-                    </td>
-                </tr>
+                @foreach($mapel as $rowMapel)
+                    <tr style="height: 20px;">
+                        <td style="vertical-align: middle;" height="25" valign="middle">
+                             {{ $loop->iteration }}
+                        </td>
+                        <td style="vertical-align: middle;">
+                            {{$rowMapel->nama_mapel}}
+                        </td>
+                        <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                            {{$rowMapel->kkm}}
+                        </td>
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                                    {{$rowNilai->nilai_raport}}
+                                </td>
+                                @endif
+                            @endif
+                        @endforeach
+
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                        
+                        <td style="vertical-align: middle;">
+                        @if($rowNilai->nilai_raport >= 90 )
+                            A
+                        @elseif($rowNilai->nilai_raport >= 80 &&$rowNilai->nilai_raport <= 89)
+                            B
+                        @elseif($rowNilai->nilai_raport >= 70 &&$rowNilai->nilai_raport <= 79)
+                            C
+                        @elseif($rowNilai->nilai_raport >= 60 &&$rowNilai->nilai_raport <= 69)
+                            D
+                        @elseif($rowNilai->nilai_raport >= 50 &&$rowNilai->nilai_raport <= 59)
+                            E
+                        @endif
+                        </td>
+                        @endif
+                            @endif
+                        @endforeach
+
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                                    {{$rowNilai->nilai_keterampilan}}
+                                </td>
+                                @endif
+                            @endif
+                        @endforeach
+
+                        @foreach($dataNilai as $rowNilai)
+                            @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                                @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                            <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                            @if($rowNilai->nilai_keterampilan >= 90 )
+                                A
+                            @elseif($rowNilai->nilai_keterampilan >= 80 &&$rowNilai->nilai_keterampilan <= 89)
+                                B
+                            @elseif($rowNilai->nilai_keterampilan >= 70 &&$rowNilai->nilai_keterampilan <= 79)
+                                C
+                            @elseif($rowNilai->nilai_keterampilan >= 60 &&$rowNilai->nilai_keterampilan <= 69)
+                                D
+                            @elseif($rowNilai->nilai_keterampilan >= 50 &&$rowNilai->nilai_keterampilan <= 59)
+                                E
+                            @endif
+                            </td>
+                        @endif
+                            @endif
+                        @endforeach
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         <p>Deskripsi Pengetahuan dan Keterampilan</p>
@@ -252,62 +253,36 @@
                 </tr>
             </thead>
             <tbody id="items_tbody">
+                @foreach($mapel as $rowMapel)
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;" height="25" valign="middle">
-                        1
+                    {{ $loop->iteration }}
                     </td>
                     <td style="vertical-align: middle;">
-                        Matematika
+                        {{$rowMapel->nama_mapel}}
                     </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gini
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Banyak Gitu
-                    </td>
+
+                    @foreach($dataNilai as $rowNilai)
+                        @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                            @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                            <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                                {{$rowNilai->deskripsi_pengetahuan}}
+                            </td>
+                            @endif
+                        @endif
+                    @endforeach
+
+                    @foreach($dataNilai as $rowNilai)
+                        @if ($rowNilai->id_siswa === $siswa->id_siswa)
+                            @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                            <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
+                                {{$rowNilai->deskripsi_keterampilan}}
+                            </td>
+                            @endif
+                        @endif
+                    @endforeach
                 </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        2
-                    </td>
-                    <td style="vertical-align: middle;">
-                        IPA
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gitu
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gini
-                    </td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        3
-                    </td>
-                    <td style="vertical-align: middle;">
-                        Agama
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gitu
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gini
-                    </td>
-                </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        4
-                    </td>
-                    <td style="vertical-align: middle;">
-                        IPS
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gitu
-                    </td>
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        Kurang Gini
-                    </td>
-                </tr>
+               @endforeach
             </tbody>
         </table>
         <p>C. Ekstrakulikuler</p>
@@ -320,30 +295,30 @@
                 </tr>
             </thead>
             <tbody id="items_tbody">
+            @foreach($extra as $rowExtra)
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;" height="25" valign="middle">
-                        1
+                         {{ $loop->iteration }}
                     </td>
                     <td style="vertical-align: middle;">
-                        Basketball
+                        {{$rowExtra->nama_extrakurikuler}}
                     </td>
 
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        A
+                        @if( $rowExtra->nilai_extrakurikuler >= 90 )
+                                A
+                            @elseif( $rowExtra->nilai_extrakurikuler >= 80 && $rowExtra->nilai_extrakurikuler <= 89)
+                                B
+                            @elseif( $rowExtra->nilai_extrakurikuler >= 70 && $rowExtra->nilai_extrakurikuler <= 79)
+                                C
+                            @elseif( $rowExtra->nilai_extrakurikuler >= 60 && $rowExtra->nilai_extrakurikuler <= 69)
+                                D
+                            @elseif( $rowExtra->nilai_extrakurikuler >= 50 && $rowExtra->nilai_extrakurikuler <= 59)
+                                E
+                        @endif
                     </td>
                 </tr>
-                <tr style="height: 20px;">
-                    <td style="vertical-align: middle;" height="25" valign="middle">
-                        2
-                    </td>
-                    <td style="vertical-align: middle;">
-                        E-Sport
-                    </td>
-
-                    <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        C
-                    </td>
-                </tr>
+            @endforeach
             </tbody>
         </table>
         <p>D. Ketidakhadiran</p>
@@ -352,26 +327,26 @@
             <tbody id="items_tbody">
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;font-weight: bold;" height="25" valign="middle">
-                        Sakit
+                        Sakit 
                     </td>
                     <td style="vertical-align: middle;">
-                        2 Hari
+                        {{$siswa->absensi->sakit}} Hari
                     </td>
                 </tr>
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;font-weight: bold;" height="25" valign="middle">
-                        Izin
+                        Izin 
                     </td>
                     <td style="vertical-align: middle;">
-                        7 Hari
+                        {{$siswa->absensi->ijin}} Hari
                     </td>
                 </tr>
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;font-weight: bold;" height="25" valign="middle">
-                        Tanpa Keterangan
+                        Tanpa Keterangan 
                     </td>
                     <td style="vertical-align: middle;">
-                        0 Hari
+                        {{$siswa->absensi->alpa}} Hari
                     </td>
                 </tr>
             </tbody>
@@ -400,7 +375,7 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td colspan="2">Konstantinus Cahya Lambang</td>
+                                <td colspan="2">{{$siswa->nama_ayah}}</td>
                             </tr>
                         </table>
                     </td>
@@ -409,7 +384,7 @@
                             <tr>
                                 <td width="0%"></td>
                                 <!-- <td width="0%"></td> -->
-                                <td width="0%" align="center" colspan="2"> <label for="">Denpasar, 18 November 2019</label> </td>
+                                <td width="0%" align="center" colspan="2"> <label for="">Denpasar, {{date("d")}}-{{$namaBulan [date("n")]}}-{{date("Y") }}</label> </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -428,7 +403,7 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td colspan="2">Puji Astuti, S.Pd</td>
+                                <td colspan="2">{{$walas->nama_guru_walas}}</td>
                             </tr>
 
                         </table>
