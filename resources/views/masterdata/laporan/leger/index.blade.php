@@ -35,7 +35,7 @@
 						<td>{{ $row->id_kelas }}</td>
 						<td>{{ $row->nama_kelas }}</td>
 						<td class="box-footer">
-                			<a href="/preview_leger/{{ $row->id_kelas }}" class="btn btn-success btn-xs"> Cetak</a>
+                			<a href="/preview_leger/{{ $row->id_kelas }}" class="btn btn-success btn-xs" target="blank"> Cetak</a>
         				</td>
 					</tr>
 					@endforeach

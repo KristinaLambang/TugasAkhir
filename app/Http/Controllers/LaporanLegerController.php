@@ -12,6 +12,7 @@ use App\Siswa;
 use App\Mapel;
 use App\Walas;
 use PDF;
+use DB;
 
 class LaporanLegerController extends Controller
 {

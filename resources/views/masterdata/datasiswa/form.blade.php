@@ -14,7 +14,7 @@
       <div class="row">
             <label for="nis" class="col-sm-2 control-label">NIS</label>
             <div class="col-sm-10">
-              <input type="integer" class="form-control" id="nis" name="nis" placeholder="NIS">
+              <input type="integer" class="form-control" id="nis" name="nis" placeholder="NIS" required>
             </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-             <select name="nama_kelas" class="form-control" id="id_kelas">
+             <select name="nama_kelas" class="form-control" id="id_kelas" required>
                   @foreach($kelas as $row)
                   <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
@@ -38,7 +38,7 @@
       <div class="row">
             <label for="nama_siswa" class="col-sm-2 control-label">Nama Siswa</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" placeholder="Nama Siswa">
+              <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" placeholder="Nama Siswa" required>
             </div>
       </div>
     </div>    
@@ -49,11 +49,11 @@
           <div class="radio">
           <div class="col-sm-10">
               <label>
-                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked>
+                <input type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-Laki" checked required>
                 Laki-Laki
               </label>
               <label>
-                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan" required>
                 Perempuan
               </label>
           </div>
@@ -65,7 +65,7 @@
       <div class="row">
             <label for="tempat_lahir" class="col-sm-2 control-label">Tempat Lahir</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="TempatLahir">
+              <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="TempatLahir" required>
             </div>
       </div>
       </div>
@@ -78,7 +78,7 @@
             <div class="input-group-addon">
               <i class="fa fa-calendar"></i>
             </div>
-            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="dd/mm/yyyy">
+            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="dd/mm/yyyy" required>
           </div>
         </div>
     </div>
@@ -90,7 +90,7 @@
         <label>Agama</label>
       </div>
             <div class="col-sm-10">
-              <select id="agama" name="agama" class="form-control" requireds>
+              <select id="agama" name="agama" class="form-control" required>
                 <option>-Pilih Agama-</option>
                 <option>Islam</option>
                 <option>Kristen</option>
@@ -107,7 +107,7 @@
         <div class="row">
           <label for="alamat" class="col-sm-2 control-label">Alamat</label>
         <div class="col-sm-10">
-          <textarea id="alamat" name="alamat" class="form-control" rows="3" placeholder="Alamat"></textarea>
+          <textarea id="alamat" name="alamat" class="form-control" rows="3" placeholder="Alamat" required></textarea>
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@
       <div class="row">
             <label for="nama_ayah" class="col-sm-2 control-label">Nama Ayah</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Nama Ayah">
+              <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Nama Ayah" required>
             </div>
       </div>
     </div>
@@ -125,7 +125,7 @@
       <div class="row">
             <label for="pekerjaan" class="col-sm-2 control-label">Pekerjaan</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan">
+              <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" placeholder="Pekerjaan" required>
             </div>
       </div>
     </div>
@@ -134,7 +134,7 @@
         <div class="row">
           <label for="telepon" class="col-sm-2 control-label">Telepon</label>
         <div class="col-sm-10">
-          <input type="text" id="telepon" name="telepon" class="form-control" placeholder="Telepon">
+          <input type="text" id="telepon" name="telepon" class="form-control" placeholder="Telepon" required> 
         </div>
         </div>
     </div>
@@ -143,7 +143,7 @@
         <div class="row">
           <label for="email" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-          <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+          <input type="text" id="email" name="email" class="form-control" placeholder="Email" required>
         </div>
         </div>
     </div>
@@ -152,7 +152,7 @@
         <div class="row">
           <label for="password" class="col-sm-2 control-label">Password</label>
         <div class="col-sm-10">
-          <input type="text" id="password" name="password" class="form-control" placeholder="Password">
+          <input type="text" id="password" name="password" class="form-control" placeholder="Password" required>
         </div>
         </div>
     </div>

@@ -179,7 +179,7 @@
 
                     <!-- Ranking -->
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        1
+                    {{ $loop->iteration }}
                     </td>
                     <!-- Absensi -->
                     @foreach($absensi as $rowAbsensi)
@@ -198,7 +198,9 @@
                         @endif
                     @endforeach
                 </tr>
+
             @endforeach
+
         </tbody>
     </table>
 

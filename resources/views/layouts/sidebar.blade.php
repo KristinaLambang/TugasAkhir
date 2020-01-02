@@ -5,7 +5,7 @@
       <!-- Sidebar user panel --> 
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{url('image/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
         </div>
         
         <div class="pull-left info" >
@@ -147,16 +147,16 @@
           </a>
         </li>        
         
-      <li class="treeview menu-open">
+      <li class="treeview menu-open {{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-file-text-o"></i> <span>Laporan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
-            <li class="active"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
+          <ul class="treeview-menu" >
+            <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}"><a href="{{ route('laporanleger.index') }}"><i class="fa fa-circle-o"></i> Leger</a></li>
+            <li class="{{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}"><a href="{{ route('laporanraport.index') }}"><i class="fa fa-circle-o"></i> Raport</a></li>
           </ul>
         </li>
         @endif
