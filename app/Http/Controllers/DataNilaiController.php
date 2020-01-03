@@ -78,6 +78,7 @@ class DataNilaiController extends Controller
                 'uas' => $request->uas,
                 'nilai_raport' => $request->nilai_raport,
                 'nilai_keterampilan' => $request->nilai_keterampilan,
+                'total_nilai' => $request->txtTotalNilai,
                 'deskripsi_pengetahuan' => $request->deskripsi_pengetahuan,
                 'deskripsi_keterampilan' => $request->deskripsi_keterampilan,
             ]);

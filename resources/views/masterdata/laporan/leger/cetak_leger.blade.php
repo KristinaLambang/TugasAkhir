@@ -97,7 +97,7 @@
              $semuaNilai = [];
             @endphp
             
-            @foreach($siswa as $rowSiswa)
+            @foreach($siswa->all() as $rowSiswa)
                 <tr style="height: 20px;">
                     <td style="vertical-align: middle;" height="25" valign="middle">
                         {{ $loop->iteration }}
@@ -173,8 +173,18 @@
                         {{$totalKeterampilan}}
                     </td>
 
+                    {{$totalNilai = 0}}
                     <td style="vertical-align: middle;padding-right: 5px;padding-left: 5px;">
-                        {{$totalPengetahuan + $totalKeterampilan}}
+                        @foreach($dataNilai as $rowNilai)
+                             @foreach($mapel as $rowMapel)
+                                @if ($rowNilai->id_siswa === $rowSiswa->id_siswa)
+                                    @if ($rowMapel->id_mapel === $rowNilai->id_mapel)
+                                        <p style="display: none">{{$totalNilai += $rowNilai->TOTAL_NILAI}}</p>
+                                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                        {{$totalNilai}}
                     </td>
 
                     <!-- Ranking -->

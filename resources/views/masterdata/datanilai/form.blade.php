@@ -65,7 +65,7 @@
                 <label>Tugas 1</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="tugas_1" placeholder="Tugas 1" required="" class="form-control">
+                  <input type="text" name="tugas_1" placeholder="Tugas 1" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@
                 <label>Tugas 2</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="tugas_2" placeholder="Tugas 2" required="" class="form-control">
+                  <input type="text" name="tugas_2" placeholder="Tugas 2" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
                 <label>UH 1</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="ulangan_harian_1" placeholder="UH 1" required="" class="form-control">
+                  <input type="text" name="ulangan_harian_1" placeholder="UH 1" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@
                 <label>UH 2</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="ulangan_harian_2" placeholder="UH 2" required="" class="form-control">
+                  <input type="text" name="ulangan_harian_2" placeholder="UH 2" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
                 <label>UTS</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="uts" placeholder="UTS" required="" class="form-control">
+                  <input type="text" name="uts" placeholder="UTS" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@
                 <label>UAS</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="uas" placeholder="UAS" required="" class="form-control">
+                  <input type="text" name="uas" placeholder="UAS" required="" class="form-control nilai">
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@
                 <label>Nilai Rapot</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="nilai_raport" placeholder="Nilai Rapot" required="" class="form-control">
+                  <input type="text" name="nilai_raport" placeholder="Nilai Rapot" required="" class="form-control nilaia" id="total_nilai">
               </div>
             </div>
           </div>
@@ -141,7 +141,9 @@
                 <label>Nilai Keterampilan</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="nilai_keterampilan" placeholder="Nilai Keterampilan" required="" class="form-control">
+                  <input type="text" name="nilai_keterampilan" placeholder="Nilai Keterampilan" required="" class="form-control nilaia">
+
+                  <input type="hidden" name="txtTotalNilai" placeholder="Nilai Total" required="" class="form-control" id="grandtotal">
               </div>
             </div>
           </div>
@@ -192,6 +194,43 @@
     }
   });
 </script>
+
+<script type="text/javascript">
+  $(function(){
+    var total_nilai = function() {
+      var sum=0
+      $('.nilai').each(function(){
+        var num = $(this).val().replace(',','');
+        if(num !=0){
+          sum += parseFloat(num)/6;
+        }
+      });
+      $('#total_nilai').val(sum.toFixed(0));
+    }
+    $('.nilai').keyup(function(){
+      total_nilai();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var grandtotal = function() {
+      var summ=0
+      $('.nilaia').each(function(){
+        var numm = $(this).val().replace(',','');
+        if(numm !=0){
+          summ += parseFloat(numm);
+        }
+      });
+      $('#grandtotal').val(summ.toFixed(0));
+    }
+    $('.nilaia').keyup(function(){
+      grandtotal();
+    });
+  });
+</script>
+
 @endsection
 
 <div class="modal fade" id="modalSiswa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

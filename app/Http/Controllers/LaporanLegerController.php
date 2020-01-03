@@ -96,12 +96,29 @@ class LaporanLegerController extends Controller
 
     public function preview_leger($id_Kelas)
     {
-        $dataNilai = DataNilai::all();
+        $dataNilai=DB::table('tb_nilai')
+        ->select('tb_nilai.id_mapel','tb_nilai.id_siswa','tb_nilai.id_Kelas','tb_nilai.nilai_raport','tb_nilai.nilai_keterampilan',DB::raw('sum(tb_nilai.total_nilai) as TOTAL_NILAI'))
+        ->orderBy(DB::raw('TOTAL_NILAI'),'DESC')
+        ->groupBy('tb_nilai.id_mapel','tb_nilai.id_siswa','tb_nilai.id_Kelas','tb_nilai.nilai_raport','tb_nilai.nilai_keterampilan')
+        ->get();
+
+        // dd($dataNilai);
+
         $mapel = Mapel::all();
         $absensi = Absensi::all();
-        $siswa = Siswa::where('nama_kelas', $id_Kelas)->get();
+        $siswa = DB::table('tb_siswa')
+        ->where('tb_siswa.nama_kelas', $id_Kelas)
+        ->join('tb_nilai','tb_nilai.id_siswa','=','tb_siswa.id_siswa')
+        ->select('tb_siswa.id_siswa','tb_siswa.nis','tb_siswa.nama_siswa','tb_siswa.jenis_kelamin',DB::raw('sum(tb_nilai.total_nilai) as TOTAL_NILAI'))
+        ->groupBy('tb_siswa.id_siswa','tb_siswa.nis','tb_siswa.nama_siswa','tb_siswa.jenis_kelamin')
+        ->orderBy('TOTAL_NILAI','DESC')
+        ->get();
+
+        // dd($siswa);
+
         $walas = Walas::where('id_kelas', $id_Kelas)->first();
         $kelas = Kelas::where('id_kelas', $id_Kelas)->first();
+
         $pdf = PDF::loadView('masterdata.laporan.leger.cetak_leger', compact('siswa', 'dataNilai', 'mapel', 'absensi', 'walas', 'kelas'), [], ['format' => 'A4-L']);
         return $pdf->stream('Leger.pdf');
     }

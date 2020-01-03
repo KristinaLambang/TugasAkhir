@@ -147,7 +147,7 @@
           </a>
         </li>        
         
-      <li class="treeview menu-open {{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
+        <li class="treeview menu-open {{ (strpos(Route::currentRouteName(), 'laporanleger') === 0 ) ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-file-text-o"></i> <span>Laporan</span>
             <span class="pull-right-container">
