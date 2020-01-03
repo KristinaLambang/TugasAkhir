@@ -11,15 +11,15 @@
 	</div>
 		<div class="col-sm-10">
 			<select name="tahun_ajaran" class="form-control" id="tahun_ajaran">
-				<option>2018/2019</option>
-				<option>2019/2020</option>
+				<option value="2018">2018/2019</option>
+				<option value="2019">2019/2020</option>
 			</select>
         </div>
     </div>
 	</div>
 
 	<div class="box-body">
-			<table id="example1" class="table table-bordered">
+			<table id="tabel-kelas" class="table table-bordered">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -29,16 +29,6 @@
 					</tr>
 				</thead>
 				<tbody>
-				@foreach($kelas as $row)
-					<tr>
-						<td>{{ $loop->iteration }}</td>
-						<td>{{ $row->id_kelas }}</td>
-						<td>{{ $row->nama_kelas }}</td>
-						<td class="box-footer">
-                			<a href="/preview_leger/{{ $row->id_kelas }}" class="btn btn-success btn-xs" target="blank"> Cetak</a>
-        				</td>
-					</tr>
-					@endforeach
 				</tbody>
 			</table>
             </div>
@@ -48,4 +38,54 @@
 	</div>
 	</div>
 </div>
+ @section('javascript')
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var a= 0;
+        var arrKelas = JSON.parse('{!!$kelas!!}');
+
+        let optionValue = $('#tahun_ajaran').val();
+
+        let filteredTahunAjaran = arrKelas.filter((kelas) => {
+			console.log(kelas.created_at.substring(0, 4), optionValue)
+            return kelas.created_at.substring(0, 4) === optionValue
+        });
+
+		console.log(filteredTahunAjaran)
+
+        filteredTahunAjaran.forEach((kelas, i) => {
+            $('#tabel-kelas tbody').append(`<tr>
+                <td>${i+1}</td>
+                <td>${kelas.id_kelas}</td>
+                <td>${kelas.nama_kelas}</td>
+                <td>
+					<a href="/preview_leger/${kelas.id_kelas}" class="btn btn-success btn-xs" target="blank"> Cetak</a>
+                </td>
+            </tr>`);
+        });
+
+
+        $('#tahun_ajaran').change(function() {
+            optionValue = $('#tahun_ajaran').val();
+            $('#tabel-kelas tbody').empty();
+
+			filteredTahunAjaran = arrKelas.filter((kelas) => {
+				console.log(kelas.created_at.substring(0, 4), optionValue)
+				return kelas.created_at.substring(0, 4) === optionValue
+			});
+
+			filteredTahunAjaran.forEach((kelas, i) => {
+				$('#tabel-kelas tbody').append(`<tr>
+					<td>${i+1}</td>
+					<td>${kelas.id_kelas}</td>
+					<td>${kelas.nama_kelas}</td>
+					<td>
+						<a href="/preview_leger/${kelas.id_kelas}" class="btn btn-success btn-xs" target="blank"> Cetak</a>
+					</td>
+				</tr>`);
+			});
+        });
+    });
+    </script>
+@endsection
 @endsection

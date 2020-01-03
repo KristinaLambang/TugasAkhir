@@ -74,7 +74,7 @@
                     <td>${siswa.nis}</td>
                     <td>${siswa.nama_siswa}</td>
                     <td>
-                        <a href='cetak-rapot/${siswa.id_siswa}' class="btn btn-primary">Cetak</a>
+                        <a href='cetak-raport/${siswa.id_siswa}' class="btn btn-primary">Cetak</a>
                     </td>
                 </tr>`);
             });
