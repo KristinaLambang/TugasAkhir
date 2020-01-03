@@ -14,7 +14,7 @@
         <label>Tahun Ajaran</label>
       </div>
             <div class="col-sm-10">
-              <select id="tahun_ajaran" name="tahun_ajaran" class="form-control" requireds>
+              <select id="tahun_ajaran" name="tahun_ajaran" class="form-control" required>
                 <option value="">-Pilih Tahun Ajaran-</option>
                 <option>2018/2019</option>
                 <option>2019/2020</option>
@@ -29,7 +29,7 @@
         <label>Semester</label>
       </div>
             <div class="col-sm-10">
-            <select id="semester" name="semester" class="form-control" requireds>
+            <select id="semester" name="semester" class="form-control" required>
                 <option value="">-Pilih Semester-</option>
                 <option>Ganjil</option>
                 <option>Genap</option>

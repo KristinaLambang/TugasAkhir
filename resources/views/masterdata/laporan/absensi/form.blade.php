@@ -31,7 +31,7 @@
             <label>Nama Siswa</label>
           </div>
           <div class="col-sm-10">
-            <input type="text" name="txtNamaSiswa" placeholder="Nama Siswa" required="" class="form-control" id="nama_siswa">
+            <input type="text" name="txtNamaSiswa" placeholder="Nama Siswa" class="form-control" id="nama_siswa" required>
           </div>
         </div>
       </div>     
@@ -42,7 +42,7 @@
             <label>Alpa</label>
           </div>
               <div class="col-sm-10">
-                <input type="text" name="alpa" placeholder="Alpa" required="" class="form-control" id="alpa">
+                <input type="text" name="alpa" placeholder="Alpa" class="form-control" id="alpa" required>
               </div>
         </div>
         </div>
@@ -53,7 +53,7 @@
             <label>Ijin</label>
           </div>
               <div class="col-sm-10">
-                <input type="text" name="ijin" placeholder="Ijin" required="" class="form-control" id="ijin">
+                <input type="text" name="ijin" placeholder="Ijin" class="form-control" id="ijin" required>
               </div>
         </div>
         </div>
@@ -64,7 +64,7 @@
             <label>Sakit</label>
           </div>
               <div class="col-sm-10">
-                <input type="text" name="sakit" placeholder="Sakit" required="" class="form-control" id="sakit">
+                <input type="text" name="sakit" placeholder="Sakit" class="form-control" id="sakit" required>
               </div>
         </div>
         </div>

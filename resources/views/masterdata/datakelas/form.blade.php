@@ -14,7 +14,7 @@
       <div class="row">
             <label for="nama_kelas" class="col-sm-2 control-label">Nama Kelas</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama Kelas">
+              <input type="text" class="form-control" id="nama_kelas" name="nama_kelas" placeholder="Nama Kelas" required>
             </div>
       </div>
       </div>      

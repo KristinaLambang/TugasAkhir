@@ -15,7 +15,7 @@
         <label>Nama Guru Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select name="id_guru_mapel" class="form-control" id="id_guru_mapel">
+              <select name="id_guru_mapel" class="form-control" id="id_guru_mapel" required>
                   @foreach($guru as $row)
                   <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach
@@ -30,7 +30,7 @@
         <label>Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select name="id_kelas" class="form-control" id="id_kelas">
+              <select name="id_kelas" class="form-control" id="id_kelas" required>
                   @foreach($kelas as $row)
                   <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
@@ -45,7 +45,7 @@
             <label>Guru Mata Pelajaran</label>
         </div>
            <div class="col-sm-10">
-              <select name="id_mapel" class="form-control" id="id_mapel">
+              <select name="id_mapel" class="form-control" id="id_mapel" required>
                  @foreach($mapel as $row)
                   <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
                   @endforeach

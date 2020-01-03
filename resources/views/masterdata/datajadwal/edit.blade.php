@@ -16,7 +16,7 @@
         <label>Nama Pengajar</label>
       </div> 
             <div class="col-sm-10">
-             <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel">
+             <select name="nama_guru_mapel" class="form-control" id="id_guru_mapel" required>
                   @foreach($gurumapel as $row)
                   <option value="{{ $row->id_guru_mapel }}">{{ $row->nama_guru_mapel }}</option>
                   @endforeach
@@ -31,7 +31,7 @@
         <label>Nama Kelas</label>
       </div>
             <div class="col-sm-10">
-              <select id="nama_kelas" name="nama_kelas" class="form-control" requireds>
+              <select id="nama_kelas" name="nama_kelas" class="form-control" required>
                  @foreach($kelas as $row)
                   <option value="{{ $row->id_kelas }}">{{ $row->nama_kelas }}</option>
                   @endforeach
@@ -46,7 +46,7 @@
             <label>Mata Pelajaran</label>
             </div>
             <div class="col-sm-10">
-              <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" requireds>
+              <select id="mata_pelajaran" name="mata_pelajaran" class="form-control" required>
                 @foreach($mapel as $row)
                   <option value="{{ $row->id_mapel }}">{{ $row->nama_mapel }}</option>
                   @endforeach
@@ -61,7 +61,7 @@
             <label>Hari</label>
             </div>
             <div class="col-sm-10">
-              <select id="hari" name="hari" class="form-control" requireds>
+              <select id="hari" name="hari" class="form-control" required>
                 <option>-Pilih Hari-</option>
                 <option>Senin</option>
                 <option>Selasa</option>

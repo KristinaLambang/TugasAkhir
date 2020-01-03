@@ -15,7 +15,7 @@
         <div class="row">
           <label for="nam_mapel" class="col-sm-2 control-label">Nama Mata Pelajaran</label>
         <div class="col-sm-10">
-          <input type="text" id="nama_mapel" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran">
+          <input type="text" id="nama_mapel" name="nama_mapel" class="form-control" placeholder="Nama Mata Pelajaran" required>
         </div>
         </div>
     </div>    
@@ -54,7 +54,7 @@
     <div class="row">
       <div class="col-sm-2">
         <label class="col-sm-10">KKM</label>
-          <input id="kkm" name="kkm" type="text" class="form-control" placeholder="KKM" requireds>
+          <input id="kkm" name="kkm" type="text" class="form-control" placeholder="KKM" required>
       </div>
         </div>
         </div>

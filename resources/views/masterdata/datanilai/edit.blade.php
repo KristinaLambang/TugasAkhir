@@ -15,7 +15,7 @@
                 <label>NIS</label>
               </div>
               <div class="col-sm-10">
-                <input type="text" name="nis" placeholder="NIS" required="" class="form-control" id="nis">
+                <input type="text" name="nis" placeholder="NIS" required="" class="form-control" id="nis" required>
                 <input type="hidden" name="id_kelas" value="{{$id_kelas}}">
                 <input type="hidden" name="id_mapel" value="{{$id_mapel}}">
 
@@ -205,6 +205,43 @@
     $('#nis').val('{{$datanilai->siswa->nis}}');
   });
 </script>
+
+<script type="text/javascript">
+  $(function(){
+    var total_nilai = function() {
+      var sum=0
+      $('.nilai').each(function(){
+        var num = $(this).val().replace(',','');
+        if(num !=0){
+          sum += parseFloat(num)/6;
+        }
+      });
+      $('#total_nilai').val(sum.toFixed(0));
+    }
+    $('.nilai').keyup(function(){
+      total_nilai();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    var grandtotal = function() {
+      var summ=0
+      $('.nilaia').each(function(){
+        var numm = $(this).val().replace(',','');
+        if(numm !=0){
+          summ += parseFloat(numm);
+        }
+      });
+      $('#grandtotal').val(summ.toFixed(0));
+    }
+    $('.nilaia').keyup(function(){
+      grandtotal();
+    });
+  });
+</script>
+
 @endsection
 
 <div class="modal fade" id="modalSiswa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
