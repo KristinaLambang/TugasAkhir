@@ -14,7 +14,7 @@
 						<th>Nama Siswa</th>
 						<th>Spiritual</th>
 						<th>Predikat</th>
-						<th>Sikap</th>
+						<th>Sosial</th>
 						<th>Predikat</th>
 						<th>Action</th>
 					</tr>

@@ -49,7 +49,7 @@
     <div class="form-group">
     <div class="row">
       <div class="col-sm-2">
-        <label>Sikap</label>
+        <label>Sosial</label>
       </div>
           <div class="col-sm-10">
              <input type="text" name="nilai_sikap" placeholder="Sikap" required="" class="form-control" id="nilai_sikap">
