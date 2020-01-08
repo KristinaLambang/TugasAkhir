@@ -36,21 +36,6 @@
 
     <div class="form-group">
     <div class="row">
-      <div class="col-sm-2">
-        <label>Nama Pengajar</label>
-      </div>
-           <div class="col-sm-10">
-             <select name="nama_pengajar" class="form-control" id="id_guru_mapel">
-                  @foreach($gurumapel as $row)
-                  <option value="{{ $row->nama_pengajar }}">{{ $row->nama_guru_mapel }}</option>
-                  @endforeach
-                </select> 
-            </div>
-    </div>
-    </div>
-
-    <div class="form-group">
-    <div class="row">
         <label class="col-sm-2 control-label">KKM</label>
             <div class="col-sm-10">
               <input type="text" id="kkm" name="kkm" class="form-control" placeholder="KKM" required>

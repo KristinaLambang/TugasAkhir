@@ -18,8 +18,7 @@ class MapelController extends Controller
     { 
         $mapel = Mapel::all();
         $kelas = Kelas::all();
-        $gurumapel = GuruMapel::all();
-        return view('masterdata.datamapel.index', compact('mapel', 'kelas', 'gurumapel'));
+        return view('masterdata.datamapel.index', compact('mapel', 'kelas'));
     }
 
     /**
@@ -31,8 +30,7 @@ class MapelController extends Controller
     {
         $mapel = Mapel::all();
         $kelas = Kelas::all();
-        $gurumapel = GuruMapel::all();
-        return view('masterdata.datamapel.form', compact('mapel', 'kelas', 'gurumapel'));
+        return view('masterdata.datamapel.form', compact('mapel', 'kelas'));
     }
 
     /**
@@ -46,7 +44,6 @@ class MapelController extends Controller
         Mapel::create([
             'nama_mapel' => $request->nama_mapel,
             'id_kelas' => $request->nama_kelas,
-            'nama_pengajar' => $request->nama_pengajar,
             'kkm' => $request ->kkm,
         ]);
 
@@ -74,8 +71,7 @@ class MapelController extends Controller
     {
         $mapel = Mapel::find($id);
         $kelas = Kelas::all();
-        $gurumapel = GuruMapel::all();
-        return view('masterdata.datamapel.edit',compact('id','mapel', 'kelas', 'gurumapel'));
+        return view('masterdata.datamapel.edit',compact('id','mapel', 'kelas'));
     }
 
     /**
@@ -91,7 +87,6 @@ class MapelController extends Controller
         $mapel->update([
                 'nama_mapel' => $request->nama_mapel,
                 'id_kelas' => $request->nama_kelas,
-                'id_guru_mapel' => $request->nama_guru_mapel,
                 'kkm' => $request->kkm,
             ]);
 
